@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://mercan-lovat.vercel.app/ -->
+<html lang="tr" dir="ltr"><plasmo-csui><template shadowrootmode="open"><style>
+    @import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap";*,:before,:after{box-sizing:border-box;border:0 solid #e5e7eb}:before,:after{--tw-content:""}html,:host{-webkit-text-size-adjust:100%;tab-size:4;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}body{line-height:inherit;margin:0}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-feature-settings:normal;font-variation-settings:normal;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-feature-settings:inherit;font-variation-settings:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button;background-color:#0000;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{margin:0;padding:0;list-style:none}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}[hidden]{display:none}body{background-color:hsl(var(--background));color:hsl(var(--foreground));font-family:Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif}*{border-color:hsl(var(--border))}html,:root{color-scheme:dark}*,:before,:after,::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.plasmo-pointer-events-none{pointer-events:none}.plasmo-pointer-events-auto{pointer-events:auto}.plasmo-fixed{position:fixed}.plasmo-absolute{position:absolute}.plasmo-relative{position:relative}.plasmo-inset-0{inset:0}.plasmo--top-1{top:-.25rem}.plasmo-left-1\/2{left:50%}.plasmo-left-2{left:.5rem}.plasmo-right-2{right:.5rem}.plasmo-right-3{right:.75rem}.plasmo-right-4{right:1rem}.plasmo-top-1\/2{top:50%}.plasmo-z-0{z-index:0}.plasmo-z-10{z-index:10}.plasmo-z-20{z-index:20}.plasmo-z-50{z-index:50}.plasmo-z-\[9999\]{z-index:9999}.plasmo--mx-1{margin-left:-.25rem;margin-right:-.25rem}.plasmo-my-1{margin-top:.25rem;margin-bottom:.25rem}.plasmo-mb-1{margin-bottom:.25rem}.plasmo-mb-2{margin-bottom:.5rem}.plasmo-mb-3{margin-bottom:.75rem}.plasmo-ml-1{margin-left:.25rem}.plasmo-ml-2{margin-left:.5rem}.plasmo-ml-auto{margin-left:auto}.plasmo-mr-1{margin-right:.25rem}.plasmo-mt-0{margin-top:0}.plasmo-mt-0\.5{margin-top:.125rem}.plasmo-mt-1{margin-top:.25rem}.plasmo-mt-2{margin-top:.5rem}.plasmo-mt-4{margin-top:1rem}.plasmo-block{display:block}.\!plasmo-inline-block{display:inline-block!important}.plasmo-inline-block{display:inline-block}.plasmo-inline{display:inline}.plasmo-flex{display:flex}.plasmo-inline-flex{display:inline-flex}.plasmo-grid{display:grid}.plasmo-aspect-square{aspect-ratio:1}.plasmo-size-3{width:.75rem;height:.75rem}.plasmo-size-4{width:1rem;height:1rem}.plasmo-size-5{width:1.25rem;height:1.25rem}.\!plasmo-h-6{height:1.5rem!important}.plasmo-h-0{height:0}.plasmo-h-0\.5{height:.125rem}.plasmo-h-10{height:2.5rem}.plasmo-h-11{height:2.75rem}.plasmo-h-2{height:.5rem}.plasmo-h-2\.5{height:.625rem}.plasmo-h-3{height:.75rem}.plasmo-h-3\.5{height:.875rem}.plasmo-h-4{height:1rem}.plasmo-h-5{height:1.25rem}.plasmo-h-6{height:1.5rem}.plasmo-h-8{height:2rem}.plasmo-h-9{height:2.25rem}.plasmo-h-\[1\.8em\]{height:1.8em}.plasmo-h-\[1px\]{height:1px}.plasmo-h-\[24px\]{height:24px}.plasmo-h-\[42px\]{height:42px}.plasmo-h-\[72px\]{height:72px}.plasmo-h-\[var\(--radix-select-trigger-height\)\]{height:var(--radix-select-trigger-height)}.plasmo-h-full{height:100%}.plasmo-h-px{height:1px}.plasmo-max-h-\[--radix-select-content-available-height\]{max-height:var(--radix-select-content-available-height)}.plasmo-max-h-\[var\(--radix-dropdown-menu-content-available-height\)\]{max-height:var(--radix-dropdown-menu-content-available-height)}.\!plasmo-min-h-\[42px\]{min-height:42px!important}.plasmo-min-h-4{min-height:1rem}.plasmo-min-h-\[80px\]{min-height:80px}.\!plasmo-w-6{width:1.5rem!important}.plasmo-w-0{width:0}.plasmo-w-0\.5{width:.125rem}.plasmo-w-1\/2{width:50%}.plasmo-w-10{width:2.5rem}.plasmo-w-11{width:2.75rem}.plasmo-w-12{width:3rem}.plasmo-w-14{width:3.5rem}.plasmo-w-2{width:.5rem}.plasmo-w-2\.5{width:.625rem}.plasmo-w-20{width:5rem}.plasmo-w-3{width:.75rem}.plasmo-w-3\.5{width:.875rem}.plasmo-w-4{width:1rem}.plasmo-w-5{width:1.25rem}.plasmo-w-64{width:16rem}.plasmo-w-\[1px\]{width:1px}.plasmo-w-\[3\.7em\]{width:3.7em}.plasmo-w-\[300px\]{width:300px}.plasmo-w-\[350px\]{width:350px}.plasmo-w-\[44px\]{width:44px}.plasmo-w-full{width:100%}.plasmo-min-w-4{min-width:1rem}.plasmo-min-w-\[64px\]{min-width:64px}.plasmo-min-w-\[8rem\]{min-width:8rem}.plasmo-min-w-\[var\(--radix-select-trigger-width\)\]{min-width:var(--radix-select-trigger-width)}.plasmo-max-w-\[220px\]{max-width:220px}.plasmo-max-w-\[280px\]{max-width:280px}.plasmo-max-w-md{max-width:28rem}.plasmo-max-w-xl{max-width:36rem}.plasmo-flex-1{flex:1}.plasmo-flex-none{flex:none}.plasmo-shrink-0{flex-shrink:0}.plasmo-flex-grow,.plasmo-grow{flex-grow:1}.plasmo--translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.plasmo-translate-x-5{--tw-translate-x:1.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.plasmo-rotate-45{--tw-rotate:45deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.plasmo-rotate-\[215deg\]{--tw-rotate:215deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.plasmo-transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}@keyframes plasmo-meteor{0%{opacity:1;transform:rotate(215deg)translate(0)}70%{opacity:1}to{opacity:0;transform:rotate(215deg)translate(-500px)}}.plasmo-animate-meteor-effect{animation:5s linear infinite plasmo-meteor}@keyframes plasmo-spin{to{transform:rotate(360deg)}}.plasmo-animate-spin{animation:1s linear infinite plasmo-spin}.plasmo-cursor-default{cursor:default}.plasmo-cursor-help{cursor:help}.plasmo-cursor-not-allowed{cursor:not-allowed}.plasmo-cursor-pointer{cursor:pointer}.plasmo-touch-none{touch-action:none}.plasmo-select-none{user-select:none}.plasmo-resize-none{resize:none}.plasmo-resize-y{resize:vertical}.plasmo-appearance-none{appearance:none}.plasmo-flex-col{flex-direction:column}.plasmo-items-start{align-items:flex-start}.plasmo-justify-between{justify-content:space-between}.plasmo-gap-1{gap:.25rem}.plasmo-gap-2{gap:.5rem}.plasmo-gap-3{gap:.75rem}.plasmo-space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.plasmo-space-y-1\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.375rem*calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.375rem*var(--tw-space-y-reverse))}.plasmo-space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.plasmo-space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.plasmo-overflow-hidden{overflow:hidden}.plasmo-overflow-y-auto{overflow-y:auto}.plasmo-overflow-x-hidden{overflow-x:hidden}.plasmo-whitespace-normal{white-space:normal}.plasmo-whitespace-nowrap{white-space:nowrap}.plasmo-text-wrap{text-wrap:wrap}.plasmo-break-words{overflow-wrap:break-word}.plasmo-rounded-\[30px\]{border-radius:30px}.plasmo-rounded-\[4px\]{border-radius:4px}.plasmo-rounded-\[6px\]{border-radius:6px}.plasmo-rounded-\[9999px\]{border-radius:9999px}.plasmo-rounded-\[inherit\]{border-radius:inherit}.plasmo-rounded-full{border-radius:9999px}.plasmo-rounded-lg{border-radius:var(--radius)}.plasmo-rounded-md{border-radius:calc(var(--radius) - 2px)}.plasmo-rounded-sm{border-radius:calc(var(--radius) - 4px)}.plasmo-rounded-xl{border-radius:.75rem}.plasmo-border{border-width:1px}.plasmo-border-0{border-width:0}.plasmo-border-2{border-width:2px}.plasmo-border-b{border-bottom-width:1px}.plasmo-border-l{border-left-width:1px}.plasmo-border-t{border-top-width:1px}.plasmo-border-none{border-style:none}.plasmo-border-\[\#27272a\]{--tw-border-opacity:1;border-color:rgb(39 39 42/var(--tw-border-opacity))}.plasmo-border-border{border-color:hsl(var(--border))}.plasmo-border-gray-600{--tw-border-opacity:1;border-color:rgb(75 85 99/var(--tw-border-opacity))}.plasmo-border-indigo-200\/50{border-color:#c7d2fe80}.plasmo-border-input{border-color:hsl(var(--input))}.plasmo-border-muted-foreground{border-color:hsl(var(--muted-foreground))}.plasmo-border-primary{border-color:hsl(var(--primary))}.plasmo-border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity))}.plasmo-border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity))}.plasmo-border-transparent{border-color:#0000}.plasmo-border-l-transparent{border-left-color:#0000}.plasmo-border-t-transparent{border-top-color:#0000}.plasmo-border-opacity-50{--tw-border-opacity:.5}.plasmo-bg-\[\#00BB34\]{--tw-bg-opacity:1;background-color:rgb(0 187 52/var(--tw-bg-opacity))}.plasmo-bg-\[\#09090B\]{--tw-bg-opacity:1;background-color:rgb(9 9 11/var(--tw-bg-opacity))}.plasmo-bg-background{background-color:hsl(var(--background))}.plasmo-bg-background\/95{background-color:hsl(var(--background)/.95)}.plasmo-bg-black\/50{background-color:#00000080}.plasmo-bg-border{background-color:hsl(var(--border))}.plasmo-bg-card{background-color:hsl(var(--card))}.plasmo-bg-destructive{background-color:hsl(var(--destructive))}.plasmo-bg-gray-300{--tw-bg-opacity:1;background-color:rgb(209 213 219/var(--tw-bg-opacity))}.plasmo-bg-green-950\/30{background-color:#052e164d}.plasmo-bg-indigo-950\/30{background-color:#1e1b4b4d}.plasmo-bg-input{background-color:hsl(var(--input))}.plasmo-bg-muted{background-color:hsl(var(--muted))}.plasmo-bg-muted\/30{background-color:hsl(var(--muted)/.3)}.plasmo-bg-popover{background-color:hsl(var(--popover))}.plasmo-bg-primary{background-color:hsl(var(--primary))}.plasmo-bg-secondary{background-color:hsl(var(--secondary))}.plasmo-bg-slate-500{--tw-bg-opacity:1;background-color:rgb(100 116 139/var(--tw-bg-opacity))}.plasmo-bg-stone-300{--tw-bg-opacity:1;background-color:rgb(214 211 209/var(--tw-bg-opacity))}.plasmo-bg-transparent{background-color:#0000}.plasmo-bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.plasmo-bg-yellow-950\/30{background-color:#4220064d}.plasmo-bg-gradient-to-l{background-image:linear-gradient(to left,var(--tw-gradient-stops))}.plasmo-bg-none{background-image:none}.plasmo-from-\[var\(--color-from\)\]{--tw-gradient-from:var(--color-from)var(--tw-gradient-from-position);--tw-gradient-to:#fff0 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.plasmo-via-\[var\(--color-to\)\]{--tw-gradient-to:#fff0 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--color-to)var(--tw-gradient-via-position),var(--tw-gradient-to)}.plasmo-to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.plasmo-fill-current{fill:currentColor}.plasmo-fill-primary{fill:hsl(var(--primary))}.plasmo-p-0{padding:0}.plasmo-p-0\.5{padding:.125rem}.plasmo-p-1{padding:.25rem}.plasmo-p-1\.5{padding:.375rem}.plasmo-p-2{padding:.5rem}.plasmo-p-2\.5{padding:.625rem}.plasmo-p-3{padding:.75rem}.plasmo-p-4{padding:1rem}.plasmo-p-6{padding:1.5rem}.plasmo-p-\[1px\]{padding:1px}.\!plasmo-py-2{padding-top:.5rem!important;padding-bottom:.5rem!important}.plasmo-px-0{padding-left:0;padding-right:0}.plasmo-px-1{padding-left:.25rem;padding-right:.25rem}.plasmo-px-1\.5{padding-left:.375rem;padding-right:.375rem}.plasmo-px-2{padding-left:.5rem;padding-right:.5rem}.plasmo-px-2\.5{padding-left:.625rem;padding-right:.625rem}.plasmo-px-3{padding-left:.75rem;padding-right:.75rem}.plasmo-px-4{padding-left:1rem;padding-right:1rem}.plasmo-px-6{padding-left:1.5rem;padding-right:1.5rem}.plasmo-px-8{padding-left:2rem;padding-right:2rem}.plasmo-py-0{padding-top:0;padding-bottom:0}.plasmo-py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.plasmo-py-1{padding-top:.25rem;padding-bottom:.25rem}.plasmo-py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.plasmo-py-2{padding-top:.5rem;padding-bottom:.5rem}.plasmo-py-4{padding-top:1rem;padding-bottom:1rem}.plasmo-pb-2{padding-bottom:.5rem}.plasmo-pb-3{padding-bottom:.75rem}.plasmo-pb-4{padding-bottom:1rem}.plasmo-pl-2{padding-left:.5rem}.plasmo-pl-2\.5{padding-left:.625rem}.plasmo-pl-4{padding-left:1rem}.plasmo-pl-8{padding-left:2rem}.plasmo-pr-1{padding-right:.25rem}.plasmo-pr-10{padding-right:2.5rem}.plasmo-pr-2{padding-right:.5rem}.plasmo-pr-8{padding-right:2rem}.plasmo-pt-0{padding-top:0}.plasmo-pt-1{padding-top:.25rem}.plasmo-pt-2{padding-top:.5rem}.plasmo-pt-3{padding-top:.75rem}.plasmo-text-left{text-align:left}.plasmo-text-right{text-align:right}.plasmo-font-sans{font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.plasmo-text-\[0\.8125rem\]{font-size:.8125rem}.plasmo-text-\[10px\]{font-size:10px}.plasmo-text-\[13px\]{font-size:13px}.plasmo-text-\[17px\]{font-size:17px}.plasmo-text-base{font-size:1rem;line-height:1.5rem}.plasmo-text-lg{font-size:1.125rem;line-height:1.75rem}.plasmo-text-sm{font-size:.875rem;line-height:1.25rem}.plasmo-text-xs{font-size:.75rem;line-height:1rem}.plasmo-font-bold{font-weight:700}.plasmo-font-medium{font-weight:500}.plasmo-font-normal{font-weight:400}.plasmo-font-semibold{font-weight:600}.plasmo-italic{font-style:italic}.plasmo-leading-\[1\.2\]{line-height:1.2}.plasmo-leading-none{line-height:1}.plasmo-leading-relaxed{line-height:1.625}.plasmo-tracking-tight{letter-spacing:-.025em}.plasmo-tracking-widest{letter-spacing:.1em}.plasmo-text-\[\#005FF2\]{--tw-text-opacity:1;color:rgb(0 95 242/var(--tw-text-opacity))}.plasmo-text-\[\#00BB34\]{--tw-text-opacity:1;color:rgb(0 187 52/var(--tw-text-opacity))}.plasmo-text-\[\#9ca3af\]{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.plasmo-text-\[\#f3f4f6\]{--tw-text-opacity:1;color:rgb(243 244 246/var(--tw-text-opacity))}.plasmo-text-card-foreground{color:hsl(var(--card-foreground))}.plasmo-text-current{color:currentColor}.plasmo-text-destructive-foreground{color:hsl(var(--destructive-foreground))}.plasmo-text-foreground{color:hsl(var(--foreground))}.plasmo-text-green-200{--tw-text-opacity:1;color:rgb(187 247 208/var(--tw-text-opacity))}.plasmo-text-indigo-200{--tw-text-opacity:1;color:rgb(199 210 254/var(--tw-text-opacity))}.plasmo-text-muted-foreground{color:hsl(var(--muted-foreground))}.plasmo-text-popover-foreground{color:hsl(var(--popover-foreground))}.plasmo-text-primary{color:hsl(var(--primary))}.plasmo-text-primary-foreground{color:hsl(var(--primary-foreground))}.plasmo-text-secondary-foreground{color:hsl(var(--secondary-foreground))}.plasmo-text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}.plasmo-text-yellow-200{--tw-text-opacity:1;color:rgb(254 240 138/var(--tw-text-opacity))}.plasmo-underline{text-decoration-line:underline}.plasmo-underline-offset-4{text-underline-offset:4px}.plasmo-underline-offset-\[5px\]{text-underline-offset:5px}.plasmo-opacity-0{opacity:0}.plasmo-opacity-100{opacity:1}.plasmo-opacity-20{opacity:.2}.plasmo-opacity-30{opacity:.3}.plasmo-opacity-40{opacity:.4}.plasmo-opacity-50{opacity:.5}.plasmo-opacity-60{opacity:.6}.plasmo-opacity-80{opacity:.8}.plasmo-opacity-90{opacity:.9}.plasmo-shadow{--tw-shadow:0 1px 3px 0 #0000001a,0 1px 2px -1px #0000001a;--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.plasmo-shadow-\[0_0_0_1px_\#ffffff10\]{--tw-shadow:0 0 0 1px #ffffff10;--tw-shadow-colored:0 0 0 1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.plasmo-shadow-lg{--tw-shadow:0 10px 15px -3px #0000001a,0 4px 6px -4px #0000001a;--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.plasmo-shadow-md{--tw-shadow:0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.plasmo-shadow-sm{--tw-shadow:0 1px 2px 0 #0000000d;--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.plasmo-outline-none{outline-offset:2px;outline:2px solid #0000}.plasmo-ring-0{--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(0px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.plasmo-ring-offset-background{--tw-ring-offset-color:hsl(var(--background))}.plasmo-backdrop-blur-sm{--tw-backdrop-blur:blur(4px);backdrop-filter:var(--tw-backdrop-blur)var(--tw-backdrop-brightness)var(--tw-backdrop-contrast)var(--tw-backdrop-grayscale)var(--tw-backdrop-hue-rotate)var(--tw-backdrop-invert)var(--tw-backdrop-opacity)var(--tw-backdrop-saturate)var(--tw-backdrop-sepia)}.plasmo-transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.plasmo-transition-all{transition-property:all;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.plasmo-transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.plasmo-transition-opacity{transition-property:opacity;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.plasmo-transition-transform{transition-property:transform;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.plasmo-duration-200{transition-duration:.2s}.plasmo-duration-300{transition-duration:.3s}.plasmo-duration-500{transition-duration:.5s}.plasmo-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@keyframes enter{0%{opacity:var(--tw-enter-opacity,1);transform:translate3d(var(--tw-enter-translate-x,0),var(--tw-enter-translate-y,0),0)scale3d(var(--tw-enter-scale,1),var(--tw-enter-scale,1),var(--tw-enter-scale,1))rotate(var(--tw-enter-rotate,0))}}@keyframes exit{to{opacity:var(--tw-exit-opacity,1);transform:translate3d(var(--tw-exit-translate-x,0),var(--tw-exit-translate-y,0),0)scale3d(var(--tw-exit-scale,1),var(--tw-exit-scale,1),var(--tw-exit-scale,1))rotate(var(--tw-exit-rotate,0))}}.plasmo-animate-in{--tw-enter-opacity:initial;--tw-enter-scale:initial;--tw-enter-rotate:initial;--tw-enter-translate-x:initial;--tw-enter-translate-y:initial;animation-name:enter;animation-duration:.15s}.plasmo-fade-in-0{--tw-enter-opacity:0}.plasmo-zoom-in-95{--tw-enter-scale:.95}.plasmo-duration-200{animation-duration:.2s}.plasmo-duration-300{animation-duration:.3s}.plasmo-duration-500{animation-duration:.5s}.plasmo-ease-in-out{animation-timing-function:cubic-bezier(.4,0,.2,1)}.\[mask-clip\:padding-box\,border-box\]{mask-clip:padding-box,border-box}.\[mask-composite\:intersect\]{mask-composite:intersect}.\[mask-image\:linear-gradient\(transparent\,transparent\)\,linear-gradient\(\#000\,\#000\)\]{mask-image:linear-gradient(#0000,#0000),linear-gradient(#000,#000)}#plasmo-shadow-container{all:initial;box-sizing:border-box}:root{--background:240 10% 3.9%;--foreground:0 0% 98%;--card:240 10% 3.9%;--card-foreground:0 0% 98%;--popover:240 10% 3.9%;--popover-foreground:0 0% 98%;--primary:135 100% 50%;--primary-foreground:240 5.9% 10%;--secondary:240 3.7% 15.9%;--secondary-foreground:0 0% 98%;--muted:240 3.7% 15.9%;--muted-foreground:240 5% 64.9%;--accent:240 3.7% 15.9%;--accent-foreground:0 0% 98%;--destructive:0 62.8% 30.6%;--destructive-foreground:0 0% 98%;--border:240 3.7% 15.9%;--input:240 3.7% 15.9%;--ring:135 100% 50%;--radius:.5rem}.dark,:root{--background:240 10% 3.9%;--foreground:0 0% 98%}.n8n-chat-popup{width:480px;max-height:600px;color:hsl(var(--foreground));background-color:#000;margin:0;overflow-y:auto}::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:hsl(var(--background))}::-webkit-scrollbar-thumb{background:hsl(var(--secondary));border-radius:4px}::-webkit-scrollbar-thumb:hover{background:hsl(var(--muted-foreground))}.card-hover{transition:all .2s}.card-hover:hover{transform:translateY(-2px);box-shadow:0 4px 8px #0003}.animate-fade-in{animation:.3s ease-in-out fadeIn}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}.animate-spin{animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.plasmo-flex.plasmo-flex-col.plasmo-items-center.plasmo-text-center{text-align:center!important;flex-direction:column!important;align-items:center!important;margin-bottom:0!important;display:flex!important}h2.plasmo-text-2xl,h3.plasmo-text-lg{text-align:center!important;margin-bottom:.5rem!important;font-size:1.5rem!important;font-weight:600!important}.plasmo-flex.plasmo-justify-center.plasmo-w-full.plasmo-mb-6{justify-content:center!important;width:100%!important;margin-bottom:1rem!important;display:flex!important}.plasmo-flex.plasmo-justify-center.plasmo-w-full{justify-content:center!important;width:100%!important;display:flex!important}.plasmo-space-y-2.plasmo-max-w-md.plasmo-mx-auto{max-width:28rem!important;margin:.75rem auto!important}.plasmo-flex.plasmo-justify-between.plasmo-w-full.plasmo-items-center.plasmo-gap-4{justify-content:space-between!important;gap:1rem!important;width:100%!important;display:flex!important}.plasmo-button:hover{opacity:.9}button{justify-content:center!important;align-items:center!important;display:flex!important}.header-container{text-align:center!important;padding-top:.75rem!important;padding-bottom:.75rem!important}.form-field{text-align:center;margin-bottom:1rem}.form-field label{margin-bottom:.5rem;font-weight:500;display:block}.form-field input,.form-field select{width:100%;height:2.5rem;margin-bottom:.5rem}.settings-card{border:1px solid hsl(var(--border));border-radius:.5rem;overflow:hidden;margin-bottom:1rem!important}.settings-card-header{border-bottom:1px solid hsl(var(--border));background-color:hsl(var(--card));text-align:center;padding:.75rem 1rem!important}.settings-card-content{padding:1rem 1.25rem!important}.primary-button{background-color:hsl(var(--primary))!important;color:hsl(var(--primary-foreground))!important;border-radius:.5rem!important;justify-content:center!important;align-items:center!important;height:2.5rem!important;font-weight:500!important;transition:all .2s!important;display:flex!important}.primary-button:hover{opacity:.9!important}.secondary-button{color:hsl(var(--foreground))!important;border:1px solid hsl(var(--border))!important;background-color:#0000!important;border-radius:.5rem!important;justify-content:center!important;align-items:center!important;height:2.5rem!important;font-weight:500!important;transition:all .2s!important;display:flex!important}.secondary-button:hover{background-color:hsl(var(--muted))!important}.plasmo-flex-col{flex-direction:column!important;display:flex!important}.plasmo-items-center{align-items:center!important}.plasmo-justify-center{justify-content:center!important}.plasmo-text-center{text-align:center!important}.plasmo-mx-auto{margin-left:auto!important;margin-right:auto!important}.plasmo-card{border:1px solid hsl(var(--border))!important;border-radius:.5rem!important;overflow:hidden!important}.plasmo-card-header{border-bottom:1px solid hsl(var(--border))!important;text-align:center!important;padding:.75rem 1rem!important}.plasmo-card-content{padding:1rem 1.25rem!important}button.activate-button{color:#000!important;background-color:#00ff47!important;border-radius:.5rem!important;justify-content:center!important;align-items:center!important;width:100%!important;min-width:100px!important;max-width:250px!important;height:2.5rem!important;margin:0 auto!important;padding:.5rem 1.5rem!important;font-weight:500!important;display:flex!important}button.view-plans-button{color:#000!important;background-color:#00ff47!important;border-radius:.5rem!important;justify-content:center!important;align-items:center!important;max-width:250px!important;height:2.5rem!important;margin:0 auto!important;padding:.5rem 1.5rem!important;font-weight:500!important;display:flex!important}.tab-list{background-color:hsl(var(--muted))!important;border-radius:.5rem!important;justify-content:center!important;width:100%!important;margin-bottom:1rem!important;display:flex!important;overflow:hidden!important}.tab-trigger{text-align:center!important;flex:1!important;justify-content:center!important;align-self:center!important;align-items:center!important;min-height:2.5rem!important;padding:0 .25rem!important;font-weight:500!important;line-height:1!important;display:flex!important}.tab-trigger[data-state=active]{background-color:hsl(var(--background))!important;color:hsl(var(--foreground))!important}.config-title{text-align:center!important;margin-top:0!important;margin-bottom:.75rem!important;font-size:1.125rem!important;font-weight:600!important}.unlock-features-container{text-align:center!important}.unlock-features-title{margin-bottom:.5rem!important;font-size:1.5rem!important;font-weight:600!important}.unlock-features-desc{margin-bottom:1rem!important}.activate-button{color:#000!important;background-color:#00ff47!important;border-radius:.25rem!important;justify-content:center!important;align-items:center!important;height:2.5rem!important;margin:0 auto!important;padding-left:1rem!important;padding-right:1rem!important;font-weight:500!important;display:inline-flex!important}.view-plans-button{color:#000!important;background-color:#00ff47!important;justify-content:center!important;align-items:center!important;width:100%!important;max-width:250px!important;margin:0 auto!important;display:flex!important}.header-container{text-align:center!important;flex-direction:column!important;align-items:center!important;padding-top:.75rem!important;padding-bottom:.75rem!important;display:flex!important;position:relative!important}.header-container h2{margin-bottom:.25rem!important;font-size:1.25rem!important}.tab-list{justify-content:center!important;max-width:400px!important;margin:0 auto 1rem!important;display:flex!important}.tab-trigger{text-align:center!important;white-space:nowrap!important;height:2.5rem!important;padding:0 .5rem!important;font-size:.875rem!important;line-height:1!important}.plasmo-space-y-4>*+*{margin-top:.75rem!important}.plasmo-py-3{padding-top:.75rem!important;padding-bottom:.75rem!important}.plasmo-card-footer,.plasmo-footer{justify-content:center!important;align-items:center!important;padding:1rem 1.5rem!important;display:flex!important}.plasmo-card-footer>div,.plasmo-footer>div{justify-content:center!important;gap:1rem!important;display:flex!important}.plasmo-card-header{min-height:unset!important;padding:.75rem 1rem!important}.primary-button,.secondary-button{min-width:120px!important;height:2.5rem!important;padding-left:1rem!important;padding-right:1rem!important}.plasmo-card .plasmo-card-header{flex-direction:row!important;justify-content:space-between!important;align-items:center!important;display:flex!important}.text-center{text-align:center!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;display:flex!important}.compact-form{flex-direction:column!important;gap:.75rem!important;display:flex!important}.compact-form label{margin-bottom:.25rem!important}.config-title{margin-top:0!important;margin-bottom:.5rem!important;font-size:1rem!important}.plasmo-footer .plasmo-button{flex:0 auto!important;min-width:100px!important;max-width:200px!important}.compact-card{border-radius:.5rem!important;margin-bottom:.5rem!important}.compact-card .plasmo-card-header{padding-top:.5rem!important;padding-bottom:.5rem!important}.compact-card .plasmo-card-content{padding:.75rem!important}.compact-card .flex.flex-col.items-center{flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:1rem!important;padding:1.25rem!important;display:flex!important}.compact-card .text-sm.text-muted-foreground{text-align:center!important;max-width:400px!important;margin-bottom:.5rem!important;line-height:1.5!important}.compact-card .activate-button{margin-top:.25rem!important;margin-bottom:.25rem!important}.max-w-md{max-width:28rem!important;margin-left:auto!important;margin-right:auto!important}.space-y-2>*+*{margin-top:.5rem!important}.text-center{text-align:center!important}input,select,button{height:40px}label{margin-bottom:.375rem!important;font-size:.875rem!important;font-weight:500!important;display:block!important}.w-full{width:100%!important}.mt-0{margin-top:0!important}.tab-content{padding-left:0!important;padding-right:0!important}.p-5{padding:1.25rem!important}.p-4{padding:1rem!important}.p-3{padding:.75rem!important}button{height:2.5rem;padding-left:1rem;padding-right:1rem;border-radius:.375rem!important;justify-content:center!important;align-items:center!important;font-size:.875rem!important;font-weight:500!important;display:inline-flex!important}.tab-list{border-radius:.375rem!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;width:100%!important;display:grid!important;overflow:hidden!important}.tab-trigger{cursor:pointer!important;white-space:nowrap!important;justify-content:center!important;align-self:center!important;align-items:center!important;height:2.5rem!important;padding:0 .25rem!important;font-size:.875rem!important;font-weight:500!important;line-height:1!important;display:inline-flex!important}a.text-primary{color:#00ff40!important;text-decoration:none!important;transition:all .2s!important;position:relative!important}a.text-primary:hover{opacity:.9!important;text-decoration:underline!important}a.text-primary:focus{outline-offset:2px!important;border-radius:2px!important;outline:2px solid #00ff404d!important}.support-faq a{color:#00ff40!important}.support-faq a:hover{text-decoration:underline!important}.support-faq a:focus{outline-offset:2px!important;border-radius:2px!important;outline:2px solid #00ff404d!important}.support-faq button{white-space:normal!important;align-items:flex-start!important;height:auto!important;line-height:1.25!important}.support-faq button>svg{margin-top:.25rem!important}.CardContent.px-6.py-4.space-y-4.flex-grow.overflow-y-auto{padding-top:.5rem!important}[class*=CardContent]{padding-top:.5rem!important;padding-bottom:.5rem!important}.space-y-6>*+*{margin-top:.75rem!important}.space-y-4>*+*{margin-top:.5rem!important}[class*=CardHeader]{min-height:40px!important}.compact-card .CardHeader{padding:.5rem 1rem!important}.compact-card .CardContent{padding:.5rem!important}.flex.justify-between.items-center{flex-direction:row!important;justify-content:space-between!important;align-items:center!important;display:flex!important}.Card .CardContent{padding:.75rem 1rem!important}[class*=SelectTrigger],[class*=Input]{height:2.25rem!important;min-height:2.25rem!important;padding:0 .75rem!important;font-size:.875rem!important}.space-y-2{margin-bottom:.5rem!important}[class*=Label]{margin-bottom:.25rem!important;font-size:.875rem!important}.flex.items-center.justify-between{margin-bottom:.5rem!important;padding:.5rem!important}.RadioGroup{justify-content:center!important;gap:.75rem!important;margin:.5rem 0!important;display:flex!important}.text-lg.font-semibold{text-align:center!important;margin:0!important}.space-y-6>.space-y-2{margin-top:.5rem!important;margin-bottom:.5rem!important}.Card{margin-bottom:.75rem!important}[class*=TabsList]{height:2.5rem!important;padding:.125rem!important}[class*=TabsTrigger]{justify-content:center!important;align-items:center!important;height:2.25rem!important;padding:0 .25rem!important;font-size:.875rem!important;display:flex!important}.Card .CardHeader,.Card .CardContent{padding:.75rem 1rem!important}.space-y-6>.Card{margin-bottom:.75rem!important}input:focus,select:focus{outline:2px solid hsl(var(--primary))!important;outline-offset:-1px!important}.h-10,input,select,button{height:2.5rem}.h-9{height:2.25rem!important}.Button{justify-content:center!important;align-items:center!important;display:flex!important}.compact-card.relative{isolation:isolate;z-index:1;position:relative;border-radius:.5rem!important}.compact-card>div:first-child{z-index:2;position:relative}.compact-card>.plasmo-pointer-events-none.plasmo-absolute.plasmo-inset-0{-webkit-mask-composite:source-out!important;z-index:1!important;border:1px solid #0000!important;border-radius:.5rem!important;overflow:visible!important;mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000)!important;mask-position:0 0,0 0!important;mask-size:auto,auto!important;mask-repeat:repeat,repeat!important;mask-clip:padding-box,border-box!important;mask-origin:padding-box,border-box!important;mask-composite:subtract!important;mask-mode:match-source,match-source!important;@supports (-webkit-mask-composite:source-out){-webkit-mask-composite:source-out!important}@supports (mask-composite:subtract){mask-composite:subtract!important}}.compact-card .plasmo-absolute.plasmo-aspect-square{background:linear-gradient(90deg,var(--color-from),var(--color-from)20%,var(--color-to)60%,transparent 100%)!important;transform-origin:50%!important;filter:none!important;width:120px!important;height:120px!important}.compact-card{border-radius:.5rem!important;overflow:hidden!important}.custom-select-trigger [data-icon],.plasmo-select-trigger [data-icon],.plasmo-opacity-50{opacity:0!important;visibility:hidden!important;display:none!important}.custom-select-content,[data-radix-popper-content-wrapper]>div{z-index:9999!important;visibility:visible!important;opacity:1!important;border-color:hsl(var(--border))!important;border-radius:var(--radius)!important;background-color:#1e1e1e!important;border-style:solid!important;border-width:1px!important;margin-top:4px!important;transform:translateY(0)!important;box-shadow:0 4px 8px #0009!important}div[data-radix-select-trigger]{cursor:pointer!important;border-color:hsl(var(--border))!important;background-color:#1e1e1e!important}[data-radix-select-viewport]>div{color:#fff!important;cursor:pointer!important;background-color:#1e1e1e!important;padding:6px 8px!important}[data-radix-select-viewport]>div:hover{background-color:hsl(var(--accent))!important}select{color:#fff!important;border-color:hsl(var(--border))!important;appearance:none!important;background-color:#1e1e1e!important}option{color:#fff!important;background-color:#1e1e1e!important}[class*=Switch]{cursor:pointer!important;border:1px solid #0000!important;border-radius:9999px!important;flex-shrink:0!important;width:36px!important;height:20px!important;padding:0!important;transition:all .2s ease-in-out!important;display:inline-flex!important;position:relative!important}[class*=Switch][data-state=checked]{background-color:hsl(var(--primary))!important}[class*=Switch][data-state=unchecked]{background-color:hsl(var(--muted))!important}[class*=SwitchThumb]{background-color:#fff!important;border-radius:50%!important;width:14px!important;height:14px!important;transition:transform .2s ease-in-out!important;position:absolute!important;top:2px!important;left:2px!important;transform:translate(0)!important;box-shadow:0 1px 2px #0003!important}[class*=Switch][data-state=checked] [class*=SwitchThumb]{transform:translate(16px)!important}.plasmo-Switch-thumb{background-color:#fff!important;border-radius:9999px!important;width:14px!important;height:14px!important;transition:transform .15s ease-out!important;display:block!important;position:absolute!important;top:2px!important;left:2px!important;transform:translate(0)!important;box-shadow:0 1px 2px #0003!important}.plasmo-Switch[data-state=checked] .plasmo-Switch-thumb{transform:translate(16px)!important}.plasmo-Switch[data-state=unchecked] .plasmo-Switch-thumb{transform:translate(0)!important}.plasmo-Switch{cursor:pointer!important;border:1px solid #0000!important;border-radius:9999px!important;flex-shrink:0!important;justify-content:flex-start!important;align-items:center!important;width:36px!important;height:20px!important;padding:0!important;transition:background-color .2s ease-in-out!important;display:inline-flex!important;position:relative!important;overflow:visible!important}.plasmo-Switch[data-state=checked]{background-color:hsl(var(--primary))!important}.plasmo-Switch[data-state=unchecked]{background-color:hsl(var(--muted))!important}[data-state=checked]>span{transform:translate(16px)!important}[data-state=unchecked]>span{transform:translate(0)!important}.plasmo-Switch>span,.plasmo-Switch>div{transition:transform .2s ease-in-out!important;position:absolute!important;left:2px!important}.plasmo-Switch[data-state=checked]>span,.plasmo-Switch[data-state=checked]>div{transform:translate(16px)!important}.plasmo-Switch:focus-visible{outline:2px solid hsl(var(--ring))!important;outline-offset:2px!important}.switch,.toggle,[role=switch]{border-radius:9999px!important;transition:all .2s ease-in-out!important}.flex.items-center.justify-between{border-radius:.375rem!important;justify-content:space-between!important;align-items:center!important;margin-bottom:.5rem!important;padding:.625rem!important;display:flex!important}.flex.items-center.justify-between+.flex.items-center.justify-between{margin-top:.5rem!important}.flex.items-center.justify-between label{margin-bottom:0!important}.flex.items-center.justify-between p{opacity:.8!important;margin:.25rem 0 0!important;font-size:.75rem!important}.file\:plasmo-border-0::file-selector-button{border-width:0}.file\:plasmo-bg-transparent::file-selector-button{background-color:#0000}.file\:plasmo-text-sm::file-selector-button{font-size:.875rem;line-height:1.25rem}.file\:plasmo-font-medium::file-selector-button{font-weight:500}.file\:plasmo-text-foreground::file-selector-button{color:hsl(var(--foreground))}.placeholder\:plasmo-text-\[\#9ca3af\]::placeholder{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.placeholder\:plasmo-text-muted-foreground::placeholder{color:hsl(var(--muted-foreground))}.before\:plasmo-absolute:before{content:var(--tw-content);position:absolute}.before\:plasmo-bottom-\[0\.2em\]:before{content:var(--tw-content);bottom:.2em}.before\:plasmo-left-\[0\.2em\]:before{content:var(--tw-content);left:.2em}.before\:plasmo-left-\[calc\(1\.5em_-_1\.6em\)\]:before{content:var(--tw-content);left:-.1em}.before\:plasmo-top-1\/2:before{content:var(--tw-content);top:50%}.before\:plasmo-top-\[calc\(1\.5em_-_1\.6em\)\]:before{content:var(--tw-content);top:-.1em}.before\:plasmo-block:before{content:var(--tw-content);display:block}.before\:plasmo-h-\[1\.4em\]:before{content:var(--tw-content);height:1.4em}.before\:plasmo-h-\[1\.7em\]:before{content:var(--tw-content);height:1.7em}.before\:plasmo-h-\[1px\]:before{content:var(--tw-content);height:1px}.before\:plasmo-w-\[1\.4em\]:before{content:var(--tw-content);width:1.4em}.before\:plasmo-w-\[1\.6em\]:before{content:var(--tw-content);width:1.6em}.before\:plasmo-w-\[50px\]:before{content:var(--tw-content);width:50px}.before\:plasmo--translate-y-\[50\%\]:before{content:var(--tw-content);--tw-translate-y:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.before\:plasmo-transform:before{content:var(--tw-content);transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.before\:plasmo-cursor-pointer:before{content:var(--tw-content);cursor:pointer}.before\:plasmo-rounded-\[20px\]:before{content:var(--tw-content);border-radius:20px}.before\:plasmo-rounded-full:before{content:var(--tw-content);border-radius:9999px}.before\:plasmo-border:before{content:var(--tw-content);border-width:1px}.before\:plasmo-border-solid:before{content:var(--tw-content);border-style:solid}.before\:plasmo-border-stone-400:before{content:var(--tw-content);--tw-border-opacity:1;border-color:rgb(168 162 158/var(--tw-border-opacity))}.before\:plasmo-bg-gray-400:before{content:var(--tw-content);--tw-bg-opacity:1;background-color:rgb(156 163 175/var(--tw-bg-opacity))}.before\:plasmo-bg-white:before{content:var(--tw-content);--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.before\:plasmo-bg-gradient-to-r:before{content:var(--tw-content);background-image:linear-gradient(to right,var(--tw-gradient-stops))}.before\:plasmo-from-\[\#64748b\]:before{content:var(--tw-content);--tw-gradient-from:#64748b var(--tw-gradient-from-position);--tw-gradient-to:#64748b00 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.before\:plasmo-to-transparent:before{content:var(--tw-content);--tw-gradient-to:transparent var(--tw-gradient-to-position)}.before\:plasmo-transition:before{content:var(--tw-content);transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.before\:plasmo-transition-all:before{content:var(--tw-content);transition-property:all;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.before\:plasmo-duration-300:before{content:var(--tw-content);transition-duration:.3s}.before\:plasmo-content-\[\'\'\]:before{--tw-content:"";content:var(--tw-content)}.before\:plasmo-duration-300:before{content:var(--tw-content);animation-duration:.3s}.checked\:plasmo-bg-\[\#00FF47\]:checked{--tw-bg-opacity:1;background-color:rgb(0 255 71/var(--tw-bg-opacity))}.checked\:before\:plasmo-translate-x-full:checked:before{content:var(--tw-content);--tw-translate-x:100%;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.checked\:before\:plasmo-border-\[\#00FF47\]:checked:before{content:var(--tw-content);--tw-border-opacity:1;border-color:rgb(0 255 71/var(--tw-border-opacity))}.hover\:plasmo-border-\[\#3f3f46\]:hover{--tw-border-opacity:1;border-color:rgb(63 63 70/var(--tw-border-opacity))}.hover\:plasmo-border-indigo-200:hover{--tw-border-opacity:1;border-color:rgb(199 210 254/var(--tw-border-opacity))}.hover\:plasmo-border-opacity-70:hover{--tw-border-opacity:.7}.hover\:plasmo-bg-accent:hover{background-color:hsl(var(--accent))}.hover\:plasmo-bg-destructive\/80:hover{background-color:hsl(var(--destructive)/.8)}.hover\:plasmo-bg-destructive\/90:hover{background-color:hsl(var(--destructive)/.9)}.hover\:plasmo-bg-muted\/80:hover{background-color:hsl(var(--muted)/.8)}.hover\:plasmo-bg-primary\/80:hover{background-color:hsl(var(--primary)/.8)}.hover\:plasmo-bg-primary\/90:hover{background-color:hsl(var(--primary)/.9)}.hover\:plasmo-bg-secondary\/80:hover{background-color:hsl(var(--secondary)/.8)}.hover\:plasmo-text-accent-foreground:hover{color:hsl(var(--accent-foreground))}.hover\:plasmo-text-foreground:hover{color:hsl(var(--foreground))}.hover\:plasmo-underline:hover{text-decoration-line:underline}.hover\:before\:plasmo-shadow-\[0_0_0px_8px_rgba\(0\,0\,0\,0\.15\)\]:hover:before{content:var(--tw-content);--tw-shadow:0 0 0px 8px #00000026;--tw-shadow-colored:0 0 0px 8px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.checked\:hover\:before\:plasmo-shadow-\[0_0_0px_8px_rgba\(0\,255\,71\,0\.15\)\]:hover:checked:before{content:var(--tw-content);--tw-shadow:0 0 0px 8px #00ff4726;--tw-shadow-colored:0 0 0px 8px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.focus\:plasmo-border-\[rgba\(0\,187\,52\,0\.4\)\]:focus{border-color:#00bb3466}.focus\:plasmo-border-opacity-100:focus{--tw-border-opacity:1}.focus\:plasmo-bg-accent:focus{background-color:hsl(var(--accent))}.focus\:plasmo-text-accent-foreground:focus{color:hsl(var(--accent-foreground))}.focus\:plasmo-outline-none:focus{outline-offset:2px;outline:2px solid #0000}.focus\:plasmo-ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(0px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:plasmo-ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(1px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:plasmo-ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(2px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:plasmo-ring-\[\#00BB34\]:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(0 187 52/var(--tw-ring-opacity))}.focus\:plasmo-ring-ring:focus{--tw-ring-color:hsl(var(--ring))}.focus\:plasmo-ring-offset-2:focus{--tw-ring-offset-width:2px}.focus-visible\:plasmo-outline-none:focus-visible{outline-offset:2px;outline:2px solid #0000}.focus-visible\:plasmo-outline:focus-visible{outline-style:solid}.focus-visible\:plasmo-outline-\[3px\]:focus-visible{outline-width:3px}.focus-visible\:plasmo-outline-ring\/40:focus-visible{outline-color:hsl(var(--ring)/.4)}.focus-visible\:plasmo-ring-1:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(1px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus-visible\:plasmo-ring-2:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(2px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus-visible\:plasmo-ring-ring:focus-visible{--tw-ring-color:hsl(var(--ring))}.focus-visible\:plasmo-ring-offset-2:focus-visible{--tw-ring-offset-width:2px}.focus-visible\:plasmo-ring-offset-background:focus-visible{--tw-ring-offset-color:hsl(var(--background))}.active\:plasmo-scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.disabled\:plasmo-pointer-events-none:disabled{pointer-events:none}.disabled\:plasmo-cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:plasmo-opacity-50:disabled{opacity:.5}.plasmo-peer:disabled~.peer-disabled\:plasmo-cursor-not-allowed{cursor:not-allowed}.plasmo-peer:disabled~.peer-disabled\:plasmo-opacity-70{opacity:.7}.data-\[disabled\]\:plasmo-pointer-events-none[data-disabled]{pointer-events:none}.data-\[orientation\=horizontal\]\:plasmo-h-2[data-orientation=horizontal]{height:.5rem}.data-\[orientation\=horizontal\]\:plasmo-h-full[data-orientation=horizontal],.data-\[orientation\=vertical\]\:plasmo-h-full[data-orientation=vertical]{height:100%}.data-\[orientation\=horizontal\]\:plasmo-w-full[data-orientation=horizontal]{width:100%}.data-\[orientation\=vertical\]\:plasmo-w-2[data-orientation=vertical]{width:.5rem}.data-\[orientation\=vertical\]\:plasmo-w-auto[data-orientation=vertical]{width:auto}.data-\[orientation\=vertical\]\:plasmo-w-full[data-orientation=vertical]{width:100%}.data-\[side\=bottom\]\:plasmo-translate-y-1[data-side=bottom]{--tw-translate-y:.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.data-\[side\=left\]\:plasmo--translate-x-1[data-side=left]{--tw-translate-x:-.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.data-\[side\=right\]\:plasmo-translate-x-1[data-side=right]{--tw-translate-x:.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.data-\[side\=top\]\:plasmo--translate-y-1[data-side=top]{--tw-translate-y:-.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.data-\[state\=checked\]\:plasmo-translate-x-5[data-state=checked]{--tw-translate-x:1.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.data-\[state\=unchecked\]\:plasmo-translate-x-0[data-state=unchecked]{--tw-translate-x:0px;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}@keyframes plasmo-accordion-up{0%{height:var(--radix-accordion-content-height)}to{height:0}}.data-\[state\=closed\]\:plasmo-animate-accordion-up[data-state=closed]{animation:.2s ease-out plasmo-accordion-up}@keyframes plasmo-accordion-down{0%{height:0}to{height:var(--radix-accordion-content-height)}}.data-\[state\=open\]\:plasmo-animate-accordion-down[data-state=open]{animation:.2s ease-out plasmo-accordion-down}.data-\[disabled\]\:plasmo-cursor-not-allowed[data-disabled]{cursor:not-allowed}.data-\[orientation\=vertical\]\:plasmo-flex-col[data-orientation=vertical]{flex-direction:column}.data-\[state\=checked\]\:plasmo-border-green-500[data-state=checked]{--tw-border-opacity:1;border-color:rgb(34 197 94/var(--tw-border-opacity))}.data-\[state\=active\]\:plasmo-bg-background[data-state=active]{background-color:hsl(var(--background))}.data-\[state\=checked\]\:plasmo-bg-green-500[data-state=checked]{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity))}.data-\[state\=checked\]\:plasmo-bg-primary[data-state=checked]{background-color:hsl(var(--primary))}.data-\[state\=open\]\:plasmo-bg-accent[data-state=open]{background-color:hsl(var(--accent))}.data-\[state\=unchecked\]\:plasmo-bg-slate-100[data-state=unchecked]{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.data-\[placeholder\]\:plasmo-text-muted-foreground[data-placeholder]{color:hsl(var(--muted-foreground))}.data-\[state\=active\]\:plasmo-text-foreground[data-state=active]{color:hsl(var(--foreground))}.data-\[state\=checked\]\:plasmo-text-primary-foreground[data-state=checked]{color:hsl(var(--primary-foreground))}.data-\[disabled\]\:plasmo-opacity-50[data-disabled]{opacity:.5}.data-\[state\=active\]\:plasmo-shadow[data-state=active]{--tw-shadow:0 1px 3px 0 #0000001a,0 1px 2px -1px #0000001a;--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.data-\[state\=open\]\:plasmo-animate-in[data-state=open]{--tw-enter-opacity:initial;--tw-enter-scale:initial;--tw-enter-rotate:initial;--tw-enter-translate-x:initial;--tw-enter-translate-y:initial;animation-name:enter;animation-duration:.15s}.data-\[state\=closed\]\:plasmo-animate-out[data-state=closed]{--tw-exit-opacity:initial;--tw-exit-scale:initial;--tw-exit-rotate:initial;--tw-exit-translate-x:initial;--tw-exit-translate-y:initial;animation-name:exit;animation-duration:.15s}.data-\[state\=closed\]\:plasmo-fade-out-0[data-state=closed]{--tw-exit-opacity:0}.data-\[state\=open\]\:plasmo-fade-in-0[data-state=open]{--tw-enter-opacity:0}.data-\[state\=closed\]\:plasmo-zoom-out-95[data-state=closed]{--tw-exit-scale:.95}.data-\[state\=open\]\:plasmo-zoom-in-95[data-state=open]{--tw-enter-scale:.95}.data-\[side\=bottom\]\:plasmo-slide-in-from-top-2[data-side=bottom]{--tw-enter-translate-y:-.5rem}.data-\[side\=left\]\:plasmo-slide-in-from-right-2[data-side=left]{--tw-enter-translate-x:.5rem}.data-\[side\=right\]\:plasmo-slide-in-from-left-2[data-side=right]{--tw-enter-translate-x:-.5rem}.data-\[side\=top\]\:plasmo-slide-in-from-bottom-2[data-side=top]{--tw-enter-translate-y:.5rem}:is(.plasmo-dark .dark\:plasmo-border-\[\#27272a\]){--tw-border-opacity:1;border-color:rgb(39 39 42/var(--tw-border-opacity))}:is(.plasmo-dark .dark\:plasmo-border-slate-600){--tw-border-opacity:1;border-color:rgb(71 85 105/var(--tw-border-opacity))}:is(.plasmo-dark .dark\:plasmo-border-opacity-50){--tw-border-opacity:.5}:is(.plasmo-dark .dark\:plasmo-bg-\[\#00BB34\]){--tw-bg-opacity:1;background-color:rgb(0 187 52/var(--tw-bg-opacity))}:is(.plasmo-dark .dark\:plasmo-bg-\[\#09090B\]){--tw-bg-opacity:1;background-color:rgb(9 9 11/var(--tw-bg-opacity))}:is(.plasmo-dark .dark\:plasmo-bg-gray-700){--tw-bg-opacity:1;background-color:rgb(55 65 81/var(--tw-bg-opacity))}:is(.plasmo-dark .dark\:plasmo-text-\[\#006EFE\]){--tw-text-opacity:1;color:rgb(0 110 254/var(--tw-text-opacity))}:is(.plasmo-dark .dark\:plasmo-text-\[\#00FF47\]){--tw-text-opacity:1;color:rgb(0 255 71/var(--tw-text-opacity))}:is(.plasmo-dark .dark\:plasmo-text-\[\#9ca3af\]){--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}:is(.plasmo-dark .dark\:plasmo-text-\[\#f3f4f6\]){--tw-text-opacity:1;color:rgb(243 244 246/var(--tw-text-opacity))}:is(.plasmo-dark .dark\:placeholder\:plasmo-text-\[\#9ca3af\])::placeholder{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}:is(.plasmo-dark .dark\:before\:plasmo-bg-gray-400):before{content:var(--tw-content);--tw-bg-opacity:1;background-color:rgb(156 163 175/var(--tw-bg-opacity))}:is(.plasmo-dark .dark\:focus\:plasmo-ring-\[\#00FF47\]:focus){--tw-ring-opacity:1;--tw-ring-color:rgb(0 255 71/var(--tw-ring-opacity))}:is(.plasmo-dark .dark\:data-\[state\=unchecked\]\:plasmo-bg-slate-800[data-state=unchecked]){--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity))}@media (width>=768px){.md\:plasmo-text-sm{font-size:.875rem;line-height:1.25rem}}.\[\&\:checked\+span\:before\]\:plasmo-translate-x-\[1\.9em\]:checked+span:before{--tw-translate-x:1.9em;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.\[\&\:checked\+span\:before\]\:plasmo-bg-\[\#00FF47\]:checked+span:before{--tw-bg-opacity:1;background-color:rgb(0 255 71/var(--tw-bg-opacity))}.\[\&\:checked\+span\]\:plasmo-bg-\[\#00FF47\]\/30:checked+span{background-color:#00ff474d}:is(.plasmo-dark .dark\:\[\&\:checked\+span\]\:plasmo-bg-\[\#00FF47\]\/20:checked+span){background-color:#00ff4733}.\[\&\>span\]\:plasmo-line-clamp-1>span{-webkit-line-clamp:1;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.\[\&\>svg\]\:plasmo-size-4>svg{width:1rem;height:1rem}.\[\&\>svg\]\:plasmo-shrink-0>svg{flex-shrink:0}.\[\&\[data-state\=open\]\>svg\]\:plasmo-rotate-180[data-state=open]>svg{--tw-rotate:180deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.\[\&_svg\]\:plasmo-pointer-events-none svg{pointer-events:none}.\[\&_svg\]\:plasmo-size-4 svg{width:1rem;height:1rem}.\[\&_svg\]\:plasmo-shrink-0 svg{flex-shrink:0}
+    #plasmo-shadow-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999999;
+      display: var(--n8n-chat-display, 'none');
+    }
+  </style><div id="plasmo-shadow-container" style="z-index: 2147483647; position: relative;"><div id="plasmo-overlay-0" class="plasmo-csui-container" style="display: flex; position: absolute; top: 0px; left: 0px;"></div></div></template></plasmo-csui><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mercan Kokoreç Beyoğlu — Sipariş / Order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --coral:#c22a2f;
+    --coral-dark:#8f1c20;
+    --sea:#7a1218;
+    --sea-light:#a3232b;
+    --sand:#f6efe0;
+    --shell:#fffcf5;
+    --ink:#2a211b;
+    --ink-soft:#6b5e52;
+    --gold:#c79a3e;
+    --line:#e6dbc4;
+    --radius:18px;
+    --shadow:0 10px 30px -12px rgba(42,33,27,.25);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+  html,body{margin:0; padding:0; height:100%; background:var(--sand); color:var(--ink);}
+  body{
+    font-family:'Manrope', 'Vazirmatn', sans-serif;
+    overflow-x:hidden;
+    background:
+      radial-gradient(1200px 400px at 50% -120px, rgba(194,42,47,.10), transparent),
+      var(--sand);
+  }
+  html[dir="rtl"] body, html[dir="rtl"] { font-family:'Vazirmatn','Manrope',sans-serif; }
+  html[lang="ar"] body, html[lang="ar"] { font-family:'Noto Kufi Arabic','Vazirmatn',sans-serif; }
+  html[lang="ko"] body, html[lang="ko"] { font-family:'Noto Sans KR','Manrope',sans-serif; }
+  html[lang="ja"] body, html[lang="ja"] { font-family:'Noto Sans JP','Manrope',sans-serif; }
+  html[lang="zh"] body, html[lang="zh"] { font-family:'Noto Sans SC','Manrope',sans-serif; }
+  .display{ font-family:'Fraunces', serif; }
+
+  #app{ max-width:520px; margin:0 auto; min-height:100vh; position:relative; padding-bottom:110px; }
+
+  /* ---------- header ---------- */
+  header.top{
+    position:sticky; top:0; z-index:40;
+    background:linear-gradient(180deg, var(--sea) 0%, var(--sea-light) 100%);
+    color:#fff; padding:14px 18px 20px;
+    border-bottom-left-radius:22px; border-bottom-right-radius:22px;
+    box-shadow:var(--shadow);
+  }
+  .top-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .coral-mark{ width:34px; height:34px; flex:none; }
+  .brand-name{ font-family:'Fraunces',serif; font-weight:700; font-size:16px; letter-spacing:.2px; line-height:1.25; }
+  .brand-sub{ font-size:11px; opacity:.8; margin-top:1px; letter-spacing:.5px; }
+  .lang-btn{
+    display:flex; align-items:center; gap:7px; background:rgba(255,255,255,.14); border-radius:999px;
+    border:1px solid rgba(255,255,255,.25); color:#fff; font-family:inherit; font-size:12.5px; font-weight:700;
+    padding:8px 14px; cursor:pointer;
+  }
+  .lang-btn .flag{ font-size:15px; line-height:1; }
+  .lang-btn.icon-only{ padding:9px; }
+
+  .wave{ display:block; width:100%; height:14px; margin-top:12px; opacity:.55; }
+
+  /* ---------- screens ---------- */
+  .screen{ display:none; padding:20px 18px 10px; animation:fadeIn .35s ease; }
+  .screen.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ---- screen: language / welcome ---- */
+  .welcome-hero{ text-align:center; margin:14px 0 28px; }
+  .welcome-mark{ width:78px; height:78px; margin:0 auto 18px; }
+  .welcome-title-tr{ font-family:'Fraunces',serif; font-size:22px; font-weight:700; color:var(--coral-dark); margin:0; line-height:1.35; }
+  .welcome-title-en{ font-family:'Fraunces',serif; font-size:14px; font-weight:600; color:var(--sea); margin:6px 0 0; opacity:.85; }
+  .welcome-sub{ margin:14px 0 0; color:var(--ink-soft); font-size:13.5px; line-height:1.9; }
+  .welcome-sub .sep{ display:block; opacity:.5; margin:2px 0; font-size:11px; }
+
+  .lang-list{ display:flex; flex-direction:column; gap:11px; }
+  .lang-option{
+    display:flex; align-items:center; gap:14px; width:100%; text-align:start;
+    background:var(--shell); border:1.5px solid var(--line); border-radius:16px; padding:13px 16px;
+    box-shadow:0 4px 14px -8px rgba(42,33,27,.2); cursor:pointer; font-family:inherit;
+    transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .lang-option:active{ transform:scale(.98); }
+  .lang-option:hover{ border-color:var(--gold); box-shadow:0 8px 20px -10px rgba(199,154,62,.4); }
+  .lang-flag{
+    width:42px; height:42px; border-radius:12px; flex:none; display:flex; align-items:center; justify-content:center;
+    font-size:24px; background:var(--sand); border:1px solid var(--line);
+  }
+  .lang-text{ flex:1; min-width:0; }
+  .lang-native{ font-weight:800; font-size:16px; color:var(--ink); }
+  .lang-hint{ font-size:11.5px; color:var(--ink-soft); margin-top:2px; }
+  .lang-chev{ flex:none; color:var(--gold); opacity:.7; }
+  html[dir="rtl"] .lang-chev{ transform:scaleX(-1); }
+
+  /* ---- card / buttons (shared) ---- */
+  .card{ background:var(--shell); border:1px solid var(--line); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); }
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; padding:15px 18px; border-radius:14px; border:none; cursor:pointer;
+    font-family:inherit; font-weight:700; font-size:15.5px; letter-spacing:.2px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{ background:linear-gradient(135deg, var(--coral), var(--coral-dark)); color:#fff; box-shadow:0 10px 22px -8px rgba(194,42,47,.55); }
+  .btn-primary:active{ transform:scale(.98); }
+  .btn-ghost{ background:transparent; color:var(--sea); border:1.5px solid var(--line); }
+  .btn-ghost:active{ transform:scale(.98); }
+
+  /* ---- screen: menu ---- */
+  .cat-tabs{
+    display:flex; gap:8px; overflow-x:auto; padding:2px 2px 14px; margin-bottom:4px;
+    scrollbar-width:none;
+  }
+  .cat-tabs::-webkit-scrollbar{ display:none; }
+  .cat-tab{
+    flex:none; padding:9px 16px; border-radius:999px; background:var(--shell); border:1.5px solid var(--line);
+    font-family:inherit; font-size:13px; font-weight:700; color:var(--ink-soft); cursor:pointer; white-space:nowrap; transition:.15s;
+  }
+  .cat-tab.active{ background:var(--sea); border-color:var(--sea); color:#fff; }
+
+  .cat-section{ margin-bottom:6px; }
+  .cat-title{
+    display:flex; align-items:center; gap:10px; margin:22px 2px 12px;
+    font-family:'Fraunces',serif; font-size:19px; color:var(--coral-dark); font-weight:600;
+  }
+  .cat-title::after{ content:""; flex:1; height:1px; background:var(--line); }
+
+  .item{
+    display:flex; align-items:center; gap:12px; background:var(--shell); border:1px solid var(--line);
+    border-radius:16px; padding:13px 14px; margin-bottom:10px; box-shadow:0 3px 10px -6px rgba(42,33,27,.15);
+  }
+  .item-info{ flex:1; min-width:0; }
+  .item-name{ font-weight:700; font-size:14.5px; line-height:1.4; }
+  .item-name-tr{ font-family:'Fraunces',serif; font-style:italic; font-weight:600; color:var(--sea-light); font-size:0.92em; }
+  .item-price{ margin-top:5px; font-size:13px; color:var(--gold); font-weight:800; }
+  .item-price::after{ content:" ₺"; font-weight:700; }
+
+  .stepper{ display:flex; align-items:center; gap:0; flex:none; }
+  .step-btn{
+    width:30px; height:30px; border-radius:50%; border:none; cursor:pointer; font-size:17px; font-weight:800;
+    display:flex; align-items:center; justify-content:center; transition:.15s; line-height:1;
+  }
+  .step-minus{ background:#f1e7d8; color:var(--ink-soft); width:24px; height:24px; font-size:14px; }
+  .step-minus:active{ transform:scale(.9); }
+  .step-plus{ background:var(--coral); color:#fff; box-shadow:0 6px 14px -6px rgba(194,42,47,.6); }
+  .step-plus:active{ transform:scale(.9); }
+  .step-qty{ width:26px; text-align:center; font-weight:800; font-size:15px; }
+  .step-qty.zero{ opacity:.35; }
+
+  /* ---- cart bar ---- */
+  .cart-bar{
+    position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(120%);
+    width:calc(100% - 32px); max-width:488px; z-index:50; transition:transform .3s ease;
+  }
+  .cart-bar.show{ transform:translateX(-50%) translateY(0); }
+  .cart-inner{
+    background:linear-gradient(135deg, var(--sea), var(--sea-light)); color:#fff; border-radius:18px;
+    padding:13px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    box-shadow:0 14px 30px -10px rgba(122,18,24,.55); cursor:pointer; border:1px solid rgba(255,255,255,.15);
+  }
+  .cart-count{
+    background:var(--coral); width:26px; height:26px; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; font-size:12.5px; font-weight:800; flex:none;
+  }
+  .cart-label{ font-size:13.5px; font-weight:700; }
+  .cart-total{ font-family:'Fraunces',serif; font-size:17px; font-weight:700; }
+
+  /* ---- screen: review ---- */
+  .review-head{ text-align:center; margin-bottom:18px; }
+  .review-head h2{ font-family:'Fraunces',serif; color:var(--coral-dark); font-size:22px; margin:0 0 4px; }
+  .review-head p{ margin:0; color:var(--ink-soft); font-size:13.5px; }
+
+  .review-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:var(--shell); border:1px solid var(--line); border-radius:14px; padding:11px 14px; margin-bottom:9px;
+  }
+  .review-row .rr-name{ font-size:14px; font-weight:700; flex:1; }
+  .review-row .rr-name-alt{ font-weight:500; font-style:italic; color:var(--ink-soft); font-size:0.85em; }
+  .review-row .rr-qty{ font-size:12.5px; color:var(--ink-soft); background:#f1e7d8; padding:3px 9px; border-radius:999px; font-weight:800; }
+  .review-row .rr-sub{ font-size:14px; font-weight:800; color:var(--gold); min-width:64px; text-align:end; }
+
+  .total-card{
+    display:flex; align-items:center; justify-content:space-between; margin-top:18px; padding:16px 18px;
+    background:linear-gradient(135deg, var(--coral), var(--coral-dark)); border-radius:16px; color:#fff;
+    box-shadow:0 10px 22px -8px rgba(194,42,47,.5);
+  }
+  .total-card .tc-label{ font-size:13.5px; opacity:.9; font-weight:600; }
+  .total-card .tc-value{ font-family:'Fraunces',serif; font-size:26px; font-weight:700; }
+
+  .empty-note{ text-align:center; color:var(--ink-soft); font-size:14px; padding:30px 10px; }
+
+  /* ---- screen: success ---- */
+  .success-wrap{ text-align:center; padding:50px 18px; }
+  .success-coral{ width:96px; height:96px; margin:0 auto 22px; animation:pop .5s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes pop{ from{ transform:scale(.4); opacity:0; } to{ transform:scale(1); opacity:1; } }
+  .success-wrap h2{ font-family:'Fraunces',serif; font-size:24px; color:var(--sea); margin:0 0 10px; }
+  .success-wrap p{ color:var(--ink-soft); font-size:14.5px; line-height:1.9; margin:0 0 26px; }
+  .success-order-no{ display:inline-block; background:var(--shell); border:1.5px dashed var(--gold); border-radius:12px; padding:10px 22px; font-family:'Fraunces',serif; font-weight:700; color:var(--gold); font-size:16px; margin-bottom:26px; }
+
+  .back-row{ display:flex; gap:10px; margin-bottom:16px; }
+  .icon-btn{
+    width:42px; height:42px; flex:none; border-radius:12px; border:1.5px solid var(--line); background:var(--shell);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--sea);
+  }
+  html[dir="rtl"] .flip{ transform:scaleX(-1); }
+</style>
+<style data-glasp-print="rule">@media print{[data-glasp-print="hide"]{display:none !important}}</style></head>
+<body>
+<div id="app">
+
+  <header class="top">
+    <div class="top-row">
+      <div class="brand">
+        <svg class="coral-mark" viewBox="0 0 48 48" fill="none">
+          <path d="M24 6c2 4-1 6-1 9 0 3 3 3 3 6s-3 4-2 8c1 4 5 5 5 5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"></path>
+          <path d="M24 6c-2 4 1 6 1 9 0 3-3 3-3 6s3 4 2 8c-1 4-5 5-5 5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".7"></path>
+          <path d="M24 15c3 1 6 0 8-2M24 15c-3 1-6 0-8-2M23 24c3 1 6 .5 8-1M23 24c-3 1-6 .5-8-1M23 33c2 1 5 .5 7-1M23 33c-2 1-5 .5-7-1" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity=".85"></path>
+          <circle cx="24" cy="40" r="2.4" fill="#fff"></circle>
+        </svg>
+        <div>
+          <div class="brand-name">Mercan Kokoreç Beyoğlu</div>
+          <div class="brand-sub" data-i18n="tagline">Deniz Ürünleri Restoranı</div>
+        </div>
+      </div>
+      <button class="lang-btn icon-only" id="change-lang-btn" onclick="showScreen(&#39;lang&#39;)" aria-label="change language" style="display:none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.8"></circle><path d="M3 12h18M12 3c2.5 2.7 3.8 6 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-6-3.8-9s1.3-6.3 3.8-9z" stroke="#fff" stroke-width="1.8"></path></svg>
+      </button>
+    </div>
+    <svg class="wave" viewBox="0 0 500 14" preserveAspectRatio="none"><path d="M0 7 Q 25 0 50 7 T 100 7 T 150 7 T 200 7 T 250 7 T 300 7 T 350 7 T 400 7 T 450 7 T 500 7" stroke="#fff" stroke-width="2" fill="none"></path></svg>
+  </header>
+
+  <!-- SCREEN 1: welcome + language selection -->
+  <section class="screen active" id="screen-lang">
+    <div class="welcome-hero">
+      <svg class="welcome-mark" viewBox="0 0 48 48" fill="none">
+        <path d="M24 6c2 4-1 6-1 9 0 3 3 3 3 6s-3 4-2 8c1 4 5 5 5 5" stroke="#8f1c20" stroke-width="2.4" stroke-linecap="round"></path>
+        <path d="M24 6c-2 4 1 6 1 9 0 3-3 3-3 6s3 4 2 8c-1 4-5 5-5 5" stroke="#c79a3e" stroke-width="2.4" stroke-linecap="round" opacity=".85"></path>
+        <path d="M24 15c3 1 6 0 8-2M24 15c-3 1-6 0-8-2M23 24c3 1 6 .5 8-1M23 24c-3 1-6 .5-8-1M23 33c2 1 5 .5 7-1M23 33c-2 1-5 .5-7-1" stroke="#7a1218" stroke-width="1.8" stroke-linecap="round" opacity=".85"></path>
+        <circle cx="24" cy="40" r="2.4" fill="#8f1c20"></circle>
+      </svg>
+      <h1 class="welcome-title-tr">Mercan Kokoreç Beyoğlu'na Hoş Geldiniz</h1>
+      <h1 class="welcome-title-en">Welcome to Mercan Kokoreç Beyoğlu</h1>
+      <p class="welcome-sub">
+        Menüyü görüntülemek için lütfen dilinizi seçin.
+        <span class="sep">•</span>
+        Please select your language to view the menu.
+      </p>
+    </div>
+
+    <div class="lang-list">
+      <button class="lang-option" onclick="selectLanguage(&#39;tr&#39;)">
+        <span class="lang-flag">🇹🇷</span>
+        <span class="lang-text"><span class="lang-native">Türkçe</span><span class="lang-hint">Turkish</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;en&#39;)">
+        <span class="lang-flag">🌐</span>
+        <span class="lang-text"><span class="lang-native">English</span><span class="lang-hint">International</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;ar&#39;)">
+        <span class="lang-flag">🇸🇦</span>
+        <span class="lang-text"><span class="lang-native">العربية</span><span class="lang-hint">Arabic</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;ru&#39;)">
+        <span class="lang-flag">🇷🇺</span>
+        <span class="lang-text"><span class="lang-native">Русский</span><span class="lang-hint">Russian</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;de&#39;)">
+        <span class="lang-flag">🇩🇪</span>
+        <span class="lang-text"><span class="lang-native">Deutsch</span><span class="lang-hint">German</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;fr&#39;)">
+        <span class="lang-flag">🇫🇷</span>
+        <span class="lang-text"><span class="lang-native">Français</span><span class="lang-hint">French</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;fa&#39;)">
+        <span class="lang-flag">🇮🇷</span>
+        <span class="lang-text"><span class="lang-native">فارسی</span><span class="lang-hint">Persian</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;es&#39;)">
+        <span class="lang-flag">🇪🇸</span>
+        <span class="lang-text"><span class="lang-native">Español</span><span class="lang-hint">Spanish</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;it&#39;)">
+        <span class="lang-flag">🇮🇹</span>
+        <span class="lang-text"><span class="lang-native">Italiano</span><span class="lang-hint">Italian</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;ko&#39;)">
+        <span class="lang-flag">🇰🇷</span>
+        <span class="lang-text"><span class="lang-native">한국어</span><span class="lang-hint">Korean</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;ja&#39;)">
+        <span class="lang-flag">🇯🇵</span>
+        <span class="lang-text"><span class="lang-native">日本語</span><span class="lang-hint">Japanese</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage(&#39;zh&#39;)">
+        <span class="lang-flag">🇨🇳</span>
+        <span class="lang-text"><span class="lang-native">中文</span><span class="lang-hint">Chinese</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: menu -->
+  <section class="screen" id="screen-menu">
+    <div class="cat-tabs" id="cat-tabs"></div>
+    <div id="menu-list"></div>
+  </section>
+
+  <!-- SCREEN 3: review -->
+  <section class="screen" id="screen-review">
+    <div class="back-row">
+      <button class="icon-btn flip" onclick="showScreen(&#39;menu&#39;)" aria-label="back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="var(--sea)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <div style="flex:1;"></div>
+    </div>
+    <div class="review-head">
+      <h2 data-i18n="reviewTitle">Sipariş Önizlemesi</h2>
+      <p data-i18n="reviewText">Lütfen siparişinizi kontrol edip onaylayın</p>
+    </div>
+    <div id="review-items"></div>
+    <div class="total-card">
+      <span class="tc-label" data-i18n="totalLabel">Toplam Tutar</span>
+      <span class="tc-value" id="rev-total">0 ₺</span>
+    </div>
+    <button class="btn btn-primary" style="margin-top:18px;" onclick="confirmOrder()">
+      <span data-i18n="confirmBtn">Siparişi Onayla</span>
+    </button>
+    <button class="btn btn-ghost" style="margin-top:10px;" onclick="showScreen(&#39;menu&#39;)">
+      <span data-i18n="editBtn">Geri Dön ve Düzenle</span>
+    </button>
+  </section>
+
+  <!-- SCREEN 4: success -->
+  <section class="screen" id="screen-success">
+    <div class="success-wrap">
+      <svg class="success-coral" viewBox="0 0 96 96" fill="none">
+        <circle cx="48" cy="48" r="46" fill="#7a1218"></circle>
+        <path d="M30 50l12 12 24-26" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <h2 data-i18n="successTitle">Siparişiniz Alındı!</h2>
+      <p data-i18n="successText">Siparişiniz mutfağa iletildi. Hazırlanana kadar lütfen bekleyin.</p>
+      <div class="success-order-no" id="order-no">#0000</div>
+      <button class="btn btn-primary" onclick="newOrder()">
+        <span data-i18n="newOrderBtn">Yeni Sipariş Ver</span>
+      </button>
+    </div>
+  </section>
+
+</div>
+
+<!-- CART BAR -->
+<div class="cart-bar" id="cart-bar" onclick="showScreen(&#39;review&#39;)">
+  <div class="cart-inner">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div class="cart-count" id="cart-count">0</div>
+      <div class="cart-label" data-i18n="cartLabel">Siparişi Görüntüle</div>
+    </div>
+    <div class="cart-total" id="cart-total">0 ₺</div>
+  </div>
+</div>
+
+<script src="./index_files/jspdf.umd.min.js.download"></script>
+<script src="./index_files/html2canvas.min.js.download"></script>
+<script>
+/* ---------------- i18n ---------------- */
+const dict = {
+  tr: {
+    tagline:"Deniz Ürünleri Restoranı",
+    cartLabel:"Siparişi Görüntüle",
+    reviewTitle:"Sipariş Önizlemesi", reviewText:"Lütfen siparişinizi kontrol edip onaylayın",
+    totalLabel:"Toplam Tutar",
+    confirmBtn:"Siparişi Onayla", editBtn:"Geri Dön ve Düzenle",
+    successTitle:"Siparişiniz Alındı!", successText:"Siparişiniz mutfağa iletildi. Hazırlanana kadar lütfen bekleyin.",
+    newOrderBtn:"Yeni Sipariş Ver", emptyCart:"Henüz sepetinize bir şey eklemediniz.",
+    currency:"₺"
+  },
+  en: {
+    tagline:"Seafood Restaurant",
+    cartLabel:"View Order",
+    reviewTitle:"Order Preview", reviewText:"Please review and confirm your order",
+    totalLabel:"Total Amount",
+    confirmBtn:"Confirm Order", editBtn:"Go Back and Edit",
+    successTitle:"Your Order Has Been Placed!", successText:"Your order has been sent to the kitchen. Please wait while it is prepared.",
+    newOrderBtn:"Start New Order", emptyCart:"You haven't added anything to your order yet.",
+    currency:"₺"
+  },
+  ar: {
+    tagline:"مطعم المأكولات البحرية",
+    cartLabel:"عرض الطلب",
+    reviewTitle:"معاينة الطلب", reviewText:"يرجى مراجعة طلبك وتأكيده",
+    totalLabel:"المجموع الكلي",
+    confirmBtn:"تأكيد الطلب", editBtn:"العودة والتعديل",
+    successTitle:"تم استلام طلبك!", successText:"تم إرسال طلبك إلى المطبخ. يرجى الانتظار قليلاً حتى يتم تجهيزه.",
+    newOrderBtn:"بدء طلب جديد", emptyCart:"لم تقم بإضافة أي شيء إلى طلبك بعد.",
+    currency:"₺"
+  },
+  ru: {
+    tagline:"Ресторан морепродуктов",
+    cartLabel:"Посмотреть заказ",
+    reviewTitle:"Предпросмотр заказа", reviewText:"Пожалуйста, проверьте и подтвердите ваш заказ",
+    totalLabel:"Итоговая сумма",
+    confirmBtn:"Подтвердить заказ", editBtn:"Назад и изменить",
+    successTitle:"Ваш заказ принят!", successText:"Ваш заказ отправлен на кухню. Пожалуйста, подождите, пока он готовится.",
+    newOrderBtn:"Новый заказ", emptyCart:"Вы пока ничего не добавили в заказ.",
+    currency:"₺"
+  },
+  de: {
+    tagline:"Fischrestaurant",
+    cartLabel:"Bestellung ansehen",
+    reviewTitle:"Bestellübersicht", reviewText:"Bitte überprüfen und bestätigen Sie Ihre Bestellung",
+    totalLabel:"Gesamtbetrag",
+    confirmBtn:"Bestellung bestätigen", editBtn:"Zurück und bearbeiten",
+    successTitle:"Ihre Bestellung wurde aufgenommen!", successText:"Ihre Bestellung wurde an die Küche gesendet. Bitte warten Sie, während sie zubereitet wird.",
+    newOrderBtn:"Neue Bestellung", emptyCart:"Sie haben Ihrer Bestellung noch nichts hinzugefügt.",
+    currency:"₺"
+  },
+  fr: {
+    tagline:"Restaurant de fruits de mer",
+    cartLabel:"Voir la commande",
+    reviewTitle:"Aperçu de la commande", reviewText:"Veuillez vérifier et confirmer votre commande",
+    totalLabel:"Montant total",
+    confirmBtn:"Confirmer la commande", editBtn:"Retour et modifier",
+    successTitle:"Votre commande a été passée !", successText:"Votre commande a été envoyée en cuisine. Veuillez patienter pendant sa préparation.",
+    newOrderBtn:"Nouvelle commande", emptyCart:"Vous n'avez encore rien ajouté à votre commande.",
+    currency:"₺"
+  },
+  fa: {
+    tagline:"رستوران دریایی",
+    cartLabel:"مشاهده سفارش",
+    reviewTitle:"پیش‌نمایش سفارش", reviewText:"لطفاً سفارش خود را بررسی و تأیید کنید",
+    totalLabel:"مجموع سفارش",
+    confirmBtn:"تأیید و ثبت سفارش", editBtn:"بازگشت و ویرایش سفارش",
+    successTitle:"سفارش شما ثبت شد!", successText:"سفارش شما برای آشپزخانه ارسال شد. لطفاً کمی صبر کنید تا آماده شود.",
+    newOrderBtn:"ثبت سفارش جدید", emptyCart:"هنوز چیزی به سفارش اضافه نکرده‌اید.",
+    currency:"₺"
+  },
+  es: {
+    tagline:"Restaurante de Mariscos",
+    cartLabel:"Ver Pedido",
+    reviewTitle:"Vista Previa del Pedido", reviewText:"Por favor revise y confirme su pedido",
+    totalLabel:"Monto Total",
+    confirmBtn:"Confirmar Pedido", editBtn:"Volver y Editar",
+    successTitle:"¡Su Pedido Ha Sido Recibido!", successText:"Su pedido ha sido enviado a la cocina. Por favor espere mientras se prepara.",
+    newOrderBtn:"Iniciar Nuevo Pedido", emptyCart:"Aún no ha añadido nada a su pedido.",
+    currency:"₺"
+  },
+  it: {
+    tagline:"Ristorante di Pesce",
+    cartLabel:"Visualizza Ordine",
+    reviewTitle:"Anteprima Ordine", reviewText:"Si prega di controllare e confermare l'ordine",
+    totalLabel:"Importo Totale",
+    confirmBtn:"Conferma Ordine", editBtn:"Torna Indietro e Modifica",
+    successTitle:"Il Tuo Ordine È Stato Ricevuto!", successText:"Il tuo ordine è stato inviato in cucina. Attendi mentre viene preparato.",
+    newOrderBtn:"Inizia Nuovo Ordine", emptyCart:"Non hai ancora aggiunto nulla al tuo ordine.",
+    currency:"₺"
+  },
+  ko: {
+    tagline:"해산물 레스토랑",
+    cartLabel:"주문 보기",
+    reviewTitle:"주문 확인", reviewText:"주문 내용을 확인하고 승인해 주세요",
+    totalLabel:"총 금액",
+    confirmBtn:"주문 확정", editBtn:"돌아가서 수정",
+    successTitle:"주문이 접수되었습니다!", successText:"주문이 주방으로 전달되었습니다. 준비되는 동안 잠시 기다려 주세요.",
+    newOrderBtn:"새 주문 시작", emptyCart:"아직 주문에 추가한 항목이 없습니다.",
+    currency:"₺"
+  },
+  ja: {
+    tagline:"シーフードレストラン",
+    cartLabel:"注文を見る",
+    reviewTitle:"注文確認", reviewText:"ご注文内容をご確認の上、確定してください",
+    totalLabel:"合計金額",
+    confirmBtn:"注文を確定する", editBtn:"戻って編集",
+    successTitle:"ご注文を承りました！", successText:"ご注文はキッチンに送られました。準備が整うまでしばらくお待ちください。",
+    newOrderBtn:"新しい注文を始める", emptyCart:"まだ注文に何も追加されていません。",
+    currency:"₺"
+  },
+  zh: {
+    tagline:"海鲜餐厅",
+    cartLabel:"查看订单",
+    reviewTitle:"订单预览", reviewText:"请检查并确认您的订单",
+    totalLabel:"总金额",
+    confirmBtn:"确认订单", editBtn:"返回修改",
+    successTitle:"您的订单已收到！", successText:"您的订单已发送至厨房，请耐心等待制作完成。",
+    newOrderBtn:"开始新订单", emptyCart:"您还没有添加任何商品到订单中。",
+    currency:"₺"
+  }
+};
+const rtlLangs = ['fa','ar'];
+let lang = 'tr';
+
+/* ---------------- menu data ---------------- */
+const menu = [
+  { key:"mezeler", title:{tr:"Mezeler", en:"Starters (Meze)", ar:"المقبلات (مزة)", ru:"Закуски (Мезе)", de:"Vorspeisen (Meze)", fr:"Entrées (Mezze)", fa:"پیش‌غذاها (مزه)", es:"Entrantes (Meze)", it:"Antipasti (Meze)", ko:"전채 요리 (메제)", ja:"前菜(メゼ)", zh:"开胃菜（梅泽）"}, items:[
+    {name:{tr:"Yaprak Sarma", en:"Stuffed Vine Leaves", ar:"ورق عنب محشي", ru:"Долма из виноградных листьев", de:"Gefüllte Weinblätter", fr:"Feuilles de vigne farcies", fa:"دلمه برگ مو", es:"Hojas de Parra Rellenas", it:"Foglie di Vite Ripiene", ko:"포도잎 쌈 (야프락 사르마)", ja:"ぶどうの葉包み(ヤプラック・サルマ)", zh:"葡萄叶卷"}, price:200},
+    {name:{tr:"Patlıcan Soslu", en:"Eggplant Salad with Tomato Sauce", ar:"سلطة الباذنجان بصلصة الطماطم", ru:"Баклажанный салат с томатным соусом", de:"Auberginensalat mit Tomatensauce", fr:"Salade d'aubergines à la sauce tomate", fa:"سالاد بادمجان با سس گوجه", es:"Ensalada de Berenjena con Salsa de Tomate", it:"Insalata di Melanzane con Salsa di Pomodoro", ko:"토마토 소스를 곁들인 가지 샐러드", ja:"トマトソース茄子サラダ", zh:"番茄酱茄子沙拉"}, price:200},
+    {name:{tr:"Acılı Ezme", en:"Spicy Tomato Relish (Ezme)", ar:"عزمة حارة (سلطة طماطم حارة)", ru:"Острая томатная закуска (Эзме)", de:"Scharfe Tomaten-Ezme", fr:"Ezme épicée à la tomate", fa:"پوره گوجه‌فرنگی تند", es:"Ezme Picante de Tomate", it:"Ezme Piccante al Pomodoro", ko:"매운 토마토 에즈메", ja:"辛味トマトのエズメ", zh:"辣味番茄泥（艾兹梅）"}, price:200},
+    {name:{tr:"Haydari", en:"Garlic Yogurt Dip (Haydari)", ar:"هيداري (زبادي بالثوم)", ru:"Хайдари (йогуртовый соус с чесноком)", de:"Haydari (Joghurt-Knoblauch-Dip)", fr:"Haydari (yaourt à l'ail)", fa:"سس ماست و سیر", es:"Haydari (Salsa de Yogur con Ajo)", it:"Haydari (Salsa di Yogurt all'Aglio)", ko:"하이다리 (마늘 요거트 딥)", ja:"ハイダリ(ニンニクヨーグルトディップ)", zh:"海达里（大蒜酸奶酱）"}, price:200},
+    {name:{tr:"Beyaz Peynir", en:"White Cheese", ar:"جبنة بيضاء", ru:"Белый сыр", de:"Weißkäse", fr:"Fromage blanc", fa:"پنیر سفید", es:"Queso Blanco", it:"Formaggio Bianco", ko:"화이트 치즈", ja:"ホワイトチーズ", zh:"白奶酪"}, price:120},
+    {name:{tr:"Ahtapot Salatası", en:"Octopus Salad", ar:"سلطة الأخطبوط", ru:"Салат из осьминога", de:"Oktopussalat", fr:"Salade de poulpe", fa:"سالاد اختاپوس", es:"Ensalada de Pulpo", it:"Insalata di Polpo", ko:"문어 샐러드", ja:"タコのサラダ", zh:"章鱼沙拉"}, price:600},
+    {name:{tr:"Lakerda", en:"Lakerda (Salted Bonito)", ar:"لاكردا (تونة مملحة)", ru:"Лакерда (солёный бонито)", de:"Lakerda (gesalzener Bonito)", fr:"Lakerda (bonite salée)", fa:"ماهی کولی نمک‌سود (لاکردا)", es:"Lakerda (Bonito Salado)", it:"Lakerda (Bonito Salato)", ko:"라케르다 (염장 가다랑어)", ja:"ラケルダ(塩漬けカツオ)", zh:"拉克达（腌鲣鱼）"}, price:600},
+  ]},
+  { key:"atistirmaliklar", title:{tr:"Atıştırmalıklar", en:"Fried Starters", ar:"المقبلات المقلية", ru:"Жареные закуски", de:"Frittierte Vorspeisen", fr:"Entrées frites", fa:"پیش‌غذاهای سرخ‌شده", es:"Entrantes Fritos", it:"Antipasti Fritti", ko:"튀김 전채", ja:"揚げ物前菜", zh:"炸物开胃菜"}, items:[
+    {name:{tr:"Patates Tava", en:"Fried Potatoes", ar:"بطاطس مقلية", ru:"Жареный картофель", de:"Bratkartoffeln", fr:"Pommes de terre frites", fa:"سیب‌زمینی سرخ‌کرده", es:"Patatas Fritas", it:"Patatine Fritte", ko:"감자튀김", ja:"フライドポテト", zh:"炸薯条"}, price:200},
+    {name:{tr:"Sigara Böreği", en:"Cigar Börek", ar:"بوريك سيجارة", ru:"Сигара бёрек", de:"Sigara Böreği (Röllchen)", fr:"Börek en cigare", fa:"بورک سیگاری", es:"Börek en Forma de Cigarro", it:"Börek a Sigaro", ko:"시가라 뵈렉 (치즈 롤 튀김)", ja:"シガラ・ボレイ(チーズ春巻き)", zh:"雪茄卷酥（芝加拉波瑞克）"}, price:250},
+    {name:{tr:"Kalamar (200 gr)", en:"Calamari (200g)", ar:"كالاماري (٢٠٠ غرام)", ru:"Кальмары (200 г)", de:"Kalamari (200 g)", fr:"Calamars (200 g)", fa:"کالاماری (۲۰۰ گرم)", es:"Calamares (200g)", it:"Calamari (200g)", ko:"칼라마리 (200g)", ja:"カラマリ(イカリング)(200g)", zh:"炸鱿鱼圈（200克）"}, price:550},
+    {name:{tr:"Tereyağında Karides (200 gr)", en:"Shrimp in Butter (200g)", ar:"جمبري بالزبدة (٢٠٠ غرام)", ru:"Креветки в сливочном масле (200 г)", de:"Garnelen in Butter (200 g)", fr:"Crevettes au beurre (200 g)", fa:"میگو با کره (۲۰۰ گرم)", es:"Gambas con Mantequilla (200g)", it:"Gamberi al Burro (200g)", ko:"버터 새우 (200g)", ja:"バター海老(200g)", zh:"黄油虾（200克）"}, price:600},
+    {name:{tr:"Karides Güveç (200 gr)", en:"Shrimp Casserole (200g)", ar:"جمبري بالفخار (٢٠٠ غرام)", ru:"Креветки в горшочке (200 г)", de:"Garnelen-Auflauf (200 g)", fr:"Crevettes en cocotte (200 g)", fa:"میگو در قابلمه سفالی (۲۰۰ گرم)", es:"Cazuela de Gambas (200g)", it:"Gamberi in Casseruola (200g)", ko:"새우 뚝배기 (200g)", ja:"海老の壺焼き(200g)", zh:"砂锅虾（200克）"}, price:600},
+  ]},
+  { key:"kokorec", title:{tr:"Kokoreç", en:"Kokoreç (Grilled Lamb Intestines)", ar:"كوكوريتش (أمعاء الحمل المشوية)", ru:"Кокореч (жареные бараньи потроха)", de:"Kokoreç (gegrillte Lamminnereien)", fr:"Kokoreç (tripes d'agneau grillées)", fa:"کوکورچ (روده کبابی بره)", es:"Kokoreç (Tripas de Cordero a la Parrilla)", it:"Kokoreç (Interiora di Agnello alla Griglia)", ko:"코코레치 (양 내장 구이)", ja:"ココレチ（羊の腸の炭火焼き）", zh:"科科雷奇（烤羊肠）"}, items:[
+    {name:{tr:"Porsiyon", en:"Portion", ar:"حصة", ru:"Порция", de:"Portion", fr:"Portion", fa:"پرس", es:"Ración", it:"Porzione", ko:"1인분", ja:"1人前", zh:"一份"}, price:450},
+    {name:{tr:"Üç Çeyrek Ekmek", en:"Three-Quarter Bread", ar:"ثلاثة أرباع خبز", ru:"Три четверти хлеба", de:"Dreiviertel Brot", fr:"Trois quarts de pain", fa:"سه‌چهارم نان", es:"Tres Cuartos de Pan", it:"Tre Quarti di Pane", ko:"빵 4분의 3", ja:"パン4分の3", zh:"四分之三面包"}, price:500},
+    {name:{tr:"Yarım Ekmek", en:"Half Bread", ar:"نصف خبز", ru:"Половина хлеба", de:"Halbes Brot", fr:"Demi-pain", fa:"نصف نان", es:"Medio Pan", it:"Mezzo Pane", ko:"빵 2분의 1", ja:"パン半分", zh:"半个面包"}, price:350},
+    {name:{tr:"Çeyrek Ekmek", en:"Quarter Bread", ar:"ربع خبز", ru:"Четверть хлеба", de:"Viertel Brot", fr:"Quart de pain", fa:"یک‌چهارم نان", es:"Un Cuarto de Pan", it:"Un Quarto di Pane", ko:"빵 4분의 1", ja:"パン4分の1", zh:"四分之一面包"}, price:220},
+    {name:{tr:"Güveç", en:"Casserole", ar:"بالفخار", ru:"В горшочке", de:"Im Tontopf", fr:"En cocotte", fa:"در قابلمه سفالی", es:"Cazuela", it:"Casseruola", ko:"뚝배기", ja:"壺焼き", zh:"砂锅"}, price:550},
+    {name:{tr:"Kağıtta", en:"Wrapped in Paper", ar:"ملفوف بالورق", ru:"В бумаге", de:"In Papier gegart", fr:"En papillote", fa:"در کاغذ", es:"Envuelto en Papel", it:"Avvolto nella Carta", ko:"종이에 싸서", ja:"紙包み焼き", zh:"纸包烤"}, price:550},
+  ]},
+  { key:"midye", title:{tr:"Midye Tava", en:"Fried Mussels", ar:"بلح البحر المقلي", ru:"Жареные мидии", de:"Gebratene Miesmuscheln", fr:"Moules frites", fa:"میدیه تاوا (صدف سرخ‌شده)", es:"Mejillones Fritos", it:"Cozze Fritte", ko:"홍합 튀김", ja:"ムール貝のフライ", zh:"炸青口"}, items:[
+    {name:{tr:"Porsiyon (4 adet)", en:"Portion (4 pcs)", ar:"حصة (٤ قطع)", ru:"Порция (4 шт.)", de:"Portion (4 Stk.)", fr:"Portion (4 pièces)", fa:"پرس (۴ عدد)", es:"Ración (4 uds.)", it:"Porzione (4 pz.)", ko:"1인분 (4개)", ja:"1人前(4個)", zh:"一份（4个）"}, price:350},
+    {name:{tr:"Üç Çeyrek Ekmek (5 adet)", en:"Three-Quarter Bread (5 pcs)", ar:"ثلاثة أرباع خبز (٥ قطع)", ru:"Три четверти хлеба (5 шт.)", de:"Dreiviertel Brot (5 Stk.)", fr:"Trois quarts de pain (5 pièces)", fa:"سه‌چهارم نان (۵ عدد)", es:"Tres Cuartos de Pan (5 uds.)", it:"Tre Quarti di Pane (5 pz.)", ko:"빵 4분의 3 (5개)", ja:"パン4分の3(5個)", zh:"四分之三面包（5个）"}, price:450},
+    {name:{tr:"Yarım Ekmek (3 adet)", en:"Half Bread (3 pcs)", ar:"نصف خبز (٣ قطع)", ru:"Половина хлеба (3 шт.)", de:"Halbes Brot (3 Stk.)", fr:"Demi-pain (3 pièces)", fa:"نصف نان (۳ عدد)", es:"Medio Pan (3 uds.)", it:"Mezzo Pane (3 pz.)", ko:"빵 2분의 1 (3개)", ja:"パン半分(3個)", zh:"半个面包（3个）"}, price:270},
+    {name:{tr:"Çeyrek Ekmek (2 adet)", en:"Quarter Bread (2 pcs)", ar:"ربع خبز (قطعتان)", ru:"Четверть хлеба (2 шт.)", de:"Viertel Brot (2 Stk.)", fr:"Quart de pain (2 pièces)", fa:"یک‌چهارم نان (۲ عدد)", es:"Un Cuarto de Pan (2 uds.)", it:"Un Quarto di Pane (2 pz.)", ko:"빵 4분의 1 (2개)", ja:"パン4分の1(2個)", zh:"四分之一面包（2个）"}, price:180},
+    {name:{tr:"Midye Dolma Porsiyon (10 adet)", en:"Stuffed Mussels (10 pcs)", ar:"بلح البحر المحشي (١٠ قطع)", ru:"Фаршированные мидии (10 шт.)", de:"Gefüllte Miesmuscheln (10 Stk.)", fr:"Moules farcies (10 pièces)", fa:"میدیه دلمه (۱۰ عدد)", es:"Mejillones Rellenos (10 uds.)", it:"Cozze Ripiene (10 pz.)", ko:"홍합 돌마 (10개)", ja:"詰め物ムール貝(10個)", zh:"酿青口（10个）"}, price:200},
+  ]},
+  { key:"baliklar", title:{tr:"Balıklar", en:"Fish", ar:"الأسماك", ru:"Рыба", de:"Fisch", fr:"Poissons", fa:"ماهی‌ها", es:"Pescados", it:"Pesce", ko:"생선", ja:"魚料理", zh:"鱼类"}, items:[
+    {name:{tr:"Hamsi (250 gr)", en:"Anchovy (250g)", ar:"أنشوجة (٢٥٠ غرام)", ru:"Анчоус (250 г)", de:"Sardelle (250 g)", fr:"Anchois (250 g)", fa:"آنچوی (۲۵۰ گرم)", es:"Boquerón (250g)", it:"Alici (250g)", ko:"안초비 (250g)", ja:"カタクチイワシ(250g)", zh:"凤尾鱼（250克）"}, price:400},
+    {name:{tr:"İstavrit (250 gr)", en:"Horse Mackerel (250g)", ar:"استاوريت (٢٥٠ غرام)", ru:"Ставрида (250 г)", de:"Stöcker (250 g)", fr:"Chinchard (250 g)", fa:"استاوریت (۲۵۰ گرم)", es:"Jurel (250g)", it:"Suro (250g)", ko:"전갱이 (250g)", ja:"アジ(250g)", zh:"竹荚鱼（250克）"}, price:400},
+    {name:{tr:"Levrek (350 gr)", en:"Sea Bass (350g)", ar:"سمك القاروص (٣٥٠ غرام)", ru:"Морской окунь (350 г)", de:"Wolfsbarsch (350 g)", fr:"Bar (350 g)", fa:"سی‌باس (۳۵۰ گرم)", es:"Lubina (350g)", it:"Branzino (350g)", ko:"농어 (350g)", ja:"スズキ(350g)", zh:"鲈鱼（350克）"}, price:550},
+    {name:{tr:"Çupra (350 gr)", en:"Sea Bream (350g)", ar:"سمك الدنيس (٣٥٠ غرام)", ru:"Дорадо (350 г)", de:"Goldbrasse (350 g)", fr:"Dorade (350 g)", fa:"اردک ماهی طلایی (۳۵۰ گرم)", es:"Dorada (350g)", it:"Orata (350g)", ko:"도미 (350g)", ja:"真鯛(350g)", zh:"鲷鱼（350克）"}, price:550},
+    {name:{tr:"Tekir (250 gr)", en:"Red Mullet (250g)", ar:"سمك البربوني الصغير (٢٥٠ غرام)", ru:"Барабулька (250 г)", de:"Rotbarbe (250 g)", fr:"Rouget (250 g)", fa:"ماهی تکیر (۲۵۰ گرم)", es:"Salmonete Pequeño (250g)", it:"Triglia Piccola (250g)", ko:"붉은숭어 (250g)", ja:"ヒメジ(250g)", zh:"小红鲻鱼（250克）"}, price:600},
+    {name:{tr:"Barbun (200 gr)", en:"Large Red Mullet (200g)", ar:"بربوني كبير (٢٠٠ غرام)", ru:"Крупная барабулька (200 г)", de:"Große Rotbarbe (200 g)", fr:"Grand rouget (200 g)", fa:"باربون بزرگ (۲۰۰ گرم)", es:"Salmonete Grande (200g)", it:"Triglia Grande (200g)", ko:"큰 붉은숭어 (200g)", ja:"大きなヒメジ(200g)", zh:"大红鲻鱼（200克）"}, price:700},
+    {name:{tr:"Somon (300 gr)", en:"Salmon (300g)", ar:"سلمون (٣٠٠ غرام)", ru:"Лосось (300 г)", de:"Lachs (300 g)", fr:"Saumon (300 g)", fa:"سالمون (۳۰۰ گرم)", es:"Salmón (300g)", it:"Salmone (300g)", ko:"연어 (300g)", ja:"サーモン(300g)", zh:"三文鱼（300克）"}, price:550},
+    {name:{tr:"Jumbo Karides (200 gr)", en:"Jumbo Shrimp (200g)", ar:"جمبري جامبو (٢٠٠ غرام)", ru:"Королевские креветки (200 г)", de:"Jumbo-Garnelen (200 g)", fr:"Crevettes géantes (200 g)", fa:"میگوی جامبو (۲۰۰ گرم)", es:"Gambas Jumbo (200g)", it:"Gamberi Jumbo (200g)", ko:"점보 새우 (200g)", ja:"ジャンボ海老(200g)", zh:"大虾（200克）"}, price:600},
+    {name:{tr:"Palamut", en:"Bonito", ar:"بالاموت (تونة صغيرة)", ru:"Пеламида", de:"Bonito", fr:"Bonite", fa:"پالاموت (بونیتو)", es:"Bonito", it:"Palamita", ko:"가다랑어 (팔라무트)", ja:"カツオ(パラムート)", zh:"鲣鱼"}, price:600},
+    {name:{tr:"Lüfer", en:"Bluefish (Lüfer)", ar:"لوفر (سمك أزرق)", ru:"Люфер (голубая рыба)", de:"Blaubarsch (Lüfer)", fr:"Tassergal (Lüfer)", fa:"لوفر (ماهی آبی)", es:"Pez Azul (Lüfer)", it:"Pesce Serra (Lüfer)", ko:"루페르 (블루피시)", ja:"ルフェル(アオナガ)", zh:"蓝鱼（吕费尔）"}, price:700},
+    {name:{tr:"Çinekop", en:"Small Bluefish", ar:"سمك أزرق صغير", ru:"Молодой люфер", de:"Junger Blaubarsch", fr:"Jeune tassergal", fa:"چینه‌کوپ (ماهی آبی کوچک)", es:"Pez Azul Pequeño", it:"Piccolo Pesce Serra", ko:"어린 루페르", ja:"若いルフェル", zh:"小蓝鱼"}, price:400},
+    {name:{tr:"Sarı Kanat", en:"Small Young Bluefish", ar:"سمك أزرق صغير جدا", ru:"Мелкий люфер", de:"Kleiner Blaubarsch", fr:"Petit tassergal", fa:"ماهی آبی ریز", es:"Pez Azul Muy Pequeño", it:"Pesce Serra Piccolissimo", ko:"아주 어린 루페르", ja:"極小ルフェル", zh:"迷你蓝鱼"}, price:220},
+    {name:{tr:"Balık Ekmek", en:"Fish Sandwich", ar:"ساندويتش سمك", ru:"Рыбный сэндвич", de:"Fischsandwich", fr:"Sandwich au poisson", fa:"ساندویچ ماهی", es:"Bocadillo de Pescado", it:"Panino al Pesce", ko:"피시 샌드위치", ja:"フィッシュサンド", zh:"鱼肉三明治"}, price:220},
+    {name:{tr:"Uskumru (2 adet)", en:"Mackerel (2 pcs)", ar:"إسقمري (قطعتان)", ru:"Скумбрия (2 шт.)", de:"Makrele (2 Stk.)", fr:"Maquereau (2 pièces)", fa:"اسقومری (۲ عدد)", es:"Caballa (2 uds.)", it:"Sgombro (2 pz.)", ko:"고등어 (2마리)", ja:"鯖(2匹)", zh:"鲭鱼（2条）"}, price:450},
+  ]},
+  { key:"izgaralar", title:{tr:"Izgaralar", en:"Grills", ar:"المشاوي", ru:"Гриль", de:"Grillgerichte", fr:"Grillades", fa:"کباب‌ها", es:"Parrilla", it:"Grigliate", ko:"그릴 요리", ja:"グリル料理", zh:"烧烤"}, items:[
+    {name:{tr:"Tavuk Şiş (200 gr)", en:"Chicken Skewer (200g)", ar:"شيش طاووق (٢٠٠ غرام)", ru:"Куриный шашлык (200 г)", de:"Hähnchenspieß (200 g)", fr:"Brochette de poulet (200 g)", fa:"جوجه کباب سیخی (۲۰۰ گرم)", es:"Brocheta de Pollo (200g)", it:"Spiedino di Pollo (200g)", ko:"치킨 시시케밥 (200g)", ja:"チキンシシケバブ(200g)", zh:"鸡肉烤串（200克）"}, price:300},
+    {name:{tr:"Köfte (200 gr)", en:"Grilled Meatballs (200g)", ar:"كفتة مشوية (٢٠٠ غرام)", ru:"Кёфте (200 г)", de:"Köfte (200 g)", fr:"Köfte grillées (200 g)", fa:"کوفته کبابی (۲۰۰ گرم)", es:"Albóndigas a la Parrilla (200g)", it:"Polpette alla Griglia (200g)", ko:"그릴 쾨프테 (미트볼) (200g)", ja:"焼きキョフテ(ミートボール)(200g)", zh:"烤肉丸（200克）"}, price:400},
+    {name:{tr:"Kuzu Şiş (250 gr)", en:"Lamb Skewer (250g)", ar:"شيش لحم غنم (٢٥٠ غرام)", ru:"Шашлык из баранины (250 г)", de:"Lammspieß (250 g)", fr:"Brochette d'agneau (250 g)", fa:"کباب بره سیخی (۲۵۰ گرم)", es:"Brocheta de Cordero (250g)", it:"Spiedino di Agnello (250g)", ko:"양고기 시시케밥 (250g)", ja:"仔羊のシシケバブ(250g)", zh:"羊肉烤串（250克）"}, price:450},
+    {name:{tr:"Karışık Izgara (300 gr)", en:"Mixed Grill (300g)", ar:"مشاوي مشكلة (٣٠٠ غرام)", ru:"Микс-гриль (300 г)", de:"Gemischter Grillteller (300 g)", fr:"Grillades mixtes (300 g)", fa:"کباب مخلوط (۳۰۰ گرم)", es:"Parrillada Mixta (300g)", it:"Grigliata Mista (300g)", ko:"모듬 그릴 (300g)", ja:"ミックスグリル(300g)", zh:"什锦烤肉（300克）"}, price:500},
+  ]},
+  { key:"salatalar", title:{tr:"Salatalar", en:"Salads", ar:"السلطات", ru:"Салаты", de:"Salate", fr:"Salades", fa:"سالادها", es:"Ensaladas", it:"Insalate", ko:"샐러드", ja:"サラダ", zh:"沙拉"}, items:[
+    {name:{tr:"Mevsim Salatası", en:"Seasonal Salad", ar:"سلطة موسمية", ru:"Сезонный салат", de:"Saisonsalat", fr:"Salade de saison", fa:"سالاد فصل", es:"Ensalada de Temporada", it:"Insalata di Stagione", ko:"계절 샐러드", ja:"季節のサラダ", zh:"时令沙拉"}, price:200},
+    {name:{tr:"Çoban Salatası", en:"Shepherd's Salad", ar:"سلطة الراعي", ru:"Салат Чобан", de:"Hirtensalat", fr:"Salade du berger", fa:"سالاد چوپان", es:"Ensalada del Pastor", it:"Insalata del Pastore", ko:"초반 샐러드 (목동 샐러드)", ja:"チョバンサラダ(羊飼いのサラダ)", zh:"牧羊人沙拉"}, price:200},
+  ]},
+  { key:"icecekler", title:{tr:"İçecekler", en:"Alcoholic Drinks", ar:"المشروبات الكحولية", ru:"Алкогольные напитки", de:"Alkoholische Getränke", fr:"Boissons alcoolisées", fa:"نوشیدنی‌های الکلی", es:"Bebidas Alcohólicas", it:"Bevande Alcoliche", ko:"주류", ja:"アルコール飲料", zh:"酒精饮料"}, items:[
+    {name:{tr:"Yeni Rakı (20 cl)", en:"Yeni Rakı (20cl)", ar:"راكي ييني (٢٠ سم مكعب)", ru:"Йени Ракы (20 мл)", de:"Yeni Rakı (20 cl)", fr:"Yeni Rakı (20 cl)", fa:"راکی ینی (۲۰ سی‌سی)", es:"Yeni Rakı (20cl)", it:"Yeni Rakı (20cl)", ko:"예니 라크 (20cl)", ja:"イェニ・ラク(20cl)", zh:"耶尼拉克酒（20毫升）"}, price:1000},
+    {name:{tr:"Yeni Rakı (35 cl)", en:"Yeni Rakı (35cl)", ar:"راكي ييني (٣٥ سم مكعب)", ru:"Йени Ракы (35 мл)", de:"Yeni Rakı (35 cl)", fr:"Yeni Rakı (35 cl)", fa:"راکی ینی (۳۵ سی‌سی)", es:"Yeni Rakı (35cl)", it:"Yeni Rakı (35cl)", ko:"예니 라크 (35cl)", ja:"イェニ・ラク(35cl)", zh:"耶尼拉克酒（35毫升）"}, price:1300},
+    {name:{tr:"Yeni Rakı (50 cl)", en:"Yeni Rakı (50cl)", ar:"راكي ييني (٥٠ سم مكعب)", ru:"Йени Ракы (50 мл)", de:"Yeni Rakı (50 cl)", fr:"Yeni Rakı (50 cl)", fa:"راکی ینی (۵۰ سی‌سی)", es:"Yeni Rakı (50cl)", it:"Yeni Rakı (50cl)", ko:"예니 라크 (50cl)", ja:"イェニ・ラク(50cl)", zh:"耶尼拉克酒（50毫升）"}, price:1800},
+    {name:{tr:"Yeni Rakı (70 cl)", en:"Yeni Rakı (70cl)", ar:"راكي ييني (٧٠ سم مكعب)", ru:"Йени Ракы (70 мл)", de:"Yeni Rakı (70 cl)", fr:"Yeni Rakı (70 cl)", fa:"راکی ینی (۷۰ سی‌سی)", es:"Yeni Rakı (70cl)", it:"Yeni Rakı (70cl)", ko:"예니 라크 (70cl)", ja:"イェニ・ラク(70cl)", zh:"耶尼拉克酒（70毫升）"}, price:2250},
+    {name:{tr:"Yeni Rakı Yeni Seri (20 cl)", en:"Yeni Rakı New Series (20cl)", ar:"راكي ييني السلسلة الجديدة (٢٠ سم مكعب)", ru:"Йени Ракы новая серия (20 мл)", de:"Yeni Rakı neue Serie (20 cl)", fr:"Yeni Rakı nouvelle série (20 cl)", fa:"راکی ینی سری جدید (۲۰ سی‌سی)", es:"Yeni Rakı Nueva Serie (20cl)", it:"Yeni Rakı Nuova Serie (20cl)", ko:"예니 라크 뉴 시리즈 (20cl)", ja:"イェニ・ラク新シリーズ(20cl)", zh:"耶尼拉克新系列（20毫升）"}, price:1050},
+    {name:{tr:"Yeni Rakı Yeni Seri (35 cl)", en:"Yeni Rakı New Series (35cl)", ar:"راكي ييني السلسلة الجديدة (٣٥ سم مكعب)", ru:"Йени Ракы новая серия (35 мл)", de:"Yeni Rakı neue Serie (35 cl)", fr:"Yeni Rakı nouvelle série (35 cl)", fa:"راکی ینی سری جدید (۳۵ سی‌سی)", es:"Yeni Rakı Nueva Serie (35cl)", it:"Yeni Rakı Nuova Serie (35cl)", ko:"예니 라크 뉴 시리즈 (35cl)", ja:"イェニ・ラク新シリーズ(35cl)", zh:"耶尼拉克新系列（35毫升）"}, price:1350},
+    {name:{tr:"Yeni Rakı Yeni Seri (50 cl)", en:"Yeni Rakı New Series (50cl)", ar:"راكي ييني السلسلة الجديدة (٥٠ سم مكعب)", ru:"Йени Ракы новая серия (50 мл)", de:"Yeni Rakı neue Serie (50 cl)", fr:"Yeni Rakı nouvelle série (50 cl)", fa:"راکی ینی سری جدید (۵۰ سی‌سی)", es:"Yeni Rakı Nueva Serie (50cl)", it:"Yeni Rakı Nuova Serie (50cl)", ko:"예니 라크 뉴 시리즈 (50cl)", ja:"イェニ・ラク新シリーズ(50cl)", zh:"耶尼拉克新系列（50毫升）"}, price:1850},
+    {name:{tr:"Yeni Rakı Yeni Seri (70 cl)", en:"Yeni Rakı New Series (70cl)", ar:"راكي ييني السلسلة الجديدة (٧٠ سم مكعب)", ru:"Йени Ракы новая серия (70 мл)", de:"Yeni Rakı neue Serie (70 cl)", fr:"Yeni Rakı nouvelle série (70 cl)", fa:"راکی ینی سری جدید (۷۰ سی‌سی)", es:"Yeni Rakı Nueva Serie (70cl)", it:"Yeni Rakı Nuova Serie (70cl)", ko:"예니 라크 뉴 시리즈 (70cl)", ja:"イェニ・ラク新シリーズ(70cl)", zh:"耶尼拉克新系列（70毫升）"}, price:2350},
+    {name:{tr:"Votka (20 cl)", en:"Vodka (20cl)", ar:"فودكا (٢٠ سم مكعب)", ru:"Водка (20 мл)", de:"Wodka (20 cl)", fr:"Vodka (20 cl)", fa:"ودکا (۲۰ سی‌سی)", es:"Vodka (20cl)", it:"Vodka (20cl)", ko:"보드카 (20cl)", ja:"ウォッカ(20cl)", zh:"伏特加（20毫升）"}, price:1000},
+    {name:{tr:"Votka (35 cl)", en:"Vodka (35cl)", ar:"فودكا (٣٥ سم مكعب)", ru:"Водка (35 мл)", de:"Wodka (35 cl)", fr:"Vodka (35 cl)", fa:"ودکا (۳۵ سی‌سی)", es:"Vodka (35cl)", it:"Vodka (35cl)", ko:"보드카 (35cl)", ja:"ウォッカ(35cl)", zh:"伏特加（35毫升）"}, price:1300},
+    {name:{tr:"Votka (50 cl)", en:"Vodka (50cl)", ar:"فودكا (٥٠ سم مكعب)", ru:"Водка (50 мл)", de:"Wodka (50 cl)", fr:"Vodka (50 cl)", fa:"ودکا (۵۰ سی‌سی)", es:"Vodka (50cl)", it:"Vodka (50cl)", ko:"보드카 (50cl)", ja:"ウォッカ(50cl)", zh:"伏特加（50毫升）"}, price:1800},
+    {name:{tr:"Votka (70 cl)", en:"Vodka (70cl)", ar:"فودكا (٧٠ سم مكعب)", ru:"Водка (70 мл)", de:"Wodka (70 cl)", fr:"Vodka (70 cl)", fa:"ودکا (۷۰ سی‌سی)", es:"Vodka (70cl)", it:"Vodka (70cl)", ko:"보드카 (70cl)", ja:"ウォッカ(70cl)", zh:"伏特加（70毫升）"}, price:2250},
+    {name:{tr:"Duble Votka", en:"Double Vodka", ar:"فودكا دبل", ru:"Двойная водка", de:"Doppelter Wodka", fr:"Vodka double", fa:"ودکا دوبل", es:"Vodka Doble", it:"Vodka Doppia", ko:"더블 보드카", ja:"ダブル・ウォッカ", zh:"双份伏特加"}, price:400},
+    {name:{tr:"Duble Rakı", en:"Double Rakı", ar:"راكي دبل", ru:"Двойная Ракы", de:"Doppelter Rakı", fr:"Rakı double", fa:"راکی دوبل", es:"Rakı Doble", it:"Rakı Doppio", ko:"더블 라크", ja:"ダブル・ラク", zh:"双份拉克酒"}, price:400},
+    {name:{tr:"Tek Rakı", en:"Single Rakı", ar:"راكي مفرد", ru:"Одинарная Ракы", de:"Einfacher Rakı", fr:"Rakı simple", fa:"راکی تک", es:"Rakı Simple", it:"Rakı Singolo", ko:"싱글 라크", ja:"シングル・ラク", zh:"单份拉克酒"}, price:250},
+  ]},
+  { key:"saraplar", title:{tr:"Şaraplar", en:"Wines", ar:"النبيذ", ru:"Вина", de:"Weine", fr:"Vins", fa:"شراب‌ها", es:"Vinos", it:"Vini", ko:"와인", ja:"ワイン", zh:"葡萄酒"}, items:[
+    {name:{tr:"Buzbağ Kırmızı (37.5 cl)", en:"Buzbağ Red Wine (37.5cl)", ar:"بوزباغ أحمر (٣٧.٥ سم مكعب)", ru:"Бузбаг красное (37,5 мл)", de:"Buzbağ Rotwein (37,5 cl)", fr:"Buzbağ rouge (37,5 cl)", fa:"شراب قرمز بوزباغ (۳۷.۵ سی‌سی)", es:"Vino Tinto Buzbağ (37.5cl)", it:"Vino Rosso Buzbağ (37.5cl)", ko:"부즈바 레드 와인 (37.5cl)", ja:"ブズバー赤ワイン(37.5cl)", zh:"布兹巴格红葡萄酒（37.5毫升）"}, price:750},
+    {name:{tr:"Buzbağ Kırmızı (75 cl)", en:"Buzbağ Red Wine (75cl)", ar:"بوزباغ أحمر (٧٥ سم مكعب)", ru:"Бузбаг красное (75 мл)", de:"Buzbağ Rotwein (75 cl)", fr:"Buzbağ rouge (75 cl)", fa:"شراب قرمز بوزباغ (۷۵ سی‌سی)", es:"Vino Tinto Buzbağ (75cl)", it:"Vino Rosso Buzbağ (75cl)", ko:"부즈바 레드 와인 (75cl)", ja:"ブズバー赤ワイン(75cl)", zh:"布兹巴格红葡萄酒（75毫升）"}, price:1500},
+    {name:{tr:"Buzbağ Beyaz (37.5 cl)", en:"Buzbağ White Wine (37.5cl)", ar:"بوزباغ أبيض (٣٧.٥ سم مكعب)", ru:"Бузбаг белое (37,5 мл)", de:"Buzbağ Weißwein (37,5 cl)", fr:"Buzbağ blanc (37,5 cl)", fa:"شراب سفید بوزباغ (۳۷.۵ سی‌سی)", es:"Vino Blanco Buzbağ (37.5cl)", it:"Vino Bianco Buzbağ (37.5cl)", ko:"부즈바 화이트 와인 (37.5cl)", ja:"ブズバー白ワイン(37.5cl)", zh:"布兹巴格白葡萄酒（37.5毫升）"}, price:750},
+    {name:{tr:"Buzbağ Beyaz (75 cl)", en:"Buzbağ White Wine (75cl)", ar:"بوزباغ أبيض (٧٥ سم مكعب)", ru:"Бузбаг белое (75 мл)", de:"Buzbağ Weißwein (75 cl)", fr:"Buzbağ blanc (75 cl)", fa:"شراب سفید بوزباغ (۷۵ سی‌سی)", es:"Vino Blanco Buzbağ (75cl)", it:"Vino Bianco Buzbağ (75cl)", ko:"부즈바 화이트 와인 (75cl)", ja:"ブズバー白ワイン(75cl)", zh:"布兹巴格白葡萄酒（75毫升）"}, price:1500},
+    {name:{tr:"Kadeh Şarap", en:"Glass of Wine", ar:"كأس نبيذ", ru:"Бокал вина", de:"Glas Wein", fr:"Verre de vin", fa:"یک گیلاس شراب", es:"Copa de Vino", it:"Bicchiere di Vino", ko:"와인 한 잔", ja:"グラスワイン", zh:"一杯葡萄酒"}, price:350},
+  ]},
+  { key:"biralar", title:{tr:"Biralar", en:"Beers", ar:"البيرة", ru:"Пиво", de:"Biere", fr:"Bières", fa:"آبجوها", es:"Cervezas", it:"Birre", ko:"맥주", ja:"ビール", zh:"啤酒"}, items:[
+    {name:{tr:"Efes Fıçı (50 cl)", en:"Efes Draft Beer (50cl)", ar:"إفس مسحوب (٥٠ سم مكعب)", ru:"Эфес разливное (50 мл)", de:"Efes vom Fass (50 cl)", fr:"Efes pression (50 cl)", fa:"آبجو فشاری افس (۵۰ سی‌سی)", es:"Efes de Barril (50cl)", it:"Efes alla Spina (50cl)", ko:"에페스 생맥주 (50cl)", ja:"エフェス生ビール(50cl)", zh:"埃菲斯生啤（50毫升）"}, price:210},
+    {name:{tr:"Efes Fıçı (33 cl)", en:"Efes Draft Beer (33cl)", ar:"إفس مسحوب (٣٣ سم مكعب)", ru:"Эфес разливное (33 мл)", de:"Efes vom Fass (33 cl)", fr:"Efes pression (33 cl)", fa:"آبجو فشاری افس (۳۳ سی‌سی)", es:"Efes de Barril (33cl)", it:"Efes alla Spina (33cl)", ko:"에페스 생맥주 (33cl)", ja:"エフェス生ビール(33cl)", zh:"埃菲斯生啤（33毫升）"}, price:180},
+    {name:{tr:"Efes Şişe (50 cl)", en:"Efes Bottle (50cl)", ar:"إفس زجاجة (٥٠ سم مكعب)", ru:"Эфес бутылка (50 мл)", de:"Efes Flasche (50 cl)", fr:"Efes bouteille (50 cl)", fa:"آبجو بطری افس (۵۰ سی‌سی)", es:"Efes Botella (50cl)", it:"Efes in Bottiglia (50cl)", ko:"에페스 병맥주 (50cl)", ja:"エフェス瓶ビール(50cl)", zh:"埃菲斯瓶装啤酒（50毫升）"}, price:230},
+    {name:{tr:"Efes Şişe (33 cl)", en:"Efes Bottle (33cl)", ar:"إفس زجاجة (٣٣ سم مكعب)", ru:"Эфес бутылка (33 мл)", de:"Efes Flasche (33 cl)", fr:"Efes bouteille (33 cl)", fa:"آبجو بطری افس (۳۳ سی‌سی)", es:"Efes Botella (33cl)", it:"Efes in Bottiglia (33cl)", ko:"에페스 병맥주 (33cl)", ja:"エフェス瓶ビール(33cl)", zh:"埃菲斯瓶装啤酒（33毫升）"}, price:260},
+    {name:{tr:"Tuborg Fıçı (50 cl)", en:"Tuborg Draft Beer (50cl)", ar:"توبورغ مسحوب (٥٠ سم مكعب)", ru:"Туборг разливное (50 мл)", de:"Tuborg vom Fass (50 cl)", fr:"Tuborg pression (50 cl)", fa:"آبجو فشاری توبورگ (۵۰ سی‌سی)", es:"Tuborg de Barril (50cl)", it:"Tuborg alla Spina (50cl)", ko:"투보르 생맥주 (50cl)", ja:"トゥボー生ビール(50cl)", zh:"图堡生啤（50毫升）"}, price:210},
+    {name:{tr:"Tuborg Fıçı (33 cl)", en:"Tuborg Draft Beer (33cl)", ar:"توبورغ مسحوب (٣٣ سم مكعب)", ru:"Туборг разливное (33 мл)", de:"Tuborg vom Fass (33 cl)", fr:"Tuborg pression (33 cl)", fa:"آبجو فشاری توبورگ (۳۳ سی‌سی)", es:"Tuborg de Barril (33cl)", it:"Tuborg alla Spina (33cl)", ko:"투보르 생맥주 (33cl)", ja:"トゥボー生ビール(33cl)", zh:"图堡生啤（33毫升）"}, price:180},
+  ]},
+  { key:"mesrubatlar", title:{tr:"Meşrubatlar", en:"Soft Drinks", ar:"المشروبات غير الكحولية", ru:"Безалкогольные напитки", de:"Alkoholfreie Getränke", fr:"Boissons non alcoolisées", fa:"نوشیدنی‌های غیرالکلی", es:"Refrescos", it:"Bibite Analcoliche", ko:"소프트 드링크", ja:"ソフトドリンク", zh:"软饮料"}, items:[
+    {name:{tr:"Kola", en:"Coca-Cola", ar:"كوكاكولا", ru:"Кока-Кола", de:"Coca-Cola", fr:"Coca-Cola", fa:"کوکاکولا", es:"Coca-Cola", it:"Coca-Cola", ko:"코카콜라", ja:"コカ・コーラ", zh:"可口可乐"}, price:100},
+    {name:{tr:"Zero", en:"Coca-Cola Zero", ar:"كوكاكولا زيرو", ru:"Кока-Кола Зеро", de:"Coca-Cola Zero", fr:"Coca-Cola Zero", fa:"کوکاکولا زیرو", es:"Coca-Cola Zero", it:"Coca-Cola Zero", ko:"코카콜라 제로", ja:"コカ・コーラ ゼロ", zh:"可口可乐零度"}, price:100},
+    {name:{tr:"Light", en:"Diet Coke", ar:"كوكاكولا لايت", ru:"Кока-Кола Лайт", de:"Coca-Cola Light", fr:"Coca-Cola Light", fa:"کوکاکولا لایت", es:"Coca-Cola Light", it:"Coca-Cola Light", ko:"코카콜라 라이트", ja:"コカ・コーラ ライト", zh:"健怡可乐"}, price:100},
+    {name:{tr:"Sprite", en:"Sprite", ar:"سبرايت", ru:"Спрайт", de:"Sprite", fr:"Sprite", fa:"اسپرایت", es:"Sprite", it:"Sprite", ko:"스프라이트", ja:"スプライト", zh:"雪碧"}, price:100},
+    {name:{tr:"Fanta", en:"Fanta", ar:"فانتا", ru:"Фанта", de:"Fanta", fr:"Fanta", fa:"فانتا", es:"Fanta", it:"Fanta", ko:"환타", ja:"ファンタ", zh:"芬达"}, price:100},
+    {name:{tr:"Ayran", en:"Ayran (Yogurt Drink)", ar:"عيران (مشروب اللبن)", ru:"Айран", de:"Ayran (Joghurtgetränk)", fr:"Ayran (boisson au yaourt)", fa:"دوغ", es:"Ayran (Bebida de Yogur)", it:"Ayran (Bevanda allo Yogurt)", ko:"아이란 (요거트 음료)", ja:"アイラン(ヨーグルト飲料)", zh:"艾兰（酸奶饮料）"}, price:80},
+    {name:{tr:"Su (Büyük)", en:"Water (Big)", ar:"مياه (كبيرة)", ru:"Вода (большая)", de:"Wasser (groß)", fr:"Eau (grande)", fa:"آب معدنی بزرگ", es:"Agua (Grande)", it:"Acqua (Grande)", ko:"물 (대)", ja:"水(大)", zh:"水（大瓶）"}, price:40},
+    {name:{tr:"Su (Küçük)", en:"Water (Small)", ar:"مياه (صغيرة)", ru:"Вода (маленькая)", de:"Wasser (klein)", fr:"Eau (petite)", fa:"آب معدنی کوچک", es:"Agua (Pequeña)", it:"Acqua (Piccola)", ko:"물 (소)", ja:"水(小)", zh:"水（小瓶）"}, price:20},
+    {name:{tr:"Soda", en:"Soda Water", ar:"صودا", ru:"Содовая", de:"Soda", fr:"Eau gazeuse", fa:"سودا", es:"Agua con Gas", it:"Acqua Frizzante", ko:"소다수", ja:"ソーダ水", zh:"苏打水"}, price:40},
+    {name:{tr:"Şalgam Suyu", en:"Turnip Juice (Şalgam)", ar:"عصير اللفت (شلغم)", ru:"Сок из репы (Шалгам)", de:"Rübensaft (Şalgam)", fr:"Jus de navet (Şalgam)", fa:"آب شلغم", es:"Jugo de Nabo (Şalgam)", it:"Succo di Rapa (Şalgam)", ko:"순무 주스 (샬감)", ja:"カブジュース(シャルガム)", zh:"芜菁汁（沙尔甘）"}, price:50},
+  ]},
+];
+// assign stable ids
+menu.forEach((cat,ci)=> cat.items.forEach((it,ii)=> it.id = cat.key+"_"+ii));
+
+let cart = {}; // id -> qty
+
+/* ---------------- language ---------------- */
+function selectLanguage(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.documentElement.dir = rtlLangs.includes(l) ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(dict[l][k]) el.textContent = dict[l][k];
+  });
+  document.getElementById('change-lang-btn').style.display = 'flex';
+  renderMenu();
+  renderCartBar();
+  if(document.getElementById('screen-review').classList.contains('active')) renderReview();
+  showScreen('menu');
+}
+
+/* ---------------- navigation ---------------- */
+function showScreen(name){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+  document.getElementById('cart-bar').classList.toggle('show', name==='menu' && totalCount()>0);
+  document.getElementById('change-lang-btn').style.display = (name==='lang') ? 'none' : 'flex';
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(name==='review') renderReview();
+}
+
+/* ---------------- menu render ---------------- */
+function renderMenu(){
+  const tabsEl = document.getElementById('cat-tabs');
+  tabsEl.innerHTML = '';
+  menu.forEach((cat,idx)=>{
+    const b = document.createElement('button');
+    b.className = 'cat-tab' + (idx===0?' active':'');
+    b.textContent = cat.title[lang] + (lang!=='tr' ? ` (${cat.title.tr})` : '');
+    b.onclick = ()=>{
+      document.querySelectorAll('.cat-tab').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById('cat-'+cat.key).scrollIntoView({behavior:'smooth', block:'start'});
+    };
+    tabsEl.appendChild(b);
+  });
+
+  const listEl = document.getElementById('menu-list');
+  listEl.innerHTML = '';
+  menu.forEach(cat=>{
+    const sec = document.createElement('div');
+    sec.className = 'cat-section';
+    sec.id = 'cat-'+cat.key;
+    const h = document.createElement('div');
+    h.className = 'cat-title';
+    const catTrHint = lang!=='tr' ? ` <span class="item-name-tr">(${cat.title.tr})</span>` : '';
+    h.innerHTML = `<span>${cat.title[lang]}${catTrHint}</span>`;
+    sec.appendChild(h);
+    cat.items.forEach(it=>{
+      const row = document.createElement('div');
+      row.className = 'item';
+      const qty = cart[it.id] || 0;
+      const trHint = lang!=='tr' ? ` <span class="item-name-tr">(${it.name.tr})</span>` : '';
+      row.innerHTML = `
+        <div class="item-info">
+          <div class="item-name">${it.name[lang]}${trHint}</div>
+          <div class="item-price">${it.price}</div>
+        </div>
+        <div class="stepper">
+          <button class="step-btn step-minus" onclick="changeQty('${it.id}', -1)">−</button>
+          <span class="step-qty ${qty===0?'zero':''}" id="qty-${it.id}">${qty}</span>
+          <button class="step-btn step-plus" onclick="changeQty('${it.id}', 1)">+</button>
+        </div>`;
+      sec.appendChild(row);
+    });
+    listEl.appendChild(sec);
+  });
+}
+
+function changeQty(id, delta){
+  const current = cart[id] || 0;
+  const next = Math.max(0, current + delta);
+  if(next===0) delete cart[id]; else cart[id] = next;
+  const qtyEl = document.getElementById('qty-'+id);
+  if(qtyEl){
+    qtyEl.textContent = next;
+    qtyEl.classList.toggle('zero', next===0);
+  }
+  renderCartBar();
+}
+
+function findItem(id){
+  for(const cat of menu){ for(const it of cat.items){ if(it.id===id) return it; } }
+  return null;
+}
+function totalCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function totalPrice(){
+  return Object.entries(cart).reduce((sum,[id,q])=>{
+    const it = findItem(id); return sum + (it ? it.price*q : 0);
+  },0);
+}
+
+function renderCartBar(){
+  const bar = document.getElementById('cart-bar');
+  const count = totalCount();
+  document.getElementById('cart-count').textContent = count;
+  document.getElementById('cart-total').textContent = totalPrice() + ' ' + dict[lang].currency;
+  const onMenu = document.getElementById('screen-menu').classList.contains('active');
+  bar.classList.toggle('show', count>0 && onMenu);
+}
+
+/* ---------------- review ---------------- */
+function renderReview(){
+  const wrap = document.getElementById('review-items');
+  wrap.innerHTML = '';
+  const entries = Object.entries(cart);
+  if(entries.length===0){
+    wrap.innerHTML = `<div class="empty-note">${dict[lang].emptyCart}</div>`;
+  } else {
+    entries.forEach(([id,q])=>{
+      const it = findItem(id);
+      if(!it) return;
+      const row = document.createElement('div');
+      row.className = 'review-row';
+      const altHint = lang!=='tr' ? ` <span class="rr-name-alt">(${it.name[lang]})</span>` : '';
+      row.innerHTML = `
+        <span class="rr-name">${it.name.tr}${altHint}</span>
+        <span class="rr-qty">×${q}</span>
+        <span class="rr-sub">${it.price*q} ${dict[lang].currency}</span>`;
+      wrap.appendChild(row);
+    });
+  }
+  document.getElementById('rev-total').textContent = totalPrice() + ' ' + dict[lang].currency;
+}
+
+async function confirmOrder(){
+  if(totalCount()===0){ alert(dict[lang].emptyCart); return; }
+  const orderNo = Math.floor(1000 + Math.random()*9000);
+  document.getElementById('order-no').textContent = '#' + orderNo;
+  await generateOrderPdf(orderNo);
+  showScreen('success');
+}
+
+/* ---------------- Turkish PDF receipt (auto-download) ---------------- */
+function buildReceiptElement(orderNo){
+  const div = document.createElement('div');
+  div.style.cssText = 'position:fixed; left:-9999px; top:0; width:380px; background:#fffcf5; padding:26px; font-family:Manrope,Arial,sans-serif; color:#2a211b;';
+  const now = new Date();
+  const dateStr = now.toLocaleString('tr-TR');
+  let rowsHtml = '';
+  Object.entries(cart).forEach(([id,q])=>{
+    const it = findItem(id);
+    if(!it) return;
+    rowsHtml += `<div style="display:flex; justify-content:space-between; gap:10px; padding:8px 0; border-bottom:1px solid #e6dbc4; font-size:13px;">
+      <span style="flex:1;">${it.name.tr} <span style="color:#6b5e52;">×${q}</span></span>
+      <span style="font-weight:700; white-space:nowrap;">${it.price*q} ₺</span>
+    </div>`;
+  });
+  div.innerHTML = `
+    <div style="text-align:center; margin-bottom:16px;">
+      <div style="font-family:Georgia,serif; font-size:18px; font-weight:700; color:#8f1c20; letter-spacing:.5px;">Mercan Kokoreç Beyoğlu</div>
+      <div style="font-size:12px; color:#6b5e52; margin-top:2px;">Sipariş Fişi</div>
+    </div>
+    <div style="display:flex; justify-content:space-between; font-size:12px; color:#6b5e52; margin-bottom:12px;">
+      <span>Sipariş No: #${orderNo}</span>
+      <span>${dateStr}</span>
+    </div>
+    ${rowsHtml}
+    <div style="display:flex; justify-content:space-between; margin-top:16px; padding-top:12px; border-top:2px solid #8f1c20; font-size:16px; font-weight:800; color:#8f1c20;">
+      <span>Toplam</span>
+      <span>${totalPrice()} ₺</span>
+    </div>
+  `;
+  return div;
+}
+
+async function generateOrderPdf(orderNo){
+  const receipt = buildReceiptElement(orderNo);
+  document.body.appendChild(receipt);
+  try{
+    const canvas = await html2canvas(receipt, { scale:2, backgroundColor:'#fffcf5' });
+    const imgData = canvas.toDataURL('image/png');
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ unit:'pt', format:'a4' });
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const imgWidth = pageWidth - 60;
+    const imgHeight = canvas.height * (imgWidth / canvas.width);
+    pdf.addImage(imgData, 'PNG', 30, 30, imgWidth, imgHeight);
+    pdf.save('mercan-siparis-' + orderNo + '.pdf');
+  } catch(e){
+    console.error('PDF oluşturulamadı:', e);
+  } finally {
+    receipt.remove();
+  }
+}
+
+function newOrder(){
+  cart = {};
+  renderCartBar();
+  showScreen('menu');
+}
+
+/* ---------------- init ---------------- */
+showScreen('lang');
+</script>
+
+
+<div class="glasp-extension-toaster glasp-extension-toaster--youtube-summary" data-glasp-print="hide" style="display: block; width: 320px; margin: unset; padding: unset; border: unset; border-radius: unset; outline: unset; background-color: unset; box-shadow: unset; position: fixed; top: 40px; right: 24px; z-index: 9999;"><template shadowrootmode="open"><div class="glasp-extension" style="font-family: inherit;"></div></template></div></body><div class="glasp-extension" data-glasp-print="hide" id="glasp-web-summary-button" style="display: block; width: unset; margin: unset; padding: unset; border: unset; border-radius: unset; outline: unset; background-color: unset; box-shadow: unset; position: fixed; bottom: 16px; right: 16px; z-index: 9999;"><div class="glasp-extension" style="font-family: inherit;"></div></div></html>
