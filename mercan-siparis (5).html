@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mercan Kokoreç Beyoğlu — Sipariş / Order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#c22a2f;
+    --coral-dark:#8f1c20;
+    --sea:#7a1218;
+    --sea-light:#a3232b;
+    --sand:#f6efe0;
+    --shell:#fffcf5;
+    --ink:#2a211b;
+    --ink-soft:#6b5e52;
+    --gold:#c79a3e;
+    --line:#e6dbc4;
+    --radius:18px;
+    --shadow:0 10px 30px -12px rgba(42,33,27,.25);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+  html,body{margin:0; padding:0; height:100%; background:var(--sand); color:var(--ink);}
+  body{
+    font-family:'Manrope', 'Vazirmatn', sans-serif;
+    overflow-x:hidden;
+    background:
+      radial-gradient(1200px 400px at 50% -120px, rgba(194,42,47,.10), transparent),
+      var(--sand);
+  }
+  html[dir="rtl"] body, html[dir="rtl"] { font-family:'Vazirmatn','Manrope',sans-serif; }
+  html[lang="ar"] body, html[lang="ar"] { font-family:'Noto Kufi Arabic','Vazirmatn',sans-serif; }
+  html[lang="ko"] body, html[lang="ko"] { font-family:'Noto Sans KR','Manrope',sans-serif; }
+  html[lang="ja"] body, html[lang="ja"] { font-family:'Noto Sans JP','Manrope',sans-serif; }
+  html[lang="zh"] body, html[lang="zh"] { font-family:'Noto Sans SC','Manrope',sans-serif; }
+  .display{ font-family:'Fraunces', serif; }
+
+  #app{ max-width:520px; margin:0 auto; min-height:100vh; position:relative; padding-bottom:110px; }
+
+  /* ---------- header ---------- */
+  header.top{
+    position:sticky; top:0; z-index:40;
+    background:linear-gradient(180deg, var(--sea) 0%, var(--sea-light) 100%);
+    color:#fff; padding:14px 18px 20px;
+    border-bottom-left-radius:22px; border-bottom-right-radius:22px;
+    box-shadow:var(--shadow);
+  }
+  .top-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .coral-mark{ width:34px; height:34px; flex:none; }
+  .brand-name{ font-family:'Fraunces',serif; font-weight:700; font-size:16px; letter-spacing:.2px; line-height:1.25; }
+  .brand-sub{ font-size:11px; opacity:.8; margin-top:1px; letter-spacing:.5px; }
+  .lang-btn{
+    display:flex; align-items:center; gap:7px; background:rgba(255,255,255,.14); border-radius:999px;
+    border:1px solid rgba(255,255,255,.25); color:#fff; font-family:inherit; font-size:12.5px; font-weight:700;
+    padding:8px 14px; cursor:pointer;
+  }
+  .lang-btn .flag{ font-size:15px; line-height:1; }
+  .lang-btn.icon-only{ padding:9px; }
+
+  .wave{ display:block; width:100%; height:14px; margin-top:12px; opacity:.55; }
+
+  /* ---------- screens ---------- */
+  .screen{ display:none; padding:20px 18px 10px; animation:fadeIn .35s ease; }
+  .screen.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ---- screen: language / welcome ---- */
+  .welcome-hero{ text-align:center; margin:14px 0 28px; }
+  .welcome-mark{ width:78px; height:78px; margin:0 auto 18px; }
+  .welcome-title-tr{ font-family:'Fraunces',serif; font-size:22px; font-weight:700; color:var(--coral-dark); margin:0; line-height:1.35; }
+  .welcome-title-en{ font-family:'Fraunces',serif; font-size:14px; font-weight:600; color:var(--sea); margin:6px 0 0; opacity:.85; }
+  .welcome-sub{ margin:14px 0 0; color:var(--ink-soft); font-size:13.5px; line-height:1.9; }
+  .welcome-sub .sep{ display:block; opacity:.5; margin:2px 0; font-size:11px; }
+
+  .lang-list{ display:flex; flex-direction:column; gap:11px; }
+  .lang-option{
+    display:flex; align-items:center; gap:14px; width:100%; text-align:start;
+    background:var(--shell); border:1.5px solid var(--line); border-radius:16px; padding:13px 16px;
+    box-shadow:0 4px 14px -8px rgba(42,33,27,.2); cursor:pointer; font-family:inherit;
+    transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .lang-option:active{ transform:scale(.98); }
+  .lang-option:hover{ border-color:var(--gold); box-shadow:0 8px 20px -10px rgba(199,154,62,.4); }
+  .lang-flag{
+    width:42px; height:42px; border-radius:12px; flex:none; display:flex; align-items:center; justify-content:center;
+    font-size:24px; background:var(--sand); border:1px solid var(--line);
+  }
+  .lang-text{ flex:1; min-width:0; }
+  .lang-native{ font-weight:800; font-size:16px; color:var(--ink); }
+  .lang-hint{ font-size:11.5px; color:var(--ink-soft); margin-top:2px; }
+  .lang-chev{ flex:none; color:var(--gold); opacity:.7; }
+  html[dir="rtl"] .lang-chev{ transform:scaleX(-1); }
+
+  /* ---- card / buttons (shared) ---- */
+  .card{ background:var(--shell); border:1px solid var(--line); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); }
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; padding:15px 18px; border-radius:14px; border:none; cursor:pointer;
+    font-family:inherit; font-weight:700; font-size:15.5px; letter-spacing:.2px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{ background:linear-gradient(135deg, var(--coral), var(--coral-dark)); color:#fff; box-shadow:0 10px 22px -8px rgba(194,42,47,.55); }
+  .btn-primary:active{ transform:scale(.98); }
+  .btn-ghost{ background:transparent; color:var(--sea); border:1.5px solid var(--line); }
+  .btn-ghost:active{ transform:scale(.98); }
+
+  /* ---- screen: menu ---- */
+  .cat-tabs{
+    display:flex; gap:8px; overflow-x:auto; padding:2px 2px 14px; margin-bottom:4px;
+    scrollbar-width:none;
+  }
+  .cat-tabs::-webkit-scrollbar{ display:none; }
+  .cat-tab{
+    flex:none; padding:9px 16px; border-radius:999px; background:var(--shell); border:1.5px solid var(--line);
+    font-family:inherit; font-size:13px; font-weight:700; color:var(--ink-soft); cursor:pointer; white-space:nowrap; transition:.15s;
+  }
+  .cat-tab.active{ background:var(--sea); border-color:var(--sea); color:#fff; }
+
+  .cat-section{ margin-bottom:6px; }
+  .cat-title{
+    display:flex; align-items:center; gap:10px; margin:22px 2px 12px;
+    font-family:'Fraunces',serif; font-size:19px; color:var(--coral-dark); font-weight:600;
+  }
+  .cat-title::after{ content:""; flex:1; height:1px; background:var(--line); }
+
+  .item{
+    display:flex; align-items:center; gap:12px; background:var(--shell); border:1px solid var(--line);
+    border-radius:16px; padding:13px 14px; margin-bottom:10px; box-shadow:0 3px 10px -6px rgba(42,33,27,.15);
+  }
+  .item-info{ flex:1; min-width:0; }
+  .item-name{ font-weight:700; font-size:14.5px; line-height:1.4; }
+  .item-name-tr{ font-family:'Fraunces',serif; font-style:italic; font-weight:600; color:var(--sea-light); font-size:0.92em; }
+  .item-price{ margin-top:5px; font-size:13px; color:var(--gold); font-weight:800; }
+  .item-price::after{ content:" ₺"; font-weight:700; }
+  .item-price.item-na::after{ content:none; }
+  .item-price.item-na{ color:var(--ink-soft); font-style:italic; font-weight:700; text-transform:uppercase; letter-spacing:.3px; font-size:11.5px; }
+  .item.item-unavailable{ opacity:.55; }
+
+  .stepper{ display:flex; align-items:center; gap:0; flex:none; }
+  .step-btn{
+    width:30px; height:30px; border-radius:50%; border:none; cursor:pointer; font-size:17px; font-weight:800;
+    display:flex; align-items:center; justify-content:center; transition:.15s; line-height:1;
+  }
+  .step-minus{ background:#f1e7d8; color:var(--ink-soft); width:24px; height:24px; font-size:14px; }
+  .step-minus:active{ transform:scale(.9); }
+  .step-plus{ background:var(--coral); color:#fff; box-shadow:0 6px 14px -6px rgba(194,42,47,.6); }
+  .step-plus:active{ transform:scale(.9); }
+  .step-qty{ width:26px; text-align:center; font-weight:800; font-size:15px; }
+  .step-qty.zero{ opacity:.35; }
+
+  /* ---- cart bar ---- */
+  .cart-bar{
+    position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(120%);
+    width:calc(100% - 32px); max-width:488px; z-index:50; transition:transform .3s ease;
+  }
+  .cart-bar.show{ transform:translateX(-50%) translateY(0); }
+  .cart-inner{
+    background:linear-gradient(135deg, var(--sea), var(--sea-light)); color:#fff; border-radius:18px;
+    padding:13px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    box-shadow:0 14px 30px -10px rgba(122,18,24,.55); cursor:pointer; border:1px solid rgba(255,255,255,.15);
+  }
+  .cart-count{
+    background:var(--coral); width:26px; height:26px; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; font-size:12.5px; font-weight:800; flex:none;
+  }
+  .cart-label{ font-size:13.5px; font-weight:700; }
+  .cart-total{ font-family:'Fraunces',serif; font-size:17px; font-weight:700; }
+
+  /* ---- screen: review ---- */
+  .review-head{ text-align:center; margin-bottom:18px; }
+  .review-head h2{ font-family:'Fraunces',serif; color:var(--coral-dark); font-size:22px; margin:0 0 4px; }
+  .review-head p{ margin:0; color:var(--ink-soft); font-size:13.5px; }
+
+  .review-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:var(--shell); border:1px solid var(--line); border-radius:14px; padding:11px 14px; margin-bottom:9px;
+  }
+  .review-row .rr-name{ font-size:14px; font-weight:700; flex:1; }
+  .review-row .rr-name-alt{ font-weight:500; font-style:italic; color:var(--ink-soft); font-size:0.85em; }
+  .review-row .rr-qty{ font-size:12.5px; color:var(--ink-soft); background:#f1e7d8; padding:3px 9px; border-radius:999px; font-weight:800; }
+  .review-row .rr-sub{ font-size:14px; font-weight:800; color:var(--gold); min-width:64px; text-align:end; }
+
+  .total-card{
+    display:flex; align-items:center; justify-content:space-between; margin-top:18px; padding:16px 18px;
+    background:linear-gradient(135deg, var(--coral), var(--coral-dark)); border-radius:16px; color:#fff;
+    box-shadow:0 10px 22px -8px rgba(194,42,47,.5);
+  }
+  .total-card .tc-label{ font-size:13.5px; opacity:.9; font-weight:600; }
+  .total-card .tc-value{ font-family:'Fraunces',serif; font-size:26px; font-weight:700; }
+
+  .empty-note{ text-align:center; color:var(--ink-soft); font-size:14px; padding:30px 10px; }
+
+  /* ---- screen: success ---- */
+  .success-wrap{ text-align:center; padding:50px 18px; }
+  .success-coral{ width:96px; height:96px; margin:0 auto 22px; animation:pop .5s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes pop{ from{ transform:scale(.4); opacity:0; } to{ transform:scale(1); opacity:1; } }
+  .success-wrap h2{ font-family:'Fraunces',serif; font-size:24px; color:var(--sea); margin:0 0 10px; }
+  .success-wrap p{ color:var(--ink-soft); font-size:14.5px; line-height:1.9; margin:0 0 26px; }
+  .success-order-no{ display:inline-block; background:var(--shell); border:1.5px dashed var(--gold); border-radius:12px; padding:10px 22px; font-family:'Fraunces',serif; font-weight:700; color:var(--gold); font-size:16px; margin-bottom:26px; }
+
+  .back-row{ display:flex; gap:10px; margin-bottom:16px; }
+  .icon-btn{
+    width:42px; height:42px; flex:none; border-radius:12px; border:1.5px solid var(--line); background:var(--shell);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--sea);
+  }
+  html[dir="rtl"] .flip{ transform:scaleX(-1); }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <header class="top">
+    <div class="top-row">
+      <div class="brand">
+        <svg class="coral-mark" viewBox="0 0 48 48" fill="none">
+          <path d="M24 6c2 4-1 6-1 9 0 3 3 3 3 6s-3 4-2 8c1 4 5 5 5 5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M24 6c-2 4 1 6 1 9 0 3-3 3-3 6s3 4 2 8c-1 4-5 5-5 5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+          <path d="M24 15c3 1 6 0 8-2M24 15c-3 1-6 0-8-2M23 24c3 1 6 .5 8-1M23 24c-3 1-6 .5-8-1M23 33c2 1 5 .5 7-1M23 33c-2 1-5 .5-7-1" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity=".85"/>
+          <circle cx="24" cy="40" r="2.4" fill="#fff"/>
+        </svg>
+        <div>
+          <div class="brand-name">Mercan Kokoreç Beyoğlu</div>
+          <div class="brand-sub" data-i18n="tagline">Deniz Ürünleri Restoranı</div>
+        </div>
+      </div>
+      <button class="lang-btn icon-only" id="change-lang-btn" onclick="showScreen('lang')" aria-label="change language" style="display:none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.7 3.8 6 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-6-3.8-9s1.3-6.3 3.8-9z" stroke="#fff" stroke-width="1.8"/></svg>
+      </button>
+    </div>
+    <svg class="wave" viewBox="0 0 500 14" preserveAspectRatio="none"><path d="M0 7 Q 25 0 50 7 T 100 7 T 150 7 T 200 7 T 250 7 T 300 7 T 350 7 T 400 7 T 450 7 T 500 7" stroke="#fff" stroke-width="2" fill="none"/></svg>
+  </header>
+
+  <!-- SCREEN 1: welcome + language selection -->
+  <section class="screen active" id="screen-lang">
+    <div class="welcome-hero">
+      <svg class="welcome-mark" viewBox="0 0 48 48" fill="none">
+        <path d="M24 6c2 4-1 6-1 9 0 3 3 3 3 6s-3 4-2 8c1 4 5 5 5 5" stroke="#8f1c20" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M24 6c-2 4 1 6 1 9 0 3-3 3-3 6s3 4 2 8c-1 4-5 5-5 5" stroke="#c79a3e" stroke-width="2.4" stroke-linecap="round" opacity=".85"/>
+        <path d="M24 15c3 1 6 0 8-2M24 15c-3 1-6 0-8-2M23 24c3 1 6 .5 8-1M23 24c-3 1-6 .5-8-1M23 33c2 1 5 .5 7-1M23 33c-2 1-5 .5-7-1" stroke="#7a1218" stroke-width="1.8" stroke-linecap="round" opacity=".85"/>
+        <circle cx="24" cy="40" r="2.4" fill="#8f1c20"/>
+      </svg>
+      <h1 class="welcome-title-tr">Mercan Kokoreç Beyoğlu'na Hoş Geldiniz</h1>
+      <h1 class="welcome-title-en">Welcome to Mercan Kokoreç Beyoğlu</h1>
+      <p class="welcome-sub">
+        Menüyü görüntülemek için lütfen dilinizi seçin.
+        <span class="sep">•</span>
+        Please select your language to view the menu.
+      </p>
+    </div>
+
+    <div class="lang-list">
+      <button class="lang-option" onclick="selectLanguage('tr')">
+        <span class="lang-flag">🇹🇷</span>
+        <span class="lang-text"><span class="lang-native">Türkçe</span><span class="lang-hint">Turkish</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('en')">
+        <span class="lang-flag">🌐</span>
+        <span class="lang-text"><span class="lang-native">English</span><span class="lang-hint">International</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('ar')">
+        <span class="lang-flag">🇸🇦</span>
+        <span class="lang-text"><span class="lang-native">العربية</span><span class="lang-hint">Arabic</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('ru')">
+        <span class="lang-flag">🇷🇺</span>
+        <span class="lang-text"><span class="lang-native">Русский</span><span class="lang-hint">Russian</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('de')">
+        <span class="lang-flag">🇩🇪</span>
+        <span class="lang-text"><span class="lang-native">Deutsch</span><span class="lang-hint">German</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('fr')">
+        <span class="lang-flag">🇫🇷</span>
+        <span class="lang-text"><span class="lang-native">Français</span><span class="lang-hint">French</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('fa')">
+        <span class="lang-flag">🇮🇷</span>
+        <span class="lang-text"><span class="lang-native">فارسی</span><span class="lang-hint">Persian</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('es')">
+        <span class="lang-flag">🇪🇸</span>
+        <span class="lang-text"><span class="lang-native">Español</span><span class="lang-hint">Spanish</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('it')">
+        <span class="lang-flag">🇮🇹</span>
+        <span class="lang-text"><span class="lang-native">Italiano</span><span class="lang-hint">Italian</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('ko')">
+        <span class="lang-flag">🇰🇷</span>
+        <span class="lang-text"><span class="lang-native">한국어</span><span class="lang-hint">Korean</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('ja')">
+        <span class="lang-flag">🇯🇵</span>
+        <span class="lang-text"><span class="lang-native">日本語</span><span class="lang-hint">Japanese</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lang-option" onclick="selectLanguage('zh')">
+        <span class="lang-flag">🇨🇳</span>
+        <span class="lang-text"><span class="lang-native">中文</span><span class="lang-hint">Chinese</span></span>
+        <svg class="lang-chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: menu -->
+  <section class="screen" id="screen-menu">
+    <div class="cat-tabs" id="cat-tabs"></div>
+    <div id="menu-list"></div>
+  </section>
+
+  <!-- SCREEN 3: review -->
+  <section class="screen" id="screen-review">
+    <div class="back-row">
+      <button class="icon-btn flip" onclick="showScreen('menu')" aria-label="back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="var(--sea)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div style="flex:1;"></div>
+    </div>
+    <div class="review-head">
+      <h2 data-i18n="reviewTitle">Sipariş Önizlemesi</h2>
+      <p data-i18n="reviewText">Lütfen siparişinizi kontrol edip onaylayın</p>
+    </div>
+    <div id="review-items"></div>
+    <div class="total-card">
+      <span class="tc-label" data-i18n="totalLabel">Toplam Tutar</span>
+      <span class="tc-value" id="rev-total">0 ₺</span>
+    </div>
+    <button class="btn btn-primary" style="margin-top:18px;" onclick="confirmOrder()">
+      <span data-i18n="confirmBtn">Siparişi Onayla</span>
+    </button>
+    <button class="btn btn-ghost" style="margin-top:10px;" onclick="showScreen('menu')">
+      <span data-i18n="editBtn">Geri Dön ve Düzenle</span>
+    </button>
+  </section>
+
+  <!-- SCREEN 4: success -->
+  <section class="screen" id="screen-success">
+    <div class="success-wrap">
+      <svg class="success-coral" viewBox="0 0 96 96" fill="none">
+        <circle cx="48" cy="48" r="46" fill="#7a1218"/>
+        <path d="M30 50l12 12 24-26" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h2 data-i18n="successTitle">Siparişiniz Alındı!</h2>
+      <p data-i18n="successText">Siparişiniz mutfağa iletildi. Hazırlanana kadar lütfen bekleyin.</p>
+      <div class="success-order-no" id="order-no">#0000</div>
+      <button class="btn btn-primary" onclick="newOrder()">
+        <span data-i18n="newOrderBtn">Yeni Sipariş Ver</span>
+      </button>
+    </div>
+  </section>
+
+</div>
+
+<!-- CART BAR -->
+<div class="cart-bar" id="cart-bar" onclick="showScreen('review')">
+  <div class="cart-inner">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div class="cart-count" id="cart-count">0</div>
+      <div class="cart-label" data-i18n="cartLabel">Siparişi Görüntüle</div>
+    </div>
+    <div class="cart-total" id="cart-total">0 ₺</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+/* ---------------- Google Sheet order log ---------------- */
+const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzLCawBQ8WVNHKTXSOUPqzIJN72RvjL940cVmCs9JOQaYgGR3Luovus1ygovVyuOAk/exec";
+
+/* ---------------- i18n ---------------- */
+const dict = {
+  tr: {
+    tagline:"Deniz Ürünleri Restoranı",
+    cartLabel:"Siparişi Görüntüle",
+    reviewTitle:"Sipariş Önizlemesi", reviewText:"Lütfen siparişinizi kontrol edip onaylayın",
+    totalLabel:"Toplam Tutar",
+    confirmBtn:"Siparişi Onayla", editBtn:"Geri Dön ve Düzenle",
+    successTitle:"Siparişiniz Alındı!", successText:"Siparişiniz mutfağa iletildi. Hazırlanana kadar lütfen bekleyin.",
+    newOrderBtn:"Yeni Sipariş Ver", emptyCart:"Henüz sepetinize bir şey eklemediniz.",
+    notAvailable:"Mevcut Değil",
+    currency:"₺"
+  },
+  en: {
+    tagline:"Seafood Restaurant",
+    cartLabel:"View Order",
+    reviewTitle:"Order Preview", reviewText:"Please review and confirm your order",
+    totalLabel:"Total Amount",
+    confirmBtn:"Confirm Order", editBtn:"Go Back and Edit",
+    successTitle:"Your Order Has Been Placed!", successText:"Your order has been sent to the kitchen. Please wait while it is prepared.",
+    newOrderBtn:"Start New Order", emptyCart:"You haven't added anything to your order yet.",
+    notAvailable:"Not Available",
+    currency:"₺"
+  },
+  ar: {
+    tagline:"مطعم المأكولات البحرية",
+    cartLabel:"عرض الطلب",
+    reviewTitle:"معاينة الطلب", reviewText:"يرجى مراجعة طلبك وتأكيده",
+    totalLabel:"المجموع الكلي",
+    confirmBtn:"تأكيد الطلب", editBtn:"العودة والتعديل",
+    successTitle:"تم استلام طلبك!", successText:"تم إرسال طلبك إلى المطبخ. يرجى الانتظار قليلاً حتى يتم تجهيزه.",
+    newOrderBtn:"بدء طلب جديد", emptyCart:"لم تقم بإضافة أي شيء إلى طلبك بعد.",
+    notAvailable:"غير متوفر",
+    currency:"₺"
+  },
+  ru: {
+    tagline:"Ресторан морепродуктов",
+    cartLabel:"Посмотреть заказ",
+    reviewTitle:"Предпросмотр заказа", reviewText:"Пожалуйста, проверьте и подтвердите ваш заказ",
+    totalLabel:"Итоговая сумма",
+    confirmBtn:"Подтвердить заказ", editBtn:"Назад и изменить",
+    successTitle:"Ваш заказ принят!", successText:"Ваш заказ отправлен на кухню. Пожалуйста, подождите, пока он готовится.",
+    newOrderBtn:"Новый заказ", emptyCart:"Вы пока ничего не добавили в заказ.",
+    notAvailable:"Нет в наличии",
+    currency:"₺"
+  },
+  de: {
+    tagline:"Fischrestaurant",
+    cartLabel:"Bestellung ansehen",
+    reviewTitle:"Bestellübersicht", reviewText:"Bitte überprüfen und bestätigen Sie Ihre Bestellung",
+    totalLabel:"Gesamtbetrag",
+    confirmBtn:"Bestellung bestätigen", editBtn:"Zurück und bearbeiten",
+    successTitle:"Ihre Bestellung wurde aufgenommen!", successText:"Ihre Bestellung wurde an die Küche gesendet. Bitte warten Sie, während sie zubereitet wird.",
+    newOrderBtn:"Neue Bestellung", emptyCart:"Sie haben Ihrer Bestellung noch nichts hinzugefügt.",
+    notAvailable:"Nicht verfügbar",
+    currency:"₺"
+  },
+  fr: {
+    tagline:"Restaurant de fruits de mer",
+    cartLabel:"Voir la commande",
+    reviewTitle:"Aperçu de la commande", reviewText:"Veuillez vérifier et confirmer votre commande",
+    totalLabel:"Montant total",
+    confirmBtn:"Confirmer la commande", editBtn:"Retour et modifier",
+    successTitle:"Votre commande a été passée !", successText:"Votre commande a été envoyée en cuisine. Veuillez patienter pendant sa préparation.",
+    newOrderBtn:"Nouvelle commande", emptyCart:"Vous n'avez encore rien ajouté à votre commande.",
+    notAvailable:"Non disponible",
+    currency:"₺"
+  },
+  fa: {
+    tagline:"رستوران دریایی",
+    cartLabel:"مشاهده سفارش",
+    reviewTitle:"پیش‌نمایش سفارش", reviewText:"لطفاً سفارش خود را بررسی و تأیید کنید",
+    totalLabel:"مجموع سفارش",
+    confirmBtn:"تأیید و ثبت سفارش", editBtn:"بازگشت و ویرایش سفارش",
+    successTitle:"سفارش شما ثبت شد!", successText:"سفارش شما برای آشپزخانه ارسال شد. لطفاً کمی صبر کنید تا آماده شود.",
+    newOrderBtn:"ثبت سفارش جدید", emptyCart:"هنوز چیزی به سفارش اضافه نکرده‌اید.",
+    notAvailable:"ناموجود",
+    currency:"₺"
+  },
+  es: {
+    tagline:"Restaurante de Mariscos",
+    cartLabel:"Ver Pedido",
+    reviewTitle:"Vista Previa del Pedido", reviewText:"Por favor revise y confirme su pedido",
+    totalLabel:"Monto Total",
+    confirmBtn:"Confirmar Pedido", editBtn:"Volver y Editar",
+    successTitle:"¡Su Pedido Ha Sido Recibido!", successText:"Su pedido ha sido enviado a la cocina. Por favor espere mientras se prepara.",
+    newOrderBtn:"Iniciar Nuevo Pedido", emptyCart:"Aún no ha añadido nada a su pedido.",
+    notAvailable:"No Disponible",
+    currency:"₺"
+  },
+  it: {
+    tagline:"Ristorante di Pesce",
+    cartLabel:"Visualizza Ordine",
+    reviewTitle:"Anteprima Ordine", reviewText:"Si prega di controllare e confermare l'ordine",
+    totalLabel:"Importo Totale",
+    confirmBtn:"Conferma Ordine", editBtn:"Torna Indietro e Modifica",
+    successTitle:"Il Tuo Ordine È Stato Ricevuto!", successText:"Il tuo ordine è stato inviato in cucina. Attendi mentre viene preparato.",
+    newOrderBtn:"Inizia Nuovo Ordine", emptyCart:"Non hai ancora aggiunto nulla al tuo ordine.",
+    notAvailable:"Non Disponibile",
+    currency:"₺"
+  },
+  ko: {
+    tagline:"해산물 레스토랑",
+    cartLabel:"주문 보기",
+    reviewTitle:"주문 확인", reviewText:"주문 내용을 확인하고 승인해 주세요",
+    totalLabel:"총 금액",
+    confirmBtn:"주문 확정", editBtn:"돌아가서 수정",
+    successTitle:"주문이 접수되었습니다!", successText:"주문이 주방으로 전달되었습니다. 준비되는 동안 잠시 기다려 주세요.",
+    newOrderBtn:"새 주문 시작", emptyCart:"아직 주문에 추가한 항목이 없습니다.",
+    notAvailable:"품절",
+    currency:"₺"
+  },
+  ja: {
+    tagline:"シーフードレストラン",
+    cartLabel:"注文を見る",
+    reviewTitle:"注文確認", reviewText:"ご注文内容をご確認の上、確定してください",
+    totalLabel:"合計金額",
+    confirmBtn:"注文を確定する", editBtn:"戻って編集",
+    successTitle:"ご注文を承りました！", successText:"ご注文はキッチンに送られました。準備が整うまでしばらくお待ちください。",
+    newOrderBtn:"新しい注文を始める", emptyCart:"まだ注文に何も追加されていません。",
+    notAvailable:"品切れ",
+    currency:"₺"
+  },
+  zh: {
+    tagline:"海鲜餐厅",
+    cartLabel:"查看订单",
+    reviewTitle:"订单预览", reviewText:"请检查并确认您的订单",
+    totalLabel:"总金额",
+    confirmBtn:"确认订单", editBtn:"返回修改",
+    successTitle:"您的订单已收到！", successText:"您的订单已发送至厨房，请耐心等待制作完成。",
+    newOrderBtn:"开始新订单", emptyCart:"您还没有添加任何商品到订单中。",
+    notAvailable:"暂不供应",
+    currency:"₺"
+  }
+};
+const rtlLangs = ['fa','ar'];
+let lang = 'tr';
+
+/* ---------------- menu data ---------------- */
+const menu = [
+  { key:"mezeler", title:{tr:"Mezeler", en:"Starters (Meze)", ar:"المقبلات (مزة)", ru:"Закуски (Мезе)", de:"Vorspeisen (Meze)", fr:"Entrées (Mezze)", fa:"پیش‌غذاها (مزه)", es:"Entrantes (Meze)", it:"Antipasti (Meze)", ko:"전채 요리 (메제)", ja:"前菜(メゼ)", zh:"开胃菜（梅泽）"}, items:[
+    {name:{tr:"Yaprak Sarma", en:"Stuffed Vine Leaves", ar:"ورق عنب محشي", ru:"Долма из виноградных листьев", de:"Gefüllte Weinblätter", fr:"Feuilles de vigne farcies", fa:"دلمه برگ مو", es:"Hojas de Parra Rellenas", it:"Foglie di Vite Ripiene", ko:"포도잎 쌈 (야프락 사르마)", ja:"ぶどうの葉包み(ヤプラック・サルマ)", zh:"葡萄叶卷"}, price:200},
+    {name:{tr:"Patlıcan Soslu", en:"Eggplant Salad with Tomato Sauce", ar:"سلطة الباذنجان بصلصة الطماطم", ru:"Баклажанный салат с томатным соусом", de:"Auberginensalat mit Tomatensauce", fr:"Salade d'aubergines à la sauce tomate", fa:"سالاد بادمجان با سس گوجه", es:"Ensalada de Berenjena con Salsa de Tomate", it:"Insalata di Melanzane con Salsa di Pomodoro", ko:"토마토 소스를 곁들인 가지 샐러드", ja:"トマトソース茄子サラダ", zh:"番茄酱茄子沙拉"}, price:200},
+    {name:{tr:"Acılı Ezme", en:"Spicy Tomato Relish (Ezme)", ar:"عزمة حارة (سلطة طماطم حارة)", ru:"Острая томатная закуска (Эзме)", de:"Scharfe Tomaten-Ezme", fr:"Ezme épicée à la tomate", fa:"پوره گوجه‌فرنگی تند", es:"Ezme Picante de Tomate", it:"Ezme Piccante al Pomodoro", ko:"매운 토마토 에즈메", ja:"辛味トマトのエズメ", zh:"辣味番茄泥（艾兹梅）"}, price:200},
+    {name:{tr:"Haydari", en:"Garlic Yogurt Dip (Haydari)", ar:"هيداري (زبادي بالثوم)", ru:"Хайдари (йогуртовый соус с чесноком)", de:"Haydari (Joghurt-Knoblauch-Dip)", fr:"Haydari (yaourt à l'ail)", fa:"سس ماست و سیر", es:"Haydari (Salsa de Yogur con Ajo)", it:"Haydari (Salsa di Yogurt all'Aglio)", ko:"하이다리 (마늘 요거트 딥)", ja:"ハイダリ(ニンニクヨーグルトディップ)", zh:"海达里（大蒜酸奶酱）"}, price:200},
+    {name:{tr:"Beyaz Peynir", en:"White Cheese", ar:"جبنة بيضاء", ru:"Белый сыр", de:"Weißkäse", fr:"Fromage blanc", fa:"پنیر سفید", es:"Queso Blanco", it:"Formaggio Bianco", ko:"화이트 치즈", ja:"ホワイトチーズ", zh:"白奶酪"}, price:120},
+    {name:{tr:"Ahtapot Salatası", en:"Octopus Salad", ar:"سلطة الأخطبوط", ru:"Салат из осьминога", de:"Oktopussalat", fr:"Salade de poulpe", fa:"سالاد اختاپوس", es:"Ensalada de Pulpo", it:"Insalata di Polpo", ko:"문어 샐러드", ja:"タコのサラダ", zh:"章鱼沙拉"}, price:600},
+    {name:{tr:"Lakerda", en:"Lakerda (Salted Bonito)", ar:"لاكردا (تونة مملحة)", ru:"Лакерда (солёный бонито)", de:"Lakerda (gesalzener Bonito)", fr:"Lakerda (bonite salée)", fa:"ماهی کولی نمک‌سود (لاکردا)", es:"Lakerda (Bonito Salado)", it:"Lakerda (Bonito Salato)", ko:"라케르다 (염장 가다랑어)", ja:"ラケルダ(塩漬けカツオ)", zh:"拉克达（腌鲣鱼）"}, price:600},
+  ]},
+  { key:"atistirmaliklar", title:{tr:"Atıştırmalıklar", en:"Fried Starters", ar:"المقبلات المقلية", ru:"Жареные закуски", de:"Frittierte Vorspeisen", fr:"Entrées frites", fa:"پیش‌غذاهای سرخ‌شده", es:"Entrantes Fritos", it:"Antipasti Fritti", ko:"튀김 전채", ja:"揚げ物前菜", zh:"炸物开胃菜"}, items:[
+    {name:{tr:"Patates Tava", en:"Fried Potatoes", ar:"بطاطس مقلية", ru:"Жареный картофель", de:"Bratkartoffeln", fr:"Pommes de terre frites", fa:"سیب‌زمینی سرخ‌کرده", es:"Patatas Fritas", it:"Patatine Fritte", ko:"감자튀김", ja:"フライドポテト", zh:"炸薯条"}, price:200},
+    {name:{tr:"Sigara Böreği", en:"Cigar Börek", ar:"بوريك سيجارة", ru:"Сигара бёрек", de:"Sigara Böreği (Röllchen)", fr:"Börek en cigare", fa:"بورک سیگاری", es:"Börek en Forma de Cigarro", it:"Börek a Sigaro", ko:"시가라 뵈렉 (치즈 롤 튀김)", ja:"シガラ・ボレイ(チーズ春巻き)", zh:"雪茄卷酥（芝加拉波瑞克）"}, price:250, avail:false},
+    {name:{tr:"Kalamar (200 gr)", en:"Calamari (200g)", ar:"كالاماري (٢٠٠ غرام)", ru:"Кальмары (200 г)", de:"Kalamari (200 g)", fr:"Calamars (200 g)", fa:"کالاماری (۲۰۰ گرم)", es:"Calamares (200g)", it:"Calamari (200g)", ko:"칼라마리 (200g)", ja:"カラマリ(イカリング)(200g)", zh:"炸鱿鱼圈（200克）"}, price:550},
+    {name:{tr:"Tereyağında Karides (200 gr)", en:"Shrimp in Butter (200g)", ar:"جمبري بالزبدة (٢٠٠ غرام)", ru:"Креветки в сливочном масле (200 г)", de:"Garnelen in Butter (200 g)", fr:"Crevettes au beurre (200 g)", fa:"میگو با کره (۲۰۰ گرم)", es:"Gambas con Mantequilla (200g)", it:"Gamberi al Burro (200g)", ko:"버터 새우 (200g)", ja:"バター海老(200g)", zh:"黄油虾（200克）"}, price:600},
+    {name:{tr:"Karides Güveç (200 gr)", en:"Shrimp Casserole (200g)", ar:"جمبري بالفخار (٢٠٠ غرام)", ru:"Креветки в горшочке (200 г)", de:"Garnelen-Auflauf (200 g)", fr:"Crevettes en cocotte (200 g)", fa:"میگو در قابلمه سفالی (۲۰۰ گرم)", es:"Cazuela de Gambas (200g)", it:"Gamberi in Casseruola (200g)", ko:"새우 뚝배기 (200g)", ja:"海老の壺焼き(200g)", zh:"砂锅虾（200克）"}, price:600},
+  ]},
+  { key:"kokorec", title:{tr:"Kokoreç", en:"Kokoreç (Grilled Lamb Intestines)", ar:"كوكوريتش (أمعاء الحمل المشوية)", ru:"Кокореч (жареные бараньи потроха)", de:"Kokoreç (gegrillte Lamminnereien)", fr:"Kokoreç (tripes d'agneau grillées)", fa:"کوکورچ (روده کبابی بره)", es:"Kokoreç (Tripas de Cordero a la Parrilla)", it:"Kokoreç (Interiora di Agnello alla Griglia)", ko:"코코레치 (양 내장 구이)", ja:"ココレチ（羊の腸の炭火焼き）", zh:"科科雷奇（烤羊肠）"}, items:[
+    {name:{tr:"Kokoreç Porsiyon", en:"Kokoreç Portion", ar:"كوكوريتش حصة", ru:"Кокореч Порция", de:"Kokoreç Portion", fr:"Kokoreç Portion", fa:"کوکورچ پرس", es:"Kokoreç Ración", it:"Kokoreç Porzione", ko:"코코레치 1인분", ja:"ココレチ 1人前", zh:"科科雷奇 一份"}, price:450},
+    {name:{tr:"Kokoreç Üç Çeyrek Ekmek", en:"Kokoreç Three-Quarter Bread", ar:"كوكوريتش ثلاثة أرباع خبز", ru:"Кокореч Три четверти хлеба", de:"Kokoreç Dreiviertel Brot", fr:"Kokoreç Trois quarts de pain", fa:"کوکورچ سه‌چهارم نان", es:"Kokoreç Tres Cuartos de Pan", it:"Kokoreç Tre Quarti di Pane", ko:"코코레치 빵 4분의 3", ja:"ココレチ パン4分の3", zh:"科科雷奇 四分之三面包"}, price:500},
+    {name:{tr:"Kokoreç Yarım Ekmek", en:"Kokoreç Half Bread", ar:"كوكوريتش نصف خبز", ru:"Кокореч Половина хлеба", de:"Kokoreç Halbes Brot", fr:"Kokoreç Demi-pain", fa:"کوکورچ نصف نان", es:"Kokoreç Medio Pan", it:"Kokoreç Mezzo Pane", ko:"코코레치 빵 2분의 1", ja:"ココレチ パン半分", zh:"科科雷奇 半个面包"}, price:350},
+    {name:{tr:"Kokoreç Çeyrek Ekmek", en:"Kokoreç Quarter Bread", ar:"كوكوريتش ربع خبز", ru:"Кокореч Четверть хлеба", de:"Kokoreç Viertel Brot", fr:"Kokoreç Quart de pain", fa:"کوکورچ یک‌چهارم نان", es:"Kokoreç Un Cuarto de Pan", it:"Kokoreç Un Quarto di Pane", ko:"코코레치 빵 4분의 1", ja:"ココレチ パン4分の1", zh:"科科雷奇 四分之一面包"}, price:220},
+    {name:{tr:"Kokoreç Güveç", en:"Kokoreç Casserole", ar:"كوكوريتش بالفخار", ru:"Кокореч В горшочке", de:"Kokoreç Im Tontopf", fr:"Kokoreç En cocotte", fa:"کوکورچ در قابلمه سفالی", es:"Kokoreç Cazuela", it:"Kokoreç Casseruola", ko:"코코레치 뚝배기", ja:"ココレチ 壺焼き", zh:"科科雷奇 砂锅"}, price:550},
+    {name:{tr:"Kokoreç Kağıtta", en:"Kokoreç Wrapped in Paper", ar:"كوكوريتش ملفوف بالورق", ru:"Кокореч В бумаге", de:"Kokoreç In Papier gegart", fr:"Kokoreç En papillote", fa:"کوکورچ در کاغذ", es:"Kokoreç Envuelto en Papel", it:"Kokoreç Avvolto nella Carta", ko:"코코레치 종이에 싸서", ja:"ココレチ 紙包み焼き", zh:"科科雷奇 纸包烤"}, price:550},
+  ]},
+  { key:"midye", title:{tr:"Midye Tava", en:"Fried Mussels", ar:"بلح البحر المقلي", ru:"Жареные мидии", de:"Gebratene Miesmuscheln", fr:"Moules frites", fa:"میدیه تاوا (صدف سرخ‌شده)", es:"Mejillones Fritos", it:"Cozze Fritte", ko:"홍합 튀김", ja:"ムール貝のフライ", zh:"炸青口"}, items:[
+    {name:{tr:"Midye Tava Porsiyon (4 adet)", en:"Fried Mussels Portion (4 pcs)", ar:"بلح البحر المقلي حصة (٤ قطع)", ru:"Жареные мидии Порция (4 шт.)", de:"Gebratene Miesmuscheln Portion (4 Stk.)", fr:"Moules frites Portion (4 pièces)", fa:"میدیه تاوا پرس (۴ عدد)", es:"Mejillones Fritos Ración (4 uds.)", it:"Cozze Fritte Porzione (4 pz.)", ko:"홍합 튀김 1인분 (4개)", ja:"ムール貝のフライ 1人前(4個)", zh:"炸青口 一份（4个）"}, price:350},
+    {name:{tr:"Midye Tava Üç Çeyrek Ekmek (5 adet)", en:"Fried Mussels Three-Quarter Bread (5 pcs)", ar:"بلح البحر المقلي ثلاثة أرباع خبز (٥ قطع)", ru:"Жареные мидии Три четверти хлеба (5 шт.)", de:"Gebratene Miesmuscheln Dreiviertel Brot (5 Stk.)", fr:"Moules frites Trois quarts de pain (5 pièces)", fa:"میدیه تاوا سه‌چهارم نان (۵ عدد)", es:"Mejillones Fritos Tres Cuartos de Pan (5 uds.)", it:"Cozze Fritte Tre Quarti di Pane (5 pz.)", ko:"홍합 튀김 빵 4분의 3 (5개)", ja:"ムール貝のフライ パン4分の3(5個)", zh:"炸青口 四分之三面包（5个）"}, price:450},
+    {name:{tr:"Midye Tava Yarım Ekmek (3 adet)", en:"Fried Mussels Half Bread (3 pcs)", ar:"بلح البحر المقلي نصف خبز (٣ قطع)", ru:"Жареные мидии Половина хлеба (3 шт.)", de:"Gebratene Miesmuscheln Halbes Brot (3 Stk.)", fr:"Moules frites Demi-pain (3 pièces)", fa:"میدیه تاوا نصف نان (۳ عدد)", es:"Mejillones Fritos Medio Pan (3 uds.)", it:"Cozze Fritte Mezzo Pane (3 pz.)", ko:"홍합 튀김 빵 2분의 1 (3개)", ja:"ムール貝のフライ パン半分(3個)", zh:"炸青口 半个面包（3个）"}, price:270},
+    {name:{tr:"Midye Tava Çeyrek Ekmek (2 adet)", en:"Fried Mussels Quarter Bread (2 pcs)", ar:"بلح البحر المقلي ربع خبز (قطعتان)", ru:"Жареные мидии Четверть хлеба (2 шт.)", de:"Gebratene Miesmuscheln Viertel Brot (2 Stk.)", fr:"Moules frites Quart de pain (2 pièces)", fa:"میدیه تاوا یک‌چهارم نان (۲ عدد)", es:"Mejillones Fritos Un Cuarto de Pan (2 uds.)", it:"Cozze Fritte Un Quarto di Pane (2 pz.)", ko:"홍합 튀김 빵 4분의 1 (2개)", ja:"ムール貝のフライ パン4分の1(2個)", zh:"炸青口 四分之一面包（2个）"}, price:180},
+    {name:{tr:"Midye Tava Dolma Porsiyon (10 adet)", en:"Fried Mussels Stuffed (10 pcs)", ar:"بلح البحر المقلي المحشي (١٠ قطع)", ru:"Жареные мидии Фаршированные (10 шт.)", de:"Gebratene Miesmuscheln Gefüllte (10 Stk.)", fr:"Moules frites farcies (10 pièces)", fa:"میدیه تاوا دلمه (۱۰ عدد)", es:"Mejillones Fritos Rellenos (10 uds.)", it:"Cozze Fritte Ripiene (10 pz.)", ko:"홍합 튀김 돌마 (10개)", ja:"ムール貝のフライ 詰め物(10個)", zh:"炸青口 酿（10个）"}, price:200},
+  ]},
+  { key:"baliklar", title:{tr:"Balıklar", en:"Fish", ar:"الأسماك", ru:"Рыба", de:"Fisch", fr:"Poissons", fa:"ماهی‌ها", es:"Pescados", it:"Pesce", ko:"생선", ja:"魚料理", zh:"鱼类"}, items:[
+    {name:{tr:"Hamsi (250 gr)", en:"Anchovy (250g)", ar:"أنشوجة (٢٥٠ غرام)", ru:"Анчоус (250 г)", de:"Sardelle (250 g)", fr:"Anchois (250 g)", fa:"آنچوی (۲۵۰ گرم)", es:"Boquerón (250g)", it:"Alici (250g)", ko:"안초비 (250g)", ja:"カタクチイワシ(250g)", zh:"凤尾鱼（250克）"}, price:400},
+    {name:{tr:"İstavrit (250 gr)", en:"Horse Mackerel (250g)", ar:"استاوريت (٢٥٠ غرام)", ru:"Ставрида (250 г)", de:"Stöcker (250 g)", fr:"Chinchard (250 g)", fa:"استاوریت (۲۵۰ گرم)", es:"Jurel (250g)", it:"Suro (250g)", ko:"전갱이 (250g)", ja:"アジ(250g)", zh:"竹荚鱼（250克）"}, price:400},
+    {name:{tr:"Levrek (350 gr)", en:"Sea Bass (350g)", ar:"سمك القاروص (٣٥٠ غرام)", ru:"Морской окунь (350 г)", de:"Wolfsbarsch (350 g)", fr:"Bar (350 g)", fa:"سی‌باس (۳۵۰ گرم)", es:"Lubina (350g)", it:"Branzino (350g)", ko:"농어 (350g)", ja:"スズキ(350g)", zh:"鲈鱼（350克）"}, price:550},
+    {name:{tr:"Çupra (350 gr)", en:"Sea Bream (350g)", ar:"سمك الدنيس (٣٥٠ غرام)", ru:"Дорадо (350 г)", de:"Goldbrasse (350 g)", fr:"Dorade (350 g)", fa:"اردک ماهی طلایی (۳۵۰ گرم)", es:"Dorada (350g)", it:"Orata (350g)", ko:"도미 (350g)", ja:"真鯛(350g)", zh:"鲷鱼（350克）"}, price:550},
+    {name:{tr:"Tekir (250 gr)", en:"Red Mullet (250g)", ar:"سمك البربوني الصغير (٢٥٠ غرام)", ru:"Барабулька (250 г)", de:"Rotbarbe (250 g)", fr:"Rouget (250 g)", fa:"ماهی تکیر (۲۵۰ گرم)", es:"Salmonete Pequeño (250g)", it:"Triglia Piccola (250g)", ko:"붉은숭어 (250g)", ja:"ヒメジ(250g)", zh:"小红鲻鱼（250克）"}, price:600},
+    {name:{tr:"Barbun (200 gr)", en:"Large Red Mullet (200g)", ar:"بربوني كبير (٢٠٠ غرام)", ru:"Крупная барабулька (200 г)", de:"Große Rotbarbe (200 g)", fr:"Grand rouget (200 g)", fa:"باربون بزرگ (۲۰۰ گرم)", es:"Salmonete Grande (200g)", it:"Triglia Grande (200g)", ko:"큰 붉은숭어 (200g)", ja:"大きなヒメジ(200g)", zh:"大红鲻鱼（200克）"}, price:700},
+    {name:{tr:"Somon (300 gr)", en:"Salmon (300g)", ar:"سلمون (٣٠٠ غرام)", ru:"Лосось (300 г)", de:"Lachs (300 g)", fr:"Saumon (300 g)", fa:"سالمون (۳۰۰ گرم)", es:"Salmón (300g)", it:"Salmone (300g)", ko:"연어 (300g)", ja:"サーモン(300g)", zh:"三文鱼（300克）"}, price:550},
+    {name:{tr:"Jumbo Karides (200 gr)", en:"Jumbo Shrimp (200g)", ar:"جمبري جامبو (٢٠٠ غرام)", ru:"Королевские креветки (200 г)", de:"Jumbo-Garnelen (200 g)", fr:"Crevettes géantes (200 g)", fa:"میگوی جامبو (۲۰۰ گرم)", es:"Gambas Jumbo (200g)", it:"Gamberi Jumbo (200g)", ko:"점보 새우 (200g)", ja:"ジャンボ海老(200g)", zh:"大虾（200克）"}, price:600},
+    {name:{tr:"Palamut", en:"Bonito", ar:"بالاموت (تونة صغيرة)", ru:"Пеламида", de:"Bonito", fr:"Bonite", fa:"پالاموت (بونیتو)", es:"Bonito", it:"Palamita", ko:"가다랑어 (팔라무트)", ja:"カツオ(パラムート)", zh:"鲣鱼"}, price:600, avail:false},
+    {name:{tr:"Lüfer", en:"Bluefish (Lüfer)", ar:"لوفر (سمك أزرق)", ru:"Люфер (голубая рыба)", de:"Blaubarsch (Lüfer)", fr:"Tassergal (Lüfer)", fa:"لوفر (ماهی آبی)", es:"Pez Azul (Lüfer)", it:"Pesce Serra (Lüfer)", ko:"루페르 (블루피시)", ja:"ルフェル(アオナガ)", zh:"蓝鱼（吕费尔）"}, price:700, avail:false},
+    {name:{tr:"Çinekop", en:"Small Bluefish", ar:"سمك أزرق صغير", ru:"Молодой люфер", de:"Junger Blaubarsch", fr:"Jeune tassergal", fa:"چینه‌کوپ (ماهی آبی کوچک)", es:"Pez Azul Pequeño", it:"Piccolo Pesce Serra", ko:"어린 루페르", ja:"若いルフェル", zh:"小蓝鱼"}, price:400, avail:false},
+    {name:{tr:"Sarı Kanat", en:"Small Young Bluefish", ar:"سمك أزرق صغير جدا", ru:"Мелкий люфер", de:"Kleiner Blaubarsch", fr:"Petit tassergal", fa:"ماهی آبی ریز", es:"Pez Azul Muy Pequeño", it:"Pesce Serra Piccolissimo", ko:"아주 어린 루페르", ja:"極小ルフェル", zh:"迷你蓝鱼"}, price:220, avail:false},
+    {name:{tr:"Balık Ekmek", en:"Fish Sandwich", ar:"ساندويتش سمك", ru:"Рыбный сэндвич", de:"Fischsandwich", fr:"Sandwich au poisson", fa:"ساندویچ ماهی", es:"Bocadillo de Pescado", it:"Panino al Pesce", ko:"피시 샌드위치", ja:"フィッシュサンド", zh:"鱼肉三明治"}, price:220},
+    {name:{tr:"Uskumru (2 adet)", en:"Mackerel (2 pcs)", ar:"إسقمري (قطعتان)", ru:"Скумбрия (2 шт.)", de:"Makrele (2 Stk.)", fr:"Maquereau (2 pièces)", fa:"اسقومری (۲ عدد)", es:"Caballa (2 uds.)", it:"Sgombro (2 pz.)", ko:"고등어 (2마리)", ja:"鯖(2匹)", zh:"鲭鱼（2条）"}, price:450},
+  ]},
+  { key:"izgaralar", title:{tr:"Izgaralar", en:"Grills", ar:"المشاوي", ru:"Гриль", de:"Grillgerichte", fr:"Grillades", fa:"کباب‌ها", es:"Parrilla", it:"Grigliate", ko:"그릴 요리", ja:"グリル料理", zh:"烧烤"}, items:[
+    {name:{tr:"Tavuk Şiş (200 gr)", en:"Chicken Skewer (200g)", ar:"شيش طاووق (٢٠٠ غرام)", ru:"Куриный шашлык (200 г)", de:"Hähnchenspieß (200 g)", fr:"Brochette de poulet (200 g)", fa:"جوجه کباب سیخی (۲۰۰ گرم)", es:"Brocheta de Pollo (200g)", it:"Spiedino di Pollo (200g)", ko:"치킨 시시케밥 (200g)", ja:"チキンシシケバブ(200g)", zh:"鸡肉烤串（200克）"}, price:300},
+    {name:{tr:"Köfte (200 gr)", en:"Grilled Meatballs (200g)", ar:"كفتة مشوية (٢٠٠ غرام)", ru:"Кёфте (200 г)", de:"Köfte (200 g)", fr:"Köfte grillées (200 g)", fa:"کوفته کبابی (۲۰۰ گرم)", es:"Albóndigas a la Parrilla (200g)", it:"Polpette alla Griglia (200g)", ko:"그릴 쾨프테 (미트볼) (200g)", ja:"焼きキョフテ(ミートボール)(200g)", zh:"烤肉丸（200克）"}, price:400},
+    {name:{tr:"Kuzu Şiş (250 gr)", en:"Lamb Skewer (250g)", ar:"شيش لحم غنم (٢٥٠ غرام)", ru:"Шашлык из баранины (250 г)", de:"Lammspieß (250 g)", fr:"Brochette d'agneau (250 g)", fa:"کباب بره سیخی (۲۵۰ گرم)", es:"Brocheta de Cordero (250g)", it:"Spiedino di Agnello (250g)", ko:"양고기 시시케밥 (250g)", ja:"仔羊のシシケバブ(250g)", zh:"羊肉烤串（250克）"}, price:450},
+    {name:{tr:"Karışık Izgara (300 gr)", en:"Mixed Grill (300g)", ar:"مشاوي مشكلة (٣٠٠ غرام)", ru:"Микс-гриль (300 г)", de:"Gemischter Grillteller (300 g)", fr:"Grillades mixtes (300 g)", fa:"کباب مخلوط (۳۰۰ گرم)", es:"Parrillada Mixta (300g)", it:"Grigliata Mista (300g)", ko:"모듬 그릴 (300g)", ja:"ミックスグリル(300g)", zh:"什锦烤肉（300克）"}, price:500},
+  ]},
+  { key:"salatalar", title:{tr:"Salatalar", en:"Salads", ar:"السلطات", ru:"Салаты", de:"Salate", fr:"Salades", fa:"سالادها", es:"Ensaladas", it:"Insalate", ko:"샐러드", ja:"サラダ", zh:"沙拉"}, items:[
+    {name:{tr:"Mevsim Salatası", en:"Seasonal Salad", ar:"سلطة موسمية", ru:"Сезонный салат", de:"Saisonsalat", fr:"Salade de saison", fa:"سالاد فصل", es:"Ensalada de Temporada", it:"Insalata di Stagione", ko:"계절 샐러드", ja:"季節のサラダ", zh:"时令沙拉"}, price:200},
+    {name:{tr:"Çoban Salatası", en:"Shepherd's Salad", ar:"سلطة الراعي", ru:"Салат Чобан", de:"Hirtensalat", fr:"Salade du berger", fa:"سالاد چوپان", es:"Ensalada del Pastor", it:"Insalata del Pastore", ko:"초반 샐러드 (목동 샐러드)", ja:"チョバンサラダ(羊飼いのサラダ)", zh:"牧羊人沙拉"}, price:200},
+  ]},
+  { key:"icecekler", title:{tr:"İçecekler", en:"Alcoholic Drinks", ar:"المشروبات الكحولية", ru:"Алкогольные напитки", de:"Alkoholische Getränke", fr:"Boissons alcoolisées", fa:"نوشیدنی‌های الکلی", es:"Bebidas Alcohólicas", it:"Bevande Alcoliche", ko:"주류", ja:"アルコール飲料", zh:"酒精饮料"}, items:[
+    {name:{tr:"Yeni Rakı (20 cl)", en:"Yeni Rakı (20cl)", ar:"راكي ييني (٢٠ سم مكعب)", ru:"Йени Ракы (20 мл)", de:"Yeni Rakı (20 cl)", fr:"Yeni Rakı (20 cl)", fa:"راکی ینی (۲۰ سی‌سی)", es:"Yeni Rakı (20cl)", it:"Yeni Rakı (20cl)", ko:"예니 라크 (20cl)", ja:"イェニ・ラク(20cl)", zh:"耶尼拉克酒（20毫升）"}, price:1000},
+    {name:{tr:"Yeni Rakı (35 cl)", en:"Yeni Rakı (35cl)", ar:"راكي ييني (٣٥ سم مكعب)", ru:"Йени Ракы (35 мл)", de:"Yeni Rakı (35 cl)", fr:"Yeni Rakı (35 cl)", fa:"راکی ینی (۳۵ سی‌سی)", es:"Yeni Rakı (35cl)", it:"Yeni Rakı (35cl)", ko:"예니 라크 (35cl)", ja:"イェニ・ラク(35cl)", zh:"耶尼拉克酒（35毫升）"}, price:1300},
+    {name:{tr:"Yeni Rakı (50 cl)", en:"Yeni Rakı (50cl)", ar:"راكي ييني (٥٠ سم مكعب)", ru:"Йени Ракы (50 мл)", de:"Yeni Rakı (50 cl)", fr:"Yeni Rakı (50 cl)", fa:"راکی ینی (۵۰ سی‌سی)", es:"Yeni Rakı (50cl)", it:"Yeni Rakı (50cl)", ko:"예니 라크 (50cl)", ja:"イェニ・ラク(50cl)", zh:"耶尼拉克酒（50毫升）"}, price:1800},
+    {name:{tr:"Yeni Rakı (70 cl)", en:"Yeni Rakı (70cl)", ar:"راكي ييني (٧٠ سم مكعب)", ru:"Йени Ракы (70 мл)", de:"Yeni Rakı (70 cl)", fr:"Yeni Rakı (70 cl)", fa:"راکی ینی (۷۰ سی‌سی)", es:"Yeni Rakı (70cl)", it:"Yeni Rakı (70cl)", ko:"예니 라크 (70cl)", ja:"イェニ・ラク(70cl)", zh:"耶尼拉克酒（70毫升）"}, price:2250},
+    {name:{tr:"Yeni Rakı Yeni Seri (20 cl)", en:"Yeni Rakı New Series (20cl)", ar:"راكي ييني السلسلة الجديدة (٢٠ سم مكعب)", ru:"Йени Ракы новая серия (20 мл)", de:"Yeni Rakı neue Serie (20 cl)", fr:"Yeni Rakı nouvelle série (20 cl)", fa:"راکی ینی سری جدید (۲۰ سی‌سی)", es:"Yeni Rakı Nueva Serie (20cl)", it:"Yeni Rakı Nuova Serie (20cl)", ko:"예니 라크 뉴 시리즈 (20cl)", ja:"イェニ・ラク新シリーズ(20cl)", zh:"耶尼拉克新系列（20毫升）"}, price:1050},
+    {name:{tr:"Yeni Rakı Yeni Seri (35 cl)", en:"Yeni Rakı New Series (35cl)", ar:"راكي ييني السلسلة الجديدة (٣٥ سم مكعب)", ru:"Йени Ракы новая серия (35 мл)", de:"Yeni Rakı neue Serie (35 cl)", fr:"Yeni Rakı nouvelle série (35 cl)", fa:"راکی ینی سری جدید (۳۵ سی‌سی)", es:"Yeni Rakı Nueva Serie (35cl)", it:"Yeni Rakı Nuova Serie (35cl)", ko:"예니 라크 뉴 시리즈 (35cl)", ja:"イェニ・ラク新シリーズ(35cl)", zh:"耶尼拉克新系列（35毫升）"}, price:1350},
+    {name:{tr:"Yeni Rakı Yeni Seri (50 cl)", en:"Yeni Rakı New Series (50cl)", ar:"راكي ييني السلسلة الجديدة (٥٠ سم مكعب)", ru:"Йени Ракы новая серия (50 мл)", de:"Yeni Rakı neue Serie (50 cl)", fr:"Yeni Rakı nouvelle série (50 cl)", fa:"راکی ینی سری جدید (۵۰ سی‌سی)", es:"Yeni Rakı Nueva Serie (50cl)", it:"Yeni Rakı Nuova Serie (50cl)", ko:"예니 라크 뉴 시리즈 (50cl)", ja:"イェニ・ラク新シリーズ(50cl)", zh:"耶尼拉克新系列（50毫升）"}, price:1850},
+    {name:{tr:"Yeni Rakı Yeni Seri (70 cl)", en:"Yeni Rakı New Series (70cl)", ar:"راكي ييني السلسلة الجديدة (٧٠ سم مكعب)", ru:"Йени Ракы новая серия (70 мл)", de:"Yeni Rakı neue Serie (70 cl)", fr:"Yeni Rakı nouvelle série (70 cl)", fa:"راکی ینی سری جدید (۷۰ سی‌سی)", es:"Yeni Rakı Nueva Serie (70cl)", it:"Yeni Rakı Nuova Serie (70cl)", ko:"예니 라크 뉴 시리즈 (70cl)", ja:"イェニ・ラク新シリーズ(70cl)", zh:"耶尼拉克新系列（70毫升）"}, price:2350},
+    {name:{tr:"Votka (20 cl)", en:"Vodka (20cl)", ar:"فودكا (٢٠ سم مكعب)", ru:"Водка (20 мл)", de:"Wodka (20 cl)", fr:"Vodka (20 cl)", fa:"ودکا (۲۰ سی‌سی)", es:"Vodka (20cl)", it:"Vodka (20cl)", ko:"보드카 (20cl)", ja:"ウォッカ(20cl)", zh:"伏特加（20毫升）"}, price:1000, avail:false},
+    {name:{tr:"Votka (35 cl)", en:"Vodka (35cl)", ar:"فودكا (٣٥ سم مكعب)", ru:"Водка (35 мл)", de:"Wodka (35 cl)", fr:"Vodka (35 cl)", fa:"ودکا (۳۵ سی‌سی)", es:"Vodka (35cl)", it:"Vodka (35cl)", ko:"보드카 (35cl)", ja:"ウォッカ(35cl)", zh:"伏特加（35毫升）"}, price:1300, avail:false},
+    {name:{tr:"Votka (50 cl)", en:"Vodka (50cl)", ar:"فودكا (٥٠ سم مكعب)", ru:"Водка (50 мл)", de:"Wodka (50 cl)", fr:"Vodka (50 cl)", fa:"ودکا (۵۰ سی‌سی)", es:"Vodka (50cl)", it:"Vodka (50cl)", ko:"보드카 (50cl)", ja:"ウォッカ(50cl)", zh:"伏特加（50毫升）"}, price:1800, avail:false},
+    {name:{tr:"Votka (70 cl)", en:"Vodka (70cl)", ar:"فودكا (٧٠ سم مكعب)", ru:"Водка (70 мл)", de:"Wodka (70 cl)", fr:"Vodka (70 cl)", fa:"ودکا (۷۰ سی‌سی)", es:"Vodka (70cl)", it:"Vodka (70cl)", ko:"보드카 (70cl)", ja:"ウォッカ(70cl)", zh:"伏特加（70毫升）"}, price:2250, avail:false},
+    {name:{tr:"Duble Votka", en:"Double Vodka", ar:"فودكا دبل", ru:"Двойная водка", de:"Doppelter Wodka", fr:"Vodka double", fa:"ودکا دوبل", es:"Vodka Doble", it:"Vodka Doppia", ko:"더블 보드카", ja:"ダブル・ウォッカ", zh:"双份伏特加"}, price:400, avail:false},
+    {name:{tr:"Duble Rakı", en:"Double Rakı", ar:"راكي دبل", ru:"Двойная Ракы", de:"Doppelter Rakı", fr:"Rakı double", fa:"راکی دوبل", es:"Rakı Doble", it:"Rakı Doppio", ko:"더블 라크", ja:"ダブル・ラク", zh:"双份拉克酒"}, price:400},
+    {name:{tr:"Tek Rakı", en:"Single Rakı", ar:"راكي مفرد", ru:"Одинарная Ракы", de:"Einfacher Rakı", fr:"Rakı simple", fa:"راکی تک", es:"Rakı Simple", it:"Rakı Singolo", ko:"싱글 라크", ja:"シングル・ラク", zh:"单份拉克酒"}, price:250},
+  ]},
+  { key:"saraplar", title:{tr:"Şaraplar", en:"Wines", ar:"النبيذ", ru:"Вина", de:"Weine", fr:"Vins", fa:"شراب‌ها", es:"Vinos", it:"Vini", ko:"와인", ja:"ワイン", zh:"葡萄酒"}, items:[
+    {name:{tr:"Buzbağ Kırmızı (37.5 cl)", en:"Buzbağ Red Wine (37.5cl)", ar:"بوزباغ أحمر (٣٧.٥ سم مكعب)", ru:"Бузбаг красное (37,5 мл)", de:"Buzbağ Rotwein (37,5 cl)", fr:"Buzbağ rouge (37,5 cl)", fa:"شراب قرمز بوزباغ (۳۷.۵ سی‌سی)", es:"Vino Tinto Buzbağ (37.5cl)", it:"Vino Rosso Buzbağ (37.5cl)", ko:"부즈바 레드 와인 (37.5cl)", ja:"ブズバー赤ワイン(37.5cl)", zh:"布兹巴格红葡萄酒（37.5毫升）"}, price:750},
+    {name:{tr:"Buzbağ Kırmızı (75 cl)", en:"Buzbağ Red Wine (75cl)", ar:"بوزباغ أحمر (٧٥ سم مكعب)", ru:"Бузбаг красное (75 мл)", de:"Buzbağ Rotwein (75 cl)", fr:"Buzbağ rouge (75 cl)", fa:"شراب قرمز بوزباغ (۷۵ سی‌سی)", es:"Vino Tinto Buzbağ (75cl)", it:"Vino Rosso Buzbağ (75cl)", ko:"부즈바 레드 와인 (75cl)", ja:"ブズバー赤ワイン(75cl)", zh:"布兹巴格红葡萄酒（75毫升）"}, price:1500},
+    {name:{tr:"Buzbağ Beyaz (37.5 cl)", en:"Buzbağ White Wine (37.5cl)", ar:"بوزباغ أبيض (٣٧.٥ سم مكعب)", ru:"Бузбаг белое (37,5 мл)", de:"Buzbağ Weißwein (37,5 cl)", fr:"Buzbağ blanc (37,5 cl)", fa:"شراب سفید بوزباغ (۳۷.۵ سی‌سی)", es:"Vino Blanco Buzbağ (37.5cl)", it:"Vino Bianco Buzbağ (37.5cl)", ko:"부즈바 화이트 와인 (37.5cl)", ja:"ブズバー白ワイン(37.5cl)", zh:"布兹巴格白葡萄酒（37.5毫升）"}, price:750},
+    {name:{tr:"Buzbağ Beyaz (75 cl)", en:"Buzbağ White Wine (75cl)", ar:"بوزباغ أبيض (٧٥ سم مكعب)", ru:"Бузбаг белое (75 мл)", de:"Buzbağ Weißwein (75 cl)", fr:"Buzbağ blanc (75 cl)", fa:"شراب سفید بوزباغ (۷۵ سی‌سی)", es:"Vino Blanco Buzbağ (75cl)", it:"Vino Bianco Buzbağ (75cl)", ko:"부즈바 화이트 와인 (75cl)", ja:"ブズバー白ワイン(75cl)", zh:"布兹巴格白葡萄酒（75毫升）"}, price:1500},
+    {name:{tr:"Kadeh Şarap", en:"Glass of Wine", ar:"كأس نبيذ", ru:"Бокал вина", de:"Glas Wein", fr:"Verre de vin", fa:"یک گیلاس شراب", es:"Copa de Vino", it:"Bicchiere di Vino", ko:"와인 한 잔", ja:"グラスワイン", zh:"一杯葡萄酒"}, price:350},
+  ]},
+  { key:"biralar", title:{tr:"Biralar", en:"Beers", ar:"البيرة", ru:"Пиво", de:"Biere", fr:"Bières", fa:"آبجوها", es:"Cervezas", it:"Birre", ko:"맥주", ja:"ビール", zh:"啤酒"}, items:[
+    {name:{tr:"Efes Fıçı (50 cl)", en:"Efes Draft Beer (50cl)", ar:"إفس مسحوب (٥٠ سم مكعب)", ru:"Эфес разливное (50 мл)", de:"Efes vom Fass (50 cl)", fr:"Efes pression (50 cl)", fa:"آبجو فشاری افس (۵۰ سی‌سی)", es:"Efes de Barril (50cl)", it:"Efes alla Spina (50cl)", ko:"에페스 생맥주 (50cl)", ja:"エフェス生ビール(50cl)", zh:"埃菲斯生啤（50毫升）"}, price:230},
+    {name:{tr:"Efes Fıçı (33 cl)", en:"Efes Draft Beer (33cl)", ar:"إفس مسحوب (٣٣ سم مكعب)", ru:"Эфес разливное (33 мл)", de:"Efes vom Fass (33 cl)", fr:"Efes pression (33 cl)", fa:"آبجو فشاری افس (۳۳ سی‌سی)", es:"Efes de Barril (33cl)", it:"Efes alla Spina (33cl)", ko:"에페스 생맥주 (33cl)", ja:"エフェス生ビール(33cl)", zh:"埃菲斯生啤（33毫升）"}, price:180, avail:false},
+    {name:{tr:"Efes Şişe (50 cl)", en:"Efes Bottle (50cl)", ar:"إفس زجاجة (٥٠ سم مكعب)", ru:"Эфес бутылка (50 мл)", de:"Efes Flasche (50 cl)", fr:"Efes bouteille (50 cl)", fa:"آبجو بطری افس (۵۰ سی‌سی)", es:"Efes Botella (50cl)", it:"Efes in Bottiglia (50cl)", ko:"에페스 병맥주 (50cl)", ja:"エフェス瓶ビール(50cl)", zh:"埃菲斯瓶装啤酒（50毫升）"}, price:250},
+    {name:{tr:"Efes Şişe (33 cl)", en:"Efes Bottle (33cl)", ar:"إفس زجاجة (٣٣ سم مكعب)", ru:"Эфес бутылка (33 мл)", de:"Efes Flasche (33 cl)", fr:"Efes bouteille (33 cl)", fa:"آبجو بطری افس (۳۳ سی‌سی)", es:"Efes Botella (33cl)", it:"Efes in Bottiglia (33cl)", ko:"에페스 병맥주 (33cl)", ja:"エフェス瓶ビール(33cl)", zh:"埃菲斯瓶装啤酒（33毫升）"}, price:220},
+    {name:{tr:"Tuborg Fıçı (50 cl)", en:"Tuborg Draft Beer (50cl)", ar:"توبورغ مسحوب (٥٠ سم مكعب)", ru:"Туборг разливное (50 мл)", de:"Tuborg vom Fass (50 cl)", fr:"Tuborg pression (50 cl)", fa:"آبجو فشاری توبورگ (۵۰ سی‌سی)", es:"Tuborg de Barril (50cl)", it:"Tuborg alla Spina (50cl)", ko:"투보르 생맥주 (50cl)", ja:"トゥボー生ビール(50cl)", zh:"图堡生啤（50毫升）"}, price:230},
+    {name:{tr:"Tuborg Fıçı (33 cl)", en:"Tuborg Draft Beer (33cl)", ar:"توبورغ مسحوب (٣٣ سم مكعب)", ru:"Туборг разливное (33 мл)", de:"Tuborg vom Fass (33 cl)", fr:"Tuborg pression (33 cl)", fa:"آبجو فشاری توبورگ (۳۳ سی‌سی)", es:"Tuborg de Barril (33cl)", it:"Tuborg alla Spina (33cl)", ko:"투보르 생맥주 (33cl)", ja:"トゥボー生ビール(33cl)", zh:"图堡生啤（33毫升）"}, price:180, avail:false},
+  ]},
+  { key:"mesrubatlar", title:{tr:"Meşrubatlar", en:"Soft Drinks", ar:"المشروبات غير الكحولية", ru:"Безалкогольные напитки", de:"Alkoholfreie Getränke", fr:"Boissons non alcoolisées", fa:"نوشیدنی‌های غیرالکلی", es:"Refrescos", it:"Bibite Analcoliche", ko:"소프트 드링크", ja:"ソフトドリンク", zh:"软饮料"}, items:[
+    {name:{tr:"Kola", en:"Coca-Cola", ar:"كوكاكولا", ru:"Кока-Кола", de:"Coca-Cola", fr:"Coca-Cola", fa:"کوکاکولا", es:"Coca-Cola", it:"Coca-Cola", ko:"코카콜라", ja:"コカ・コーラ", zh:"可口可乐"}, price:100},
+    {name:{tr:"Zero", en:"Coca-Cola Zero", ar:"كوكاكولا زيرو", ru:"Кока-Кола Зеро", de:"Coca-Cola Zero", fr:"Coca-Cola Zero", fa:"کوکاکولا زیرو", es:"Coca-Cola Zero", it:"Coca-Cola Zero", ko:"코카콜라 제로", ja:"コカ・コーラ ゼロ", zh:"可口可乐零度"}, price:100},
+    {name:{tr:"Light", en:"Diet Coke", ar:"كوكاكولا لايت", ru:"Кока-Кола Лайт", de:"Coca-Cola Light", fr:"Coca-Cola Light", fa:"کوکاکولا لایت", es:"Coca-Cola Light", it:"Coca-Cola Light", ko:"코카콜라 라이트", ja:"コカ・コーラ ライト", zh:"健怡可乐"}, price:100},
+    {name:{tr:"Sprite", en:"Sprite", ar:"سبرايت", ru:"Спрайт", de:"Sprite", fr:"Sprite", fa:"اسپرایت", es:"Sprite", it:"Sprite", ko:"스프라이트", ja:"スプライト", zh:"雪碧"}, price:100},
+    {name:{tr:"Fanta", en:"Fanta", ar:"فانتا", ru:"Фанта", de:"Fanta", fr:"Fanta", fa:"فانتا", es:"Fanta", it:"Fanta", ko:"환타", ja:"ファンタ", zh:"芬达"}, price:100},
+    {name:{tr:"Ayran", en:"Ayran (Yogurt Drink)", ar:"عيران (مشروب اللبن)", ru:"Айран", de:"Ayran (Joghurtgetränk)", fr:"Ayran (boisson au yaourt)", fa:"دوغ", es:"Ayran (Bebida de Yogur)", it:"Ayran (Bevanda allo Yogurt)", ko:"아이란 (요거트 음료)", ja:"アイラン(ヨーグルト飲料)", zh:"艾兰（酸奶饮料）"}, price:80},
+    {name:{tr:"Su (Büyük)", en:"Water (Big)", ar:"مياه (كبيرة)", ru:"Вода (большая)", de:"Wasser (groß)", fr:"Eau (grande)", fa:"آب معدنی بزرگ", es:"Agua (Grande)", it:"Acqua (Grande)", ko:"물 (대)", ja:"水(大)", zh:"水（大瓶）"}, price:40, avail:false},
+    {name:{tr:"Su (Küçük)", en:"Water (Small)", ar:"مياه (صغيرة)", ru:"Вода (маленькая)", de:"Wasser (klein)", fr:"Eau (petite)", fa:"آب معدنی کوچک", es:"Agua (Pequeña)", it:"Acqua (Piccola)", ko:"물 (소)", ja:"水(小)", zh:"水（小瓶）"}, price:20},
+    {name:{tr:"Soda", en:"Soda Water", ar:"صودا", ru:"Содовая", de:"Soda", fr:"Eau gazeuse", fa:"سودا", es:"Agua con Gas", it:"Acqua Frizzante", ko:"소다수", ja:"ソーダ水", zh:"苏打水"}, price:40},
+    {name:{tr:"Şalgam Suyu", en:"Turnip Juice (Şalgam)", ar:"عصير اللفت (شلغم)", ru:"Сок из репы (Шалгам)", de:"Rübensaft (Şalgam)", fr:"Jus de navet (Şalgam)", fa:"آب شلغم", es:"Jugo de Nabo (Şalgam)", it:"Succo di Rapa (Şalgam)", ko:"순무 주스 (샬감)", ja:"カブジュース(シャルガム)", zh:"芜菁汁（沙尔甘）"}, price:50},
+  ]},
+];
+// assign stable ids
+menu.forEach((cat,ci)=> cat.items.forEach((it,ii)=> it.id = cat.key+"_"+ii));
+
+let cart = {}; // id -> qty
+
+/* ---------------- language ---------------- */
+function selectLanguage(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.documentElement.dir = rtlLangs.includes(l) ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(dict[l][k]) el.textContent = dict[l][k];
+  });
+  document.getElementById('change-lang-btn').style.display = 'flex';
+  renderMenu();
+  renderCartBar();
+  if(document.getElementById('screen-review').classList.contains('active')) renderReview();
+  showScreen('menu');
+}
+
+/* ---------------- navigation ---------------- */
+function showScreen(name){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+  document.getElementById('cart-bar').classList.toggle('show', name==='menu' && totalCount()>0);
+  document.getElementById('change-lang-btn').style.display = (name==='lang') ? 'none' : 'flex';
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(name==='review') renderReview();
+}
+
+/* ---------------- menu render ---------------- */
+function renderMenu(){
+  const tabsEl = document.getElementById('cat-tabs');
+  tabsEl.innerHTML = '';
+  menu.forEach((cat,idx)=>{
+    const b = document.createElement('button');
+    b.className = 'cat-tab' + (idx===0?' active':'');
+    b.textContent = cat.title[lang] + (lang!=='tr' ? ` (${cat.title.tr})` : '');
+    b.onclick = ()=>{
+      document.querySelectorAll('.cat-tab').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById('cat-'+cat.key).scrollIntoView({behavior:'smooth', block:'start'});
+    };
+    tabsEl.appendChild(b);
+  });
+
+  const listEl = document.getElementById('menu-list');
+  listEl.innerHTML = '';
+  menu.forEach(cat=>{
+    const sec = document.createElement('div');
+    sec.className = 'cat-section';
+    sec.id = 'cat-'+cat.key;
+    const h = document.createElement('div');
+    h.className = 'cat-title';
+    const catTrHint = lang!=='tr' ? ` <span class="item-name-tr">(${cat.title.tr})</span>` : '';
+    h.innerHTML = `<span>${cat.title[lang]}${catTrHint}</span>`;
+    sec.appendChild(h);
+    cat.items.forEach(it=>{
+      const row = document.createElement('div');
+      const qty = cart[it.id] || 0;
+      const trHint = lang!=='tr' ? ` <span class="item-name-tr">(${it.name.tr})</span>` : '';
+      if(it.avail===false){
+        row.className = 'item item-unavailable';
+        row.innerHTML = `
+          <div class="item-info">
+            <div class="item-name">${it.name[lang]}${trHint}</div>
+            <div class="item-price item-na">${dict[lang].notAvailable}</div>
+          </div>`;
+      } else {
+        row.className = 'item';
+        row.innerHTML = `
+          <div class="item-info">
+            <div class="item-name">${it.name[lang]}${trHint}</div>
+            <div class="item-price">${it.price}</div>
+          </div>
+          <div class="stepper">
+            <button class="step-btn step-minus" onclick="changeQty('${it.id}', -1)">−</button>
+            <span class="step-qty ${qty===0?'zero':''}" id="qty-${it.id}">${qty}</span>
+            <button class="step-btn step-plus" onclick="changeQty('${it.id}', 1)">+</button>
+          </div>`;
+      }
+      sec.appendChild(row);
+    });
+    listEl.appendChild(sec);
+  });
+}
+
+function changeQty(id, delta){
+  const current = cart[id] || 0;
+  const next = Math.max(0, current + delta);
+  if(next===0) delete cart[id]; else cart[id] = next;
+  const qtyEl = document.getElementById('qty-'+id);
+  if(qtyEl){
+    qtyEl.textContent = next;
+    qtyEl.classList.toggle('zero', next===0);
+  }
+  renderCartBar();
+}
+
+function findItem(id){
+  for(const cat of menu){ for(const it of cat.items){ if(it.id===id) return it; } }
+  return null;
+}
+function totalCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function totalPrice(){
+  return Object.entries(cart).reduce((sum,[id,q])=>{
+    const it = findItem(id); return sum + (it ? it.price*q : 0);
+  },0);
+}
+
+function renderCartBar(){
+  const bar = document.getElementById('cart-bar');
+  const count = totalCount();
+  document.getElementById('cart-count').textContent = count;
+  document.getElementById('cart-total').textContent = totalPrice() + ' ' + dict[lang].currency;
+  const onMenu = document.getElementById('screen-menu').classList.contains('active');
+  bar.classList.toggle('show', count>0 && onMenu);
+}
+
+/* ---------------- review ---------------- */
+function renderReview(){
+  const wrap = document.getElementById('review-items');
+  wrap.innerHTML = '';
+  const entries = Object.entries(cart);
+  if(entries.length===0){
+    wrap.innerHTML = `<div class="empty-note">${dict[lang].emptyCart}</div>`;
+  } else {
+    entries.forEach(([id,q])=>{
+      const it = findItem(id);
+      if(!it) return;
+      const row = document.createElement('div');
+      row.className = 'review-row';
+      const altHint = lang!=='tr' ? ` <span class="rr-name-alt">(${it.name[lang]})</span>` : '';
+      row.innerHTML = `
+        <span class="rr-name">${it.name.tr}${altHint}</span>
+        <span class="rr-qty">×${q}</span>
+        <span class="rr-sub">${it.price*q} ${dict[lang].currency}</span>`;
+      wrap.appendChild(row);
+    });
+  }
+  document.getElementById('rev-total').textContent = totalPrice() + ' ' + dict[lang].currency;
+}
+
+async function confirmOrder(){
+  if(totalCount()===0){ alert(dict[lang].emptyCart); return; }
+  const orderNo = Math.floor(1000 + Math.random()*9000);
+  document.getElementById('order-no').textContent = '#' + orderNo;
+  await Promise.all([ generateOrderPdf(orderNo), sendOrderToSheet(orderNo) ]);
+  showScreen('success');
+}
+
+/* ---------------- send order to Google Sheet ---------------- */
+async function sendOrderToSheet(orderNo){
+  if(!SHEET_WEBHOOK_URL) return;
+  try{
+    const itemsText = Object.entries(cart).map(([id,q])=>{
+      const it = findItem(id);
+      return it ? `${it.name.tr} x${q}` : '';
+    }).filter(Boolean).join(', ');
+
+    await fetch(SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        orderNo: orderNo,
+        lang: lang,
+        itemsText: itemsText,
+        total: totalPrice()
+      })
+    });
+  } catch(e){
+    console.error('Sipariş sayfaya gönderilemedi:', e);
+  }
+}
+
+/* ---------------- Turkish PDF receipt (auto-download) ---------------- */
+function buildReceiptElement(orderNo){
+  const div = document.createElement('div');
+  div.style.cssText = 'position:fixed; left:-9999px; top:0; width:380px; background:#fffcf5; padding:26px; font-family:Manrope,Arial,sans-serif; color:#2a211b;';
+  const now = new Date();
+  const dateStr = now.toLocaleString('tr-TR');
+  let rowsHtml = '';
+  Object.entries(cart).forEach(([id,q])=>{
+    const it = findItem(id);
+    if(!it) return;
+    rowsHtml += `<div style="display:flex; justify-content:space-between; gap:10px; padding:8px 0; border-bottom:1px solid #e6dbc4; font-size:13px;">
+      <span style="flex:1;">${it.name.tr} <span style="color:#6b5e52;">×${q}</span></span>
+      <span style="font-weight:700; white-space:nowrap;">${it.price*q} ₺</span>
+    </div>`;
+  });
+  div.innerHTML = `
+    <div style="text-align:center; margin-bottom:16px;">
+      <div style="font-family:Georgia,serif; font-size:18px; font-weight:700; color:#8f1c20; letter-spacing:.5px;">Mercan Kokoreç Beyoğlu</div>
+      <div style="font-size:12px; color:#6b5e52; margin-top:2px;">Sipariş Fişi</div>
+    </div>
+    <div style="display:flex; justify-content:space-between; font-size:12px; color:#6b5e52; margin-bottom:12px;">
+      <span>Sipariş No: #${orderNo}</span>
+      <span>${dateStr}</span>
+    </div>
+    ${rowsHtml}
+    <div style="display:flex; justify-content:space-between; margin-top:16px; padding-top:12px; border-top:2px solid #8f1c20; font-size:16px; font-weight:800; color:#8f1c20;">
+      <span>Toplam</span>
+      <span>${totalPrice()} ₺</span>
+    </div>
+  `;
+  return div;
+}
+
+async function generateOrderPdf(orderNo){
+  const receipt = buildReceiptElement(orderNo);
+  document.body.appendChild(receipt);
+  try{
+    const canvas = await html2canvas(receipt, { scale:2, backgroundColor:'#fffcf5' });
+    const imgData = canvas.toDataURL('image/png');
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ unit:'pt', format:'a4' });
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const imgWidth = pageWidth - 60;
+    const imgHeight = canvas.height * (imgWidth / canvas.width);
+    pdf.addImage(imgData, 'PNG', 30, 30, imgWidth, imgHeight);
+    pdf.save('mercan-siparis-' + orderNo + '.pdf');
+  } catch(e){
+    console.error('PDF oluşturulamadı:', e);
+  } finally {
+    receipt.remove();
+  }
+}
+
+function newOrder(){
+  cart = {};
+  renderCartBar();
+  showScreen('menu');
+}
+
+/* ---------------- init ---------------- */
+showScreen('lang');
+</script>
+</body>
+</html>
